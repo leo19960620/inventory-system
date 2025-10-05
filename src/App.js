@@ -759,10 +759,10 @@ const InventorySystem = () => {
                               <tr key={item.id} className="hover:bg-gray-50">
                                 <td className="px-6 py-4 whitespace-nowrap font-medium">{item.name}</td>
                                 <td className="px-6 py-4 whitespace-nowrap">
-                                  <span className={`px-2 py-1 text-xs rounded-full ${color.bg} ${color.text}`}>{item.category}</span>
+                                  <span className={`px-2 py-1 text-sm rounded-full ${color.bg} ${color.text}`}>{item.category}</span>
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap">
-                                  <span className="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800">{item.warehouse}</span>
+                                  <span className="px-2 py-1 text-sm rounded-full bg-blue-100 text-blue-800">{item.warehouse}</span>
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap">
                                   <span className={`font-semibold ${item.quantity === 0 ? 'text-red-600' : item.quantity < 10 ? 'text-orange-600' : 'text-green-600'}`}>{item.quantity}</span>
@@ -870,10 +870,10 @@ const InventorySystem = () => {
                         return (
                           <tr key={combo.key} className="hover:bg-gray-50">
                             <td className="px-6 py-4 whitespace-nowrap">
-                              <span className="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800">{combo.warehouse}</span>
+                              <span className="px-2 py-1 text-sm rounded-full bg-blue-100 text-blue-800">{combo.warehouse}</span>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                              <span className={`px-2 py-1 text-xs rounded-full ${color.bg} ${color.text}`}>{combo.category}</span>
+                              <span className={`px-2 py-1 text-sm rounded-full ${color.bg} ${color.text}`}>{combo.category}</span>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <span className="font-semibold text-gray-700">{combo.itemCount} 項</span>
