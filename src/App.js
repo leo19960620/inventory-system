@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Minus, Download, FileText, BarChart3, History, Search, Filter, Upload, User, X, ArrowUp } from 'lucide-react';
+import { Plus, Minus, Download, FileText, BarChart3, History, Search, Filter, Upload, User, X, Wifi, WifiOff, ArrowUp } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 // 在檔案最上方，其他 import 之後加入
 import { database } from './firebase';
-import { ref, set, onValue } from 'firebase/database';
+import { ref, set, onValue, get } from 'firebase/database';
 
 const InventorySystem = () => {
   const [managerList, setManagerList] = useState(['Nick', 'Wendy', '夜班', 'Irene', 'Cammy']);
@@ -73,6 +73,22 @@ const InventorySystem = () => {
     const key = `${warehouse}|${category}`;
     return assignments[key] || '未分配';
   };
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+  
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+  
+  // 初始化檢查
+  setIsOnline(navigator.onLine);
+  
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+
 
   useEffect(() => {
     if (items.length > 0) {
@@ -167,30 +183,6 @@ const InventorySystem = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const getWarehouseCategoryCombinations = () => {
-    const combinations = new Map();
-    items.forEach(item => {
-      const key = `${item.warehouse}|${item.category}`;
-      if (!combinations.has(key)) {
-        const itemCount = items.filter(i => i.warehouse === item.warehouse && i.category === item.category).length;
-        combinations.set(key, {
-          warehouse: item.warehouse,
-          category: item.category,
-          key: key,
-          itemCount: itemCount
-        });
-      }
-    });
-    return Array.from(combinations.values());
-  };
-
-  const getManagerStats = () => {
-    const stats = {};
-    managerList.forEach(manager => {
-      stats[manager] = items.filter(item => item.manager === manager).length;
-    });
-    return stats;
-  };
 
   const handleImportCSV = async (event) => {
     const file = event.target.files[0];
@@ -200,86 +192,131 @@ const InventorySystem = () => {
     reader.onload = async (e) => {
       const text = e.target.result;
       const lines = text.split('\n');
-      
-      const importedItems = [];
-      const newAssignments = {};
+  // 先從 Firebase 載入舊資料
+      const oldItemsSnapshot = await get(ref(database, 'items'));
+      const oldAssignmentsSnapshot = await get(ref(database, 'assignments'));
+      const oldItems = oldItemsSnapshot.val() ? Object.values(oldItemsSnapshot.val()) : [];
+      const oldAssignments = oldAssignmentsSnapshot.val() || {};
+    
+      const importedItems = { ...Object.fromEntries(oldItems.map(item => [item.id, item])) }; // 複製舊 items
+      const newAssignments = { ...oldAssignments }; // 複製舊 assignments
+      let newItemCount = 0;
       
       for (let i = 1; i < lines.length; i++) {
         if (lines[i].trim()) {
           const values = lines[i].split(',');
           const category = values[0]?.trim() || '';
           const manager = values[1]?.trim() || '';
+          const name = values[2]?.trim() || '';
+          const frequencyRaw = values[3]?.trim() || '月';
           const warehouse = values[4]?.trim() || '';
-          
-          const item = {
-            id: i,
-            category: category,
-            manager: manager,
-            name: values[2]?.trim() || '',
-            frequency: values[3]?.trim() === '月' ? '每月' : values[3]?.trim() === '季' ? '每季' : '每月',
-            warehouse: warehouse,
-            quantity: parseInt(values[5]) || 0
+          const quantity = parseInt(values[5]) || 0;
+        
+        if (!name) continue; // 跳過無名稱的行
+        
+        // 檢查是否已存在相同名稱+倉庫+分類的項目（避免重複）
+        const existingItem = oldItems.find(item => 
+          item.name === name && item.warehouse === warehouse && item.category === category
+        );
+        
+        let itemId;
+        let item;
+        if (existingItem) {
+          // 更新現有項目
+          itemId = existingItem.id;
+          item = {
+            ...existingItem,
+            quantity, // 只更新數量，其他保持舊值
+            frequency: frequencyRaw === '月' ? '每月' : frequencyRaw === '季' ? '每季' : '每月',
           };
-          
-          if (item.name) {
-            importedItems.push(item);
-            const key = `${warehouse}|${category}`;
-            if (manager && !newAssignments[key]) {
-              newAssignments[key] = manager;
-            }
-          }
+          importedItems[itemId] = item;
+        } else {
+          // 新增項目
+          itemId = `item_${Date.now()}_${i}`;
+          item = {
+            id: itemId,
+            category,
+            manager,
+            name,
+            frequency: frequencyRaw === '月' ? '每月' : frequencyRaw === '季' ? '每季' : '每月',
+            warehouse,
+            quantity
+          };
+          importedItems[itemId] = item;
+          newItemCount++;
+        }
+        
+        // 更新 assignments（合併，不覆蓋）
+        const key = `${warehouse}|${category}`;
+        if (manager && manager !== '未分配') {
+          newAssignments[key] = manager;
         }
       }
+    }
       
-      setItems(importedItems);
-      setAssignments(newAssignments);
-      setShowImportModal(false);
-      alert(`成功匯入 ${importedItems.length} 筆資料！`);
-    };
-    reader.readAsText(file, 'UTF-8');
+  // 只在有變更時儲存
+    if (newItemCount > 0 || Object.keys(newAssignments).length > Object.keys(oldAssignments).length) {
+      saveToFirebase('items', importedItems);
+      saveToFirebase('assignments', newAssignments);
+      alert(`成功匯入/更新 ${newItemCount} 筆新資料！（總共 ${Object.keys(importedItems).length} 筆）`);
+    } else {
+      alert('無新資料可匯入');
+    }
+    
+    setShowImportModal(false);
   };
-
-  const handleAddItem = () => {
+  reader.readAsText(file, 'UTF-8');
+};
+      
+    const handleAddItem = () => {
     const autoManager = getManagerByWarehouseAndCategory(newItem.warehouse, newItem.category);
+    const itemId = `item_${Date.now()}`;
     const item = {
-      id: items.length + 1,
+      id: itemId,
       ...newItem,
       quantity: parseInt(newItem.quantity),
       manager: autoManager
     };
-    setItems([...items, item]);
+    
+    const newItems = {};
+    items.forEach(i => { newItems[i.id] = i; });
+    newItems[itemId] = item;
+    
+    saveToFirebase('items', newItems);
     setShowAddModal(false);
     setNewItem({ name: '', category: '', warehouse: '', quantity: 0, frequency: '每月', manager: '' });
   };
 
   const handleAddManager = () => {
     if (newManagerName.trim() && !managerList.includes(newManagerName.trim())) {
-      setManagerList([...managerList, newManagerName.trim()]);
+      const updatedList = [...managerList, newManagerName.trim()];
+      saveToFirebase('managerList', updatedList);
       setNewManagerName('');
     }
   };
 
-  const handleDeleteManager = (managerName) => {
+   const handleDeleteManager = (managerName) => {
     if (window.confirm(`確定要刪除負責人「${managerName}」嗎？相關物品將變為「未分配」。`)) {
-      setManagerList(managerList.filter(m => m !== managerName));
+      const updatedList = managerList.filter(m => m !== managerName);
+      saveToFirebase('managerList', updatedList);
+      
       const newAssignments = {};
       Object.keys(assignments).forEach(key => {
         if (assignments[key] !== managerName) {
           newAssignments[key] = assignments[key];
         }
       });
-      setAssignments(newAssignments);
+      saveToFirebase('assignments', newAssignments);
     }
   };
 
   const handleClearAllData = () => {
     if (window.confirm('⚠️ 確定要清除所有資料嗎？此操作無法復原！')) {
       if (window.confirm('⚠️ 再次確認：這將刪除所有庫存、負責人和操作紀錄！')) {
-        localStorage.clear();
-        setItems([]);
-        setHistory([]);
-        setAssignments({});
-        setManagerList(['Nick', 'Wendy', '夜班', 'Irene', 'Cammy']);
+        saveToFirebase('items', {});
+        saveToFirebase('history', {});
+        saveToFirebase('assignments', {});
+        saveToFirebase('managerList', ['Nick', 'Wendy', '夜班', 'Irene', 'Cammy']);
         alert('✅ 所有資料已清除');
       }
     }
@@ -287,26 +324,31 @@ const InventorySystem = () => {
 
 
   const handleAssignmentChange = (key, manager) => {
-    setAssignments({
+    const updatedAssignments = {
       ...assignments,
       [key]: manager
-    });
+    };
+    saveToFirebase('assignments', updatedAssignments);
   };
 
   const handleAdjustment = () => {
     const qty = parseInt(adjustment.quantity);
-    const updatedItems = items.map(item => {
+    const newItems = {};
+    
+    items.forEach(item => {
       if (item.id === selectedItem.id) {
-        return {
+        newItems[item.id] = {
           ...item,
           quantity: adjustment.type === 'add' ? item.quantity + qty : item.quantity - qty
         };
+      } else {
+        newItems[item.id] = item;
       }
-      return item;
     });
-    
+
+    const historyId = `history_${Date.now()}`;
     const record = {
-      id: history.length + 1,
+      id: historyId,
       itemName: selectedItem.name,
       action: adjustment.type === 'add' ? '增加' : '減少',
       quantity: qty,
@@ -315,8 +357,13 @@ const InventorySystem = () => {
       operator: adjustment.operator
     };
 
-    setItems(updatedItems);
-    setHistory([record, ...history]);
+    saveToFirebase('items', newItems);
+
+    const newHistory = {};
+    history.forEach(h => { newHistory[h.id] = h; });
+    newHistory[historyId] = record;
+    saveToFirebase('history', newHistory);
+    
     setShowAdjustModal(false);
     setAdjustment({ type: 'add', quantity: 0, reason: '', operator: '' });
   };
@@ -398,6 +445,31 @@ const InventorySystem = () => {
     return 0;
   });
 
+  const getWarehouseCategoryCombinations = () => {
+    const combinations = new Map();
+    items.forEach(item => {
+      const key = `${item.warehouse}|${item.category}`;
+      if (!combinations.has(key)) {
+        const itemCount = items.filter(i => i.warehouse === item.warehouse && i.category === item.category).length;
+        combinations.set(key, {
+          warehouse: item.warehouse,
+          category: item.category,
+          key: key,
+          itemCount: itemCount
+        });
+      }
+    });
+    return Array.from(combinations.values());
+  };
+
+  const getManagerStats = () => {
+    const stats = {};
+    managerList.forEach(manager => {
+      stats[manager] = items.filter(item => item.manager === manager).length;
+    });
+    return stats;
+  };
+
   const warehouseStats = warehouses.map(wh => ({
     name: wh,
     totalQty: items.filter(i => i.warehouse === wh).reduce((sum, i) => sum + i.quantity, 0),
@@ -412,11 +484,39 @@ const InventorySystem = () => {
 
   const topItems = [...items].sort((a, b) => b.quantity - a.quantity).slice(0, 10);
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">載入資料中...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-blue-600 text-white p-6 shadow-lg">
-        <h1 className="text-3xl font-bold">庫存盤點管理系統</h1>
-        <p className="text-blue-100 mt-2">Inventory Management System</p>
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold">庫存盤點管理系統 - 雲端版</h1>
+            <p className="text-blue-100 mt-2">Inventory Management System (Firebase)</p>
+          </div>
+          <div className="flex items-center gap-2">
+            {isOnline ? (
+              <div className="flex items-center gap-2 bg-green-500 px-4 py-2 rounded-lg">
+                <Wifi className="w-5 h-5" />
+                <span className="text-sm font-medium">已連線</span>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2 bg-red-500 px-4 py-2 rounded-lg">
+                <WifiOff className="w-5 h-5" />
+                <span className="text-sm font-medium">離線</span>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
       <div className="bg-white shadow">
