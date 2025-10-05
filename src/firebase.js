@@ -17,5 +17,3 @@ const app = initializeApp(firebaseConfig);
 
 // 取得資料庫實例
 export const database = getDatabase(app);
-
-
