@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Minus, Download, FileText, BarChart3, History, Search, Filter, Upload, User, X, Wifi, WifiOff, ArrowUp } from 'lucide-react';
+import { Plus, Minus, Download, FileText, History, Search, Upload, User, X, Wifi, WifiOff, ArrowUp } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { database } from './firebase';
 import { ref, set, onValue, get } from 'firebase/database';
@@ -11,7 +11,6 @@ const InventorySystem = () => {
   const [history, setHistory] = useState([]);
   const [isOnline, setIsOnline] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [showFilters, setShowFilters] = useState(true);
   const [activeTab, setActiveTab] = useState('inventory');
   const [showAddModal, setShowAddModal] = useState(false);
   const [showAdjustModal, setShowAdjustModal] = useState(false);
@@ -108,6 +107,7 @@ const InventorySystem = () => {
         setItems(updatedItems);
       }
     }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [assignments]);
 
   useEffect(() => {
@@ -529,7 +529,7 @@ const InventorySystem = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative bg-gradient-to-r from-slate-700 via-slate-600 to-slate-700 text-white shadow-lg overflow-hidden">
+    <div className="relative bg-gradient-to-r from-slate-700 via-slate-600 to-slate-700 text-white shadow-lg overflow-hidden">
         {/* 裝飾性背景圖案 */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-20 w-32 h-32 border-2 border-white rounded-full"></div>
@@ -538,70 +538,71 @@ const InventorySystem = () => {
           <div className="absolute bottom-20 left-1/2 w-2 h-40 bg-white transform rotate-12"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo 和品牌名稱 */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                <FileText className="w-6 h-6 text-slate-700" />
+        <div className="relative px-4 sm:px-6 lg:px-8 py-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              {/* Logo 和品牌名稱 */}
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-slate-700" />
+                </div>
+                <div>
+                  <h1 className="text-xl font-bold tracking-wide">庫存管理系統</h1>
+                  <p className="text-xs text-slate-300">Inventory System</p>
+                </div>
               </div>
-              <div>
-                <h1 className="text-xl font-bold tracking-wide">庫存管理系統</h1>
-                <p className="text-xs text-slate-300">Inventory System</p>
-              </div>
-            </div>
-
-            {/* 右側導航選單 */}
-            <div className="flex items-center gap-1">
-              {[
-                { id: 'inventory', name: '庫存管理' },
-                { id: 'managers', name: '負責人管理' },
-                { id: 'stats', name: '統計報表' },
-                { id: 'history', name: '操作紀錄' }
-              ].map((tab, index) => (
-                <React.Fragment key={tab.id}>
-                  <button
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap ${
-                      activeTab === tab.id 
-                        ? 'text-white' 
-                        : 'text-slate-300 hover:text-white'
-                    }`}
-                  >
-                    {tab.name}
-                  </button>
-                  {index < 3 && (
-                    <div className="h-4 w-px bg-slate-400"></div>
+            
+              {/* 右側導航選單 */}
+              <div className="flex items-center gap-2 flex-shrink-0">
+                {[
+                  { id: 'inventory', name: '庫存管理' },
+                  { id: 'managers', name: '負責人管理' },
+                  { id: 'stats', name: '統計報表' },
+                  { id: 'history', name: '操作紀錄' }
+                ].map((tab, index) => (
+                  <React.Fragment key={tab.id}>
+                    <button
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap rounded ${
+                        activeTab === tab.id 
+                          ? 'text-white bg-slate-600' 
+                          : 'text-slate-300 hover:text-white hover:bg-slate-600'
+                      }`}
+                    >
+                      {tab.name}
+                    </button>
+                    {index < 3 && (
+                      <div className="h-4 w-px bg-slate-400 hidden sm:block"></div>
+                    )}
+                  </React.Fragment>
+                ))}
+                
+                {/* 連線狀態 */}
+                <div className="ml-2 pl-2 border-l border-slate-400">
+                  {isOnline ? (
+                    <div className="flex items-center gap-1.5 text-green-300">
+                      <Wifi className="w-4 h-4" />
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-1.5 text-red-300">
+                      <WifiOff className="w-4 h-4" />
+                    </div>
                   )}
-                </React.Fragment>
-              ))}
-              
-              {/* 連線狀態 */}
-              <div className="ml-4 pl-4 border-l border-slate-400">
-                {isOnline ? (
-                  <div className="flex items-center gap-1.5 text-green-300">
-                    <Wifi className="w-4 h-4" />
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-1.5 text-red-300">
-                    <WifiOff className="w-4 h-4" />
-                  </div>
-                )}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto p-6">
         {activeTab === 'inventory' && (
           <div className="space-y-6">
             <div className="flex gap-6">
-              <div className="w-80 bg-white rounded-lg shadow p-4 space-y-4 flex-shrink-0">
+              <div className="w-80 bg-white rounded-lg shadow p-4 space-y-4 flex-shrink-0 self-start sticky top-6 max-h-[calc(100vh-8rem)]">
                 <div className="flex gap-3">
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-sm font-semibold text-gray-700 mb-2">分類</h3>
-                    <div className="space-y-2">
+                    <div className="space-y-2 max-h-[1000px] overflow-y-auto pr-2">
                       <button
                         onClick={() => setFilterCategory('全部')}
                         className={`w-full text-left px-3 py-2 rounded text-sm transition-colors ${
@@ -628,9 +629,9 @@ const InventorySystem = () => {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-sm font-semibold text-gray-700 mb-2">倉庫</h3>
-                    <div className="space-y-1">
+                    <div className="space-y-1 max-h-[500px] overflow-y-auto pr-2">
                       <button
                         onClick={() => setFilterWarehouse('全部')}
                         className={`w-full text-left px-3 py-2 rounded text-sm transition-colors ${
@@ -682,7 +683,7 @@ const InventorySystem = () => {
                       {managerList.map(manager => <option key={manager} value={manager}>{manager}</option>)}
                     </select>
                   </div>
-                  <div className="flex gap-2 w-full md:w-auto flex-wrap">
+                  <div className="flex items-center gap-1 overflow-x-auto pb-2">
                     <button onClick={() => setShowImportModal(true)} className="flex-1 md:flex-initial bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 flex items-center justify-center space-x-2">
                       <Upload className="w-5 h-5" />
                       <span>匯入</span>
@@ -720,7 +721,7 @@ const InventorySystem = () => {
                         <thead className="bg-gray-100">
                           <tr>
                             <th 
-                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-200 select-none"
+                              className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-200 select-none"
                               onClick={() => handleSort('name')}
                             >
                               <div className="flex items-center gap-2">
@@ -732,10 +733,10 @@ const InventorySystem = () => {
                                 )}
                               </div>
                             </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">分類</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">倉庫</th>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">分類</th>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">倉庫</th>
                             <th 
-                              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-200 select-none"
+                              className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-200 select-none"
                               onClick={() => handleSort('quantity')}
                             >
                               <div className="flex items-center gap-2">
@@ -747,9 +748,9 @@ const InventorySystem = () => {
                                 )}
                               </div>
                             </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">盤點頻率</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">負責人</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">盤點頻率</th>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">負責人</th>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">操作</th>
                           </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
