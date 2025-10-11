@@ -27,6 +27,13 @@ const InventorySystem = () => {
   const [sortField, setSortField] = useState(null);
   const [sortDirection, setSortDirection] = useState('asc');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  
+  // 操作紀錄查詢相關狀態
+  const [historySearchTerm, setHistorySearchTerm] = useState('');
+  const [historyDateFrom, setHistoryDateFrom] = useState('');
+  const [historyDateTo, setHistoryDateTo] = useState('');
+  const [historyFilterAction, setHistoryFilterAction] = useState('全部');
+  const [historyFilterOperator, setHistoryFilterOperator] = useState('全部');
 
   const [newItem, setNewItem] = useState({
     name: '',
@@ -515,6 +522,26 @@ const InventorySystem = () => {
   }));
 
   const topItems = [...items].sort((a, b) => b.quantity - a.quantity).slice(0, 10);
+
+  // 篩選操作紀錄
+  const filteredHistory = history.filter(record => {
+    const matchesSearch = record.itemName.toLowerCase().includes(historySearchTerm.toLowerCase()) ||
+                         record.reason.toLowerCase().includes(historySearchTerm.toLowerCase()) ||
+                         record.operator.toLowerCase().includes(historySearchTerm.toLowerCase());
+    
+    const matchesDateRange = (!historyDateFrom || record.date >= historyDateFrom) &&
+                            (!historyDateTo || record.date <= historyDateTo);
+    
+    const matchesAction = historyFilterAction === '全部' || record.action === historyFilterAction;
+    
+    const matchesOperator = historyFilterOperator === '全部' || record.operator === historyFilterOperator;
+    
+    return matchesSearch && matchesDateRange && matchesAction && matchesOperator;
+  });
+
+  // 獲取所有操作類型和操作人員
+  const allActions = [...new Set(history.map(h => h.action))];
+  const allOperators = [...new Set(history.map(h => h.operator))];
 
   if (loading) {
     return (
@@ -1026,45 +1053,189 @@ const InventorySystem = () => {
         )}
 
         {activeTab === 'history' && (
-          <div className="bg-white rounded-lg shadow overflow-hidden">
-            <div className="p-6">
+          <div className="space-y-6">
+            {/* 搜尋和篩選區域 */}
+            <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-semibold mb-4">庫存異動紀錄</h3>
-            </div>
-            {history.length === 0 ? (
-              <div className="p-12 text-center text-gray-500">
-                <History className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                <p>尚無異動紀錄</p>
-              </div>
-            ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gray-100">
-                    <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">日期</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">品名</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">數量</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">原因</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作人</th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {history.map(record => (
-                      <tr key={record.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{record.date}</td>
-                        <td className="px-6 py-4 whitespace-nowrap font-medium">{record.itemName}</td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-2 py-1 text-xs rounded-full ${record.action === '增加' || record.action === '新增' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>{record.action}</span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap font-semibold">{record.quantity}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-gray-600">{record.reason}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-gray-600">{record.operator}</td>
-                      </tr>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                {/* 關鍵字搜尋 */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">關鍵字搜尋</label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <input
+                      type="text"
+                      placeholder="搜尋品名、原因、操作人..."
+                      value={historySearchTerm}
+                      onChange={(e) => setHistorySearchTerm(e.target.value)}
+                      className="pl-10 pr-4 py-2 border rounded-lg w-full"
+                    />
+                  </div>
+                </div>
+
+                {/* 日期區間 */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">開始日期</label>
+                  <input
+                    type="date"
+                    value={historyDateFrom}
+                    onChange={(e) => setHistoryDateFrom(e.target.value)}
+                    className="w-full px-4 py-2 border rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">結束日期</label>
+                  <input
+                    type="date"
+                    value={historyDateTo}
+                    onChange={(e) => setHistoryDateTo(e.target.value)}
+                    className="w-full px-4 py-2 border rounded-lg"
+                  />
+                </div>
+
+                {/* 操作類型篩選 */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">操作類型</label>
+                  <select
+                    value={historyFilterAction}
+                    onChange={(e) => setHistoryFilterAction(e.target.value)}
+                    className="w-full px-4 py-2 border rounded-lg"
+                  >
+                    <option value="全部">全部操作</option>
+                    {allActions.map(action => (
+                      <option key={action} value={action}>{action}</option>
                     ))}
-                  </tbody>
-                </table>
+                  </select>
+                </div>
+
+                {/* 操作人員篩選 */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">操作人員</label>
+                  <select
+                    value={historyFilterOperator}
+                    onChange={(e) => setHistoryFilterOperator(e.target.value)}
+                    className="w-full px-4 py-2 border rounded-lg"
+                  >
+                    <option value="全部">全部人員</option>
+                    {allOperators.map(operator => (
+                      <option key={operator} value={operator}>{operator}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* 清除篩選按鈕 */}
+                <div className="flex items-end">
+                  <button
+                    onClick={() => {
+                      setHistorySearchTerm('');
+                      setHistoryDateFrom('');
+                      setHistoryDateTo('');
+                      setHistoryFilterAction('全部');
+                      setHistoryFilterOperator('全部');
+                    }}
+                    className="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 flex items-center justify-center space-x-2"
+                  >
+                    <X className="w-4 h-4" />
+                    <span>清除篩選</span>
+                  </button>
+                </div>
               </div>
-            )}
+
+              {/* 統計資訊 */}
+              <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                <span>總紀錄數: {history.length}</span>
+                <span>篩選結果: {filteredHistory.length}</span>
+                {(historySearchTerm || historyDateFrom || historyDateTo || historyFilterAction !== '全部' || historyFilterOperator !== '全部') && (
+                  <span className="text-blue-600">已套用篩選條件</span>
+                )}
+              </div>
+            </div>
+
+            {/* 紀錄表格 */}
+            <div className="bg-white rounded-lg shadow overflow-hidden">
+              {filteredHistory.length === 0 ? (
+                <div className="p-12 text-center text-gray-500">
+                  <History className="w-16 h-16 mx-auto mb-4 text-gray-400" />
+                  <p>{history.length === 0 ? '尚無異動紀錄' : '沒有符合條件的紀錄'}</p>
+                  {history.length > 0 && (
+                    <p className="text-sm mt-2">請調整搜尋條件或清除篩選</p>
+                  )}
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-100">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">日期</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">品名</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">數量</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">原因</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作人</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {filteredHistory.map(record => (
+                        <tr key={record.id} className="hover:bg-gray-50">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{record.date}</td>
+                          <td className="px-6 py-4 whitespace-nowrap font-medium">{record.itemName}</td>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <span className={`px-2 py-1 text-xs rounded-full ${record.action === '增加' || record.action === '新增' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>{record.action}</span>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap font-semibold">{record.quantity}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-gray-600">{record.reason}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-gray-600">{record.operator}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+              
+              {/* 表格底部資訊 */}
+              {filteredHistory.length > 0 && (
+                <div className="bg-gray-50 px-6 py-4 border-t">
+                  <div className="flex justify-between items-center">
+                    <p className="text-sm text-gray-600">
+                      顯示 {filteredHistory.length} 筆紀錄
+                      {filteredHistory.length !== history.length && (
+                        <span className="ml-2 text-blue-600">
+                          (總共 {history.length} 筆)
+                        </span>
+                      )}
+                    </p>
+                    <button
+                      onClick={() => {
+                        const headers = ['日期', '品名', '操作', '數量', '原因', '操作人'];
+                        const csvContent = [
+                          headers.join(','),
+                          ...filteredHistory.map(record => [
+                            record.date,
+                            record.itemName,
+                            record.action,
+                            record.quantity,
+                            record.reason,
+                            record.operator
+                          ].join(','))
+                        ].join('\n');
+
+                        const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' });
+                        const link = document.createElement('a');
+                        link.href = URL.createObjectURL(blob);
+                        link.download = `操作紀錄_${new Date().toISOString().split('T')[0]}.csv`;
+                        link.click();
+                      }}
+                      className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 flex items-center space-x-2 text-sm"
+                    >
+                      <Download className="w-4 h-4" />
+                      <span>匯出紀錄</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
