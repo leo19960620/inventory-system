@@ -34,6 +34,12 @@ const InventorySystem = () => {
   const [historyDateTo, setHistoryDateTo] = useState('');
   const [historyFilterAction, setHistoryFilterAction] = useState('全部');
   const [historyFilterOperator, setHistoryFilterOperator] = useState('全部');
+  
+  // 操作人員管理相關狀態
+  const [operatorList, setOperatorList] = useState([]);
+  const [newOperatorName, setNewOperatorName] = useState('');
+  const [showOperatorDropdown, setShowOperatorDropdown] = useState(false);
+  const [operatorInputValue, setOperatorInputValue] = useState('');
 
   const [newItem, setNewItem] = useState({
     name: '',
@@ -122,6 +128,7 @@ const InventorySystem = () => {
     const managersRef = ref(database, 'managerList');
     const assignmentsRef = ref(database, 'assignments');
     const historyRef = ref(database, 'history');
+    const operatorsRef = ref(database, 'operatorList');
 
     const unsubscribeItems = onValue(itemsRef, (snapshot) => {
       const data = snapshot.val();
@@ -152,11 +159,31 @@ const InventorySystem = () => {
       }
     });
 
+    const unsubscribeOperators = onValue(operatorsRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        setOperatorList(data);
+      } else {
+        // 如果沒有操作人員清單，從歷史紀錄中提取
+        const historySnapshot = get(ref(database, 'history'));
+        historySnapshot.then((historyData) => {
+          if (historyData.val()) {
+            const operators = [...new Set(Object.values(historyData.val()).map(h => h.operator).filter(op => op && op !== '系統'))];
+            if (operators.length > 0) {
+              setOperatorList(operators);
+              saveToFirebase('operatorList', operators);
+            }
+          }
+        });
+      }
+    });
+
     return () => {
       unsubscribeItems();
       unsubscribeManagers();
       unsubscribeAssignments();
       unsubscribeHistory();
+      unsubscribeOperators();
     };
   }, []);
 
@@ -283,6 +310,13 @@ const InventorySystem = () => {
     
     saveToFirebase('items', newItems);
 
+    // 如果操作人員不在清單中，自動添加
+    if (adjustment.operator && adjustment.operator.trim() && !operatorList.includes(adjustment.operator.trim())) {
+      const updatedOperatorList = [...operatorList, adjustment.operator.trim()];
+      setOperatorList(updatedOperatorList);
+      saveToFirebase('operatorList', updatedOperatorList);
+    }
+
     const historyId = `history_${Date.now()}`;
     const record = {
       id: historyId,
@@ -327,6 +361,51 @@ const InventorySystem = () => {
     }
   };
 
+  // 操作人員管理功能
+  const handleAddOperator = () => {
+    if (newOperatorName.trim() && !operatorList.includes(newOperatorName.trim())) {
+      const updatedList = [...operatorList, newOperatorName.trim()];
+      setOperatorList(updatedList);
+      saveToFirebase('operatorList', updatedList);
+      setNewOperatorName('');
+    }
+  };
+
+  const handleDeleteOperator = (operatorName) => {
+    if (window.confirm(`確定要刪除操作人員「${operatorName}」嗎?`)) {
+      const updatedList = operatorList.filter(o => o !== operatorName);
+      setOperatorList(updatedList);
+      saveToFirebase('operatorList', updatedList);
+    }
+  };
+
+  // 自定義操作人員下拉選單處理函數
+  const handleOperatorInputChange = (value) => {
+    setOperatorInputValue(value);
+    setAdjustment({ ...adjustment, operator: value });
+    setShowOperatorDropdown(value.length > 0);
+  };
+
+  const handleOperatorSelect = (operator) => {
+    setOperatorInputValue(operator);
+    setAdjustment({ ...adjustment, operator: operator });
+    setShowOperatorDropdown(false);
+  };
+
+  const handleOperatorInputFocus = () => {
+    setShowOperatorDropdown(operatorList.length > 0);
+  };
+
+  const handleOperatorInputBlur = () => {
+    // 延遲隱藏，讓點擊選項有時間執行
+    setTimeout(() => setShowOperatorDropdown(false), 200);
+  };
+
+  // 過濾操作人員列表
+  const filteredOperators = operatorList.filter(operator =>
+    operator.toLowerCase().includes(operatorInputValue.toLowerCase())
+  );
+
   const handleClearAllData = () => {
     if (window.confirm('⚠️ 確定要清除所有資料嗎?此操作無法復原!')) {
       if (window.confirm('⚠️ 再次確認:這將刪除所有庫存、負責人和操作紀錄!')) {
@@ -334,6 +413,8 @@ const InventorySystem = () => {
         saveToFirebase('history', {});
         saveToFirebase('assignments', {});
         saveToFirebase('managerList', ['Nick', 'Wendy', '夜班', 'Irene', 'Cammy']);
+        saveToFirebase('operatorList', []);
+        setOperatorList([]);
         alert('✅ 所有資料已清除');
       }
     }
@@ -387,6 +468,13 @@ const InventorySystem = () => {
       }
     });
 
+    // 如果操作人員不在清單中，自動添加
+    if (adjustment.operator && adjustment.operator.trim() && !operatorList.includes(adjustment.operator.trim())) {
+      const updatedOperatorList = [...operatorList, adjustment.operator.trim()];
+      setOperatorList(updatedOperatorList);
+      saveToFirebase('operatorList', updatedOperatorList);
+    }
+
     const historyId = `history_${Date.now()}`;
     const record = {
       id: historyId,
@@ -409,6 +497,8 @@ const InventorySystem = () => {
     
     setShowAdjustModal(false);
     setAdjustment({ type: 'add', quantity: 0, reason: '', operator: '' });
+    setOperatorInputValue('');
+    setShowOperatorDropdown(false);
   };
 
   const exportToCSV = () => {
@@ -799,10 +889,10 @@ const InventorySystem = () => {
                                 <td className="px-6 py-4 whitespace-nowrap text-gray-600">{item.manager}</td>
                                 <td className="px-6 py-4 whitespace-nowrap">
                                   <div className="flex gap-2">
-                                    <button onClick={() => { setSelectedItem(item); setAdjustment({ ...adjustment, type: 'add' }); setShowAdjustModal(true); }} className="bg-green-100 text-green-700 px-3 py-1 rounded hover:bg-green-200 flex items-center gap-1 text-sm">
+                                    <button onClick={() => { setSelectedItem(item); setAdjustment({ ...adjustment, type: 'add' }); setOperatorInputValue(''); setShowOperatorDropdown(false); setShowAdjustModal(true); }} className="bg-green-100 text-green-700 px-3 py-1 rounded hover:bg-green-200 flex items-center gap-1 text-sm">
                                       <Plus className="w-4 h-4" />增加
                                     </button>
-                                    <button onClick={() => { setSelectedItem(item); setAdjustment({ ...adjustment, type: 'subtract' }); setShowAdjustModal(true); }} className="bg-red-100 text-red-700 px-3 py-1 rounded hover:bg-red-200 flex items-center gap-1 text-sm">
+                                    <button onClick={() => { setSelectedItem(item); setAdjustment({ ...adjustment, type: 'subtract' }); setOperatorInputValue(''); setShowOperatorDropdown(false); setShowAdjustModal(true); }} className="bg-red-100 text-red-700 px-3 py-1 rounded hover:bg-red-200 flex items-center gap-1 text-sm">
                                       <Minus className="w-4 h-4" />減少
                                     </button>
                                     <button onClick={() => handleDeleteItem(item)} className="bg-gray-100 text-gray-700 px-3 py-1 rounded hover:bg-gray-200 flex items-center gap-1 text-sm">
@@ -936,6 +1026,39 @@ const InventorySystem = () => {
                 <li>• 可查看每位負責人目前負責的品項數量</li>
                 <li>• 所有資料會自動儲存,重新整理不會遺失</li>
               </ul>
+            </div>
+
+            {/* 操作人員管理 */}
+            <div className="bg-white rounded-lg shadow p-6">
+              <h2 className="text-xl font-bold mb-4">操作人員清單</h2>
+              <div className="flex gap-2 mb-4">
+                <input
+                  type="text"
+                  placeholder="新增操作人員姓名"
+                  value={newOperatorName}
+                  onChange={(e) => setNewOperatorName(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && handleAddOperator()}
+                  className="flex-1 px-4 py-2 border rounded-lg"
+                />
+                <button onClick={handleAddOperator} className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 flex items-center space-x-2">
+                  <Plus className="w-5 h-5" />
+                  <span>新增</span>
+                </button>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {operatorList.map(operator => (
+                  <div key={operator} className="flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-4 py-2">
+                    <User className="w-4 h-4 text-green-600" />
+                    <span className="font-medium text-green-900">{operator}</span>
+                    <button onClick={() => handleDeleteOperator(operator)} className="text-red-600 hover:text-red-800">
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+              {operatorList.length === 0 && (
+                <p className="text-gray-500 text-sm mt-2">尚無操作人員，系統會自動從操作紀錄中提取</p>
+              )}
             </div>
 
             <div className="bg-red-50 border border-red-200 rounded-lg p-4">
@@ -1466,7 +1589,47 @@ const InventorySystem = () => {
                 <p className="text-xs text-gray-500 mt-1">點擊按鈕或直接輸入數字</p>
               </div>
               <input type="text" placeholder="異動原因 (必填)" value={adjustment.reason} onChange={(e) => setAdjustment({ ...adjustment, reason: e.target.value })} className="w-full px-4 py-2 border rounded-lg" />
-              <input type="text" placeholder="操作人員" value={adjustment.operator} onChange={(e) => setAdjustment({ ...adjustment, operator: e.target.value })} className="w-full px-4 py-2 border rounded-lg" />
+              
+              {/* 操作人員選擇 - 自定義下拉選單 */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">操作人員</label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="選擇或輸入操作人員"
+                    value={operatorInputValue}
+                    onChange={(e) => handleOperatorInputChange(e.target.value)}
+                    onFocus={handleOperatorInputFocus}
+                    onBlur={handleOperatorInputBlur}
+                    className="w-full px-4 py-2 pr-10 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                  
+                  {/* 自定義下拉選單 */}
+                  {showOperatorDropdown && filteredOperators.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                      {filteredOperators.map((operator, index) => (
+                        <div
+                          key={operator}
+                          className="px-4 py-2 hover:bg-blue-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                          onClick={() => handleOperatorSelect(operator)}
+                          onMouseDown={(e) => e.preventDefault()} // 防止 blur 事件
+                        >
+                          <div className="flex items-center gap-2">
+                            <User className="w-4 h-4 text-gray-400" />
+                            <span className="text-gray-700">{operator}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <p className="text-xs text-gray-500 mt-1">可從下拉選單選擇或直接輸入新人員</p>
+              </div>
             </div>
             <div className="flex gap-2 mt-6">
               <button onClick={handleAdjustment} disabled={!adjustment.reason || !adjustment.quantity} className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed">確認調整</button>
