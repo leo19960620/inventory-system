@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Plus, Minus, Download, FileText, History, Search, Upload, User, X, Wifi, WifiOff, ArrowUp } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { database } from './firebase';
@@ -27,7 +27,43 @@ const InventorySystem = () => {
   const [sortField, setSortField] = useState(null);
   const [sortDirection, setSortDirection] = useState('asc');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [inventoryPage, setInventoryPage] = useState(1);
+  const [historyPage, setHistoryPage] = useState(1);
   
+  // 以台灣時區(Asia/Taipei)取得今天日期，格式: YYYY-MM-DD
+  const getTaiwanDateYMD = () => {
+    const formatter = new Intl.DateTimeFormat('zh-TW', {
+      timeZone: 'Asia/Taipei',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    });
+    const parts = formatter.formatToParts(new Date());
+    const year = parts.find(p => p.type === 'year')?.value || '';
+    const month = parts.find(p => p.type === 'month')?.value || '';
+    const day = parts.find(p => p.type === 'day')?.value || '';
+    return `${year}-${month}-${day}`;
+  };
+
+  // 以台灣時區顯示用日期，格式依在地化(例: 2025/10/13)
+  const getTaiwanDateDisplay = () => {
+    return new Intl.DateTimeFormat('zh-TW', {
+      timeZone: 'Asia/Taipei',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).format(new Date());
+  };
+
+  // Firebase 儲存工具(固定相依 isOnline) - 放在使用它的 useEffect 之前避免 TDZ
+  const saveToFirebase = useCallback((path, data) => {
+    if (!isOnline) {
+      alert('⚠️ 目前離線,無法儲存資料');
+      return;
+    }
+    set(ref(database, path), data);
+  }, [isOnline]);
+
   // 操作紀錄查詢相關狀態
   const [historySearchTerm, setHistorySearchTerm] = useState('');
   const [historyDateFrom, setHistoryDateFrom] = useState('');
@@ -46,7 +82,7 @@ const InventorySystem = () => {
     category: '',
     warehouse: '',
     quantity: 0,
-    frequency: '月',
+    frequency: '每月',
     manager: ''
   });
 
@@ -68,6 +104,7 @@ const InventorySystem = () => {
    : ['Front Desk', 'Front Desk B1'];
   const categories = items.length > 0 ? [...new Set(items.map(item => item.category))] : ['主題商品', '客房備品', '櫃台耗材', '文具', '包裝材料', '其他'];
   const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6', '#f97316'];
+  const PAGE_SIZE = 50;
 
   const categoryColors = {
     '主題商品': { bg: 'bg-pink-100', text: 'text-pink-800' },
@@ -185,15 +222,16 @@ const InventorySystem = () => {
       unsubscribeHistory();
       unsubscribeOperators();
     };
-  }, []);
+  }, [saveToFirebase]);
 
-  const saveToFirebase = (path, data) => {
-    if (!isOnline) {
-      alert('⚠️ 目前離線,無法儲存資料');
-      return;
-    }
-    set(ref(database, path), data);
-  };
+  // 篩選條件變更時重置分頁
+  useEffect(() => {
+    setInventoryPage(1);
+  }, [searchTerm, filterWarehouse, filterCategory, filterManager, sortField, sortDirection, items]);
+
+  useEffect(() => {
+    setHistoryPage(1);
+  }, [historySearchTerm, historyDateFrom, historyDateTo, historyFilterAction, historyFilterOperator, history]);
 
   const handleSort = (field) => {
     if (sortField === field) {
@@ -295,11 +333,30 @@ const InventorySystem = () => {
 };
 
   const handleAddItem = async () => {
+    // 檢查是否已有相同「品名 + 倉庫 + 分類」的品項
+    const isDuplicate = items.some(i =>
+      i.name.trim() === (newItem.name || '').trim() &&
+      i.warehouse === newItem.warehouse &&
+      i.category === newItem.category
+    );
+    if (isDuplicate) {
+      alert('此品項已存在於相同倉庫與分類中，請勿重複新增');
+      return;
+    }
+
+    // 正規化頻率字串，避免出現「月/季」簡寫
+    const normalizedFrequency = newItem.frequency === '月'
+      ? '每月'
+      : newItem.frequency === '季'
+        ? '每季'
+        : newItem.frequency;
+
     const autoManager = getManagerByWarehouseAndCategory(newItem.warehouse, newItem.category);
     const itemId = `item_${Date.now()}`;
     const item = {
       id: itemId,
       ...newItem,
+      frequency: normalizedFrequency,
       quantity: parseInt(newItem.quantity),
       manager: autoManager
     };
@@ -324,7 +381,7 @@ const InventorySystem = () => {
       action: '新增',
       quantity: item.quantity,
       reason: '新增品項',
-      date: new Date().toISOString().split('T')[0],
+      date: getTaiwanDateYMD(),
       operator: adjustment.operator || '系統'
     };
 
@@ -482,7 +539,7 @@ const InventorySystem = () => {
       action: adjustment.type === 'add' ? '增加' : '減少',
       quantity: qty,
       reason: adjustment.reason,
-      date: new Date().toISOString().split('T')[0],
+      date: getTaiwanDateYMD(),
       operator: adjustment.operator
     };
 
@@ -535,7 +592,7 @@ const InventorySystem = () => {
     
     const warehousesToPrint = [...new Set(itemsToPrint.map(i => i.warehouse))];
     
-    const printContent = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>庫存盤點表 - ${frequencyType}</title><style>body{font-family:Arial,sans-serif;padding:20px}h1{text-align:center;color:#333}h2{color:#2563eb;margin-top:30px;border-bottom:2px solid #2563eb;padding-bottom:5px}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{border:1px solid #ddd;padding:12px;text-align:left}th{background-color:#3b82f6;color:white}tr:nth-child(even){background-color:#f9fafb}.signature{margin-top:40px}.header-info{background:#f0f9ff;padding:15px;border-radius:8px;margin-bottom:20px}@media print{body{padding:10px}h2{page-break-before:always}}</style></head><body><h1>庫存盤點表 - ${frequencyType}</h1><div class="header-info"><p><strong>盤點日期:</strong>${new Date().toLocaleDateString('zh-TW')}</p>${selectedManager !== '全部' ? `<p><strong>負責人:</strong>${selectedManager}</p>` : ''}<p><strong>盤點類型:</strong>${frequencyType}</p><p><strong>總品項數:</strong>${itemsToPrint.length} 項</p></div>${warehousesToPrint.map(wh => {
+    const printContent = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>庫存盤點表 - ${frequencyType}</title><style>body{font-family:Arial,sans-serif;padding:20px}h1{text-align:center;color:#333}h2{color:#2563eb;margin-top:30px;border-bottom:2px solid #2563eb;padding-bottom:5px}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{border:1px solid #ddd;padding:12px;text-align:left}th{background-color:#3b82f6;color:white}tr:nth-child(even){background-color:#f9fafb}.signature{margin-top:40px}.header-info{background:#f0f9ff;padding:15px;border-radius:8px;margin-bottom:20px}@media print{body{padding:10px}h2{page-break-before:always}}</style></head><body><h1>庫存盤點表 - ${frequencyType}</h1><div class="header-info"><p><strong>盤點日期:</strong>${getTaiwanDateDisplay()}</p>${selectedManager !== '全部' ? `<p><strong>負責人:</strong>${selectedManager}</p>` : ''}<p><strong>盤點類型:</strong>${frequencyType}</p><p><strong>總品項數:</strong>${itemsToPrint.length} 項</p></div>${warehousesToPrint.map(wh => {
       const warehouseItems = itemsToPrint.filter(i => i.warehouse === wh);
       return `<h2>${wh}(${warehouseItems.length} 項)</h2><table><tr><th>品名</th><th>分類</th><th>負責人</th><th>盤點頻率</th><th>帳面數量</th><th>實盤數量</th><th>差異</th></tr>${warehouseItems.map(item => `<tr><td>${item.name}</td><td>${item.category}</td><td>${item.manager}</td><td>${item.frequency}</td><td>${item.quantity}</td><td></td><td></td></tr>`).join('')}</table><div class="signature"><p>盤點人簽名: _______________ 日期: _______________</p></div>`;
     }).join('')}</body></html>`;
@@ -573,6 +630,10 @@ const InventorySystem = () => {
     if (compareA > compareB) return sortDirection === 'asc' ? 1 : -1;
     return 0;
   });
+
+  const totalInventoryPages = Math.max(1, Math.ceil(filteredItems.length / PAGE_SIZE));
+  const currentInventoryPage = Math.min(inventoryPage, totalInventoryPages);
+  const paginatedItems = filteredItems.slice((currentInventoryPage - 1) * PAGE_SIZE, currentInventoryPage * PAGE_SIZE);
 
   const getWarehouseCategoryCombinations = () => {
     const combinations = new Map();
@@ -627,7 +688,17 @@ const InventorySystem = () => {
     const matchesOperator = historyFilterOperator === '全部' || record.operator === historyFilterOperator;
     
     return matchesSearch && matchesDateRange && matchesAction && matchesOperator;
+  }).sort((a, b) => {
+    // 依日期(YYYY-MM-DD)由新到舊排序；若日期相同，以 id 時間戳降序
+    if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+    const aTs = Number(a.id?.split('_')[1]) || 0;
+    const bTs = Number(b.id?.split('_')[1]) || 0;
+    return bTs - aTs;
   });
+
+  const totalHistoryPages = Math.max(1, Math.ceil(filteredHistory.length / PAGE_SIZE));
+  const currentHistoryPage = Math.min(historyPage, totalHistoryPages);
+  const paginatedHistory = filteredHistory.slice((currentHistoryPage - 1) * PAGE_SIZE, currentHistoryPage * PAGE_SIZE);
 
   // 獲取所有操作類型和操作人員
   const allActions = [...new Set(history.map(h => h.action))];
@@ -871,7 +942,7 @@ const InventorySystem = () => {
                           </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
-                          {filteredItems.map(item => {
+                          {paginatedItems.map(item => {
                             const color = getCategoryColor(item.category);
                             return (
                               <tr key={item.id} className="hover:bg-gray-50">
@@ -908,14 +979,29 @@ const InventorySystem = () => {
                     </div>
                     <div className="bg-gray-50 px-6 py-4 border-t">
                       <div className="flex justify-between items-center">
-                        <p className="text-sm text-gray-600">
-                          顯示 {filteredItems.length} 筆資料(總共 {items.length} 筆)
-                          {sortField && (
-                            <span className="ml-2 text-blue-600">
-                              · 依「{sortField === 'name' ? '品名' : '數量'}」{sortDirection === 'asc' ? '升序' : '降序'}排列
-                            </span>
-                          )}
-                        </p>
+                        <div className="flex items-center gap-4">
+                          <p className="text-sm text-gray-600">
+                            顯示 {paginatedItems.length} / {filteredItems.length} 筆
+                            {sortField && (
+                              <span className="ml-2 text-blue-600">
+                                · 依「{sortField === 'name' ? '品名' : '數量'}」{sortDirection === 'asc' ? '升序' : '降序'}排列
+                              </span>
+                            )}
+                          </p>
+                          <div className="flex items-center gap-2 text-sm">
+                            <button
+                              onClick={() => setInventoryPage(Math.max(1, currentInventoryPage - 1))}
+                              disabled={currentInventoryPage <= 1}
+                              className={`px-2 py-1 rounded ${currentInventoryPage <= 1 ? 'bg-gray-200 text-gray-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
+                            >上一頁</button>
+                            <span className="text-gray-600">第 {currentInventoryPage} / {totalInventoryPages} 頁</span>
+                            <button
+                              onClick={() => setInventoryPage(Math.min(totalInventoryPages, currentInventoryPage + 1))}
+                              disabled={currentInventoryPage >= totalInventoryPages}
+                              className={`px-2 py-1 rounded ${currentInventoryPage >= totalInventoryPages ? 'bg-gray-200 text-gray-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
+                            >下一頁</button>
+                          </div>
+                        </div>
                         <p className="text-xs text-green-600">✓ 資料已自動儲存</p>
                       </div>
                       <p className="text-xs text-gray-500 mt-1">💡 提示:點擊「品名」或「數量」欄位可排序</p>
@@ -1300,7 +1386,7 @@ const InventorySystem = () => {
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                      {filteredHistory.map(record => (
+                      {paginatedHistory.map(record => (
                         <tr key={record.id} className="hover:bg-gray-50">
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{record.date}</td>
                           <td className="px-6 py-4 whitespace-nowrap font-medium">{record.itemName}</td>
@@ -1321,14 +1407,29 @@ const InventorySystem = () => {
               {filteredHistory.length > 0 && (
                 <div className="bg-gray-50 px-6 py-4 border-t">
                   <div className="flex justify-between items-center">
-                    <p className="text-sm text-gray-600">
-                      顯示 {filteredHistory.length} 筆紀錄
-                      {filteredHistory.length !== history.length && (
-                        <span className="ml-2 text-blue-600">
-                          (總共 {history.length} 筆)
-                        </span>
-                      )}
-                    </p>
+                    <div className="flex items-center gap-4">
+                      <p className="text-sm text-gray-600">
+                        顯示 {paginatedHistory.length} / {filteredHistory.length} 筆
+                        {filteredHistory.length !== history.length && (
+                          <span className="ml-2 text-blue-600">
+                            (總共 {history.length} 筆)
+                          </span>
+                        )}
+                      </p>
+                      <div className="flex items-center gap-2 text-sm">
+                        <button
+                          onClick={() => setHistoryPage(Math.max(1, currentHistoryPage - 1))}
+                          disabled={currentHistoryPage <= 1}
+                          className={`px-2 py-1 rounded ${currentHistoryPage <= 1 ? 'bg-gray-200 text-gray-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
+                        >上一頁</button>
+                        <span className="text-gray-600">第 {currentHistoryPage} / {totalHistoryPages} 頁</span>
+                        <button
+                          onClick={() => setHistoryPage(Math.min(totalHistoryPages, currentHistoryPage + 1))}
+                          disabled={currentHistoryPage >= totalHistoryPages}
+                          className={`px-2 py-1 rounded ${currentHistoryPage >= totalHistoryPages ? 'bg-gray-200 text-gray-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
+                        >下一頁</button>
+                      </div>
+                    </div>
                     <button
                       onClick={() => {
                         const headers = ['日期', '品名', '操作', '數量', '原因', '操作人'];
@@ -1536,13 +1637,15 @@ const InventorySystem = () => {
                   <p className="text-sm text-green-800"><span className="font-semibold">自動指派負責人:</span>{getManagerByWarehouseAndCategory(newItem.warehouse, newItem.category)}</p>
                 </div>
               )}
-              <input type="number" placeholder="數量" value={newItem.quantity} onChange={(e) => setNewItem({ ...newItem, quantity: e.target.value })} className="w-full px-4 py-2 border rounded-lg" />
-              <select value={newItem.frequency} onChange={(e) => setNewItem({ ...newItem, frequency: e.target.value })} className="w-full px-4 py-2 border rounded-lg">
+              <input type="number" placeholder="數量" title="此品項目前帳面數量" value={newItem.quantity} onChange={(e) => setNewItem({ ...newItem, quantity: e.target.value })} className="w-full px-4 py-2 border rounded-lg" />
+              <p className="text-xs text-gray-500">此數量為此品項建立時的帳面數量</p>
+              <select value={newItem.frequency} title="此品項需進行盤點的週期" onChange={(e) => setNewItem({ ...newItem, frequency: e.target.value })} className="w-full px-4 py-2 border rounded-lg">
                 <option>每月</option>
                 <option>每季</option>
                 <option>每半年</option>
                 <option>每年</option>
               </select>
+              <p className="text-xs text-gray-500">選擇此品項需要盤點的頻率</p>
             </div>
             <div className="flex gap-2 mt-6">
               <button onClick={handleAddItem} disabled={!newItem.name || !newItem.warehouse || !newItem.category} className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed">確認新增</button>
