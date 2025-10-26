@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Plus, Minus, Download, FileText, History, Search, Upload, User, X, Wifi, WifiOff, ArrowUp } from 'lucide-react';
+import { Plus, Minus, Download, FileText, History, Search, Upload, User, X, Wifi, WifiOff, ArrowUp, Edit } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { database } from './firebase';
 import { ref, set, onValue, get } from 'firebase/database';
@@ -14,6 +14,7 @@ const InventorySystem = () => {
   const [activeTab, setActiveTab] = useState('inventory');
   const [showAddModal, setShowAddModal] = useState(false);
   const [showAdjustModal, setShowAdjustModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [showImportModal, setShowImportModal] = useState(false);
   const [showPrintModal, setShowPrintModal] = useState(false);
   const [printManager, setPrintManager] = useState('全部');
@@ -92,6 +93,16 @@ const InventorySystem = () => {
     reason: '',
     operator: ''
   });
+
+  const [editItem, setEditItem] = useState({
+    name: '',
+    category: '',
+    warehouse: ''
+  });
+  
+  const [editOperator, setEditOperator] = useState('');
+  const [showEditOperatorDropdown, setShowEditOperatorDropdown] = useState(false);
+  const [editOperatorInputValue, setEditOperatorInputValue] = useState('');
 
   const warehouses = items.length > 0 
     ? [...new Set(items.map(item => item.warehouse))].sort((a, b) => {
@@ -463,6 +474,31 @@ const InventorySystem = () => {
     operator.toLowerCase().includes(operatorInputValue.toLowerCase())
   );
 
+  const filteredEditOperators = operatorList.filter(operator =>
+    operator.toLowerCase().includes(editOperatorInputValue.toLowerCase())
+  );
+
+  // 編輯操作人員相關函數
+  const handleEditOperatorInputChange = (value) => {
+    setEditOperatorInputValue(value);
+    setEditOperator(value);
+    setShowEditOperatorDropdown(value.length > 0);
+  };
+
+  const handleEditOperatorSelect = (operator) => {
+    setEditOperatorInputValue(operator);
+    setEditOperator(operator);
+    setShowEditOperatorDropdown(false);
+  };
+
+  const handleEditOperatorInputFocus = () => {
+    setShowEditOperatorDropdown(operatorList.length > 0);
+  };
+
+  const handleEditOperatorInputBlur = () => {
+    setTimeout(() => setShowEditOperatorDropdown(false), 200);
+  };
+
   const handleClearAllData = () => {
     if (window.confirm('⚠️ 確定要清除所有資料嗎?此操作無法復原!')) {
       if (window.confirm('⚠️ 再次確認:這將刪除所有庫存、負責人和操作紀錄!')) {
@@ -556,6 +592,89 @@ const InventorySystem = () => {
     setAdjustment({ type: 'add', quantity: 0, reason: '', operator: '' });
     setOperatorInputValue('');
     setShowOperatorDropdown(false);
+  };
+
+  const handleEditItem = async () => {
+    // 檢查是否已有相同「品名 + 倉庫 + 分類」的品項（排除自己）
+    const isDuplicate = items.some(i =>
+      i.id !== selectedItem.id &&
+      i.name.trim() === editItem.name.trim() &&
+      i.warehouse === editItem.warehouse &&
+      i.category === editItem.category
+    );
+    if (isDuplicate) {
+      alert('此品項已存在於相同倉庫與分類中，請勿重複');
+      return;
+    }
+
+    // 收集變更內容
+    const changes = [];
+    if (selectedItem.name !== editItem.name) {
+      changes.push(`品名: "${selectedItem.name}" → "${editItem.name}"`);
+    }
+    if (selectedItem.category !== editItem.category) {
+      changes.push(`分類: "${selectedItem.category}" → "${editItem.category}"`);
+    }
+    if (selectedItem.warehouse !== editItem.warehouse) {
+      changes.push(`倉庫: "${selectedItem.warehouse}" → "${editItem.warehouse}"`);
+    }
+
+    const newItems = {};
+    
+    items.forEach(item => {
+      if (item.id === selectedItem.id) {
+        const updatedManager = getManagerByWarehouseAndCategory(editItem.warehouse, editItem.category);
+        newItems[item.id] = {
+          ...item,
+          name: editItem.name,
+          category: editItem.category,
+          warehouse: editItem.warehouse,
+          manager: updatedManager
+        };
+        
+        // 記錄負責人變更
+        if (selectedItem.manager !== updatedManager) {
+          changes.push(`負責人: "${selectedItem.manager}" → "${updatedManager}"`);
+        }
+      } else {
+        newItems[item.id] = item;
+      }
+    });
+
+    saveToFirebase('items', newItems);
+
+    // 如果有變更，記錄到操作紀錄
+    if (changes.length > 0) {
+      // 如果操作人員不在清單中，自動添加
+      if (editOperator && editOperator.trim() && !operatorList.includes(editOperator.trim())) {
+        const updatedOperatorList = [...operatorList, editOperator.trim()];
+        setOperatorList(updatedOperatorList);
+        saveToFirebase('operatorList', updatedOperatorList);
+      }
+
+      const historyId = `history_${Date.now()}`;
+      const record = {
+        id: historyId,
+        itemName: editItem.name,
+        action: '編輯',
+        quantity: selectedItem.quantity,
+        reason: changes.join('；'),
+        date: getTaiwanDateYMD(),
+        operator: editOperator || '系統'
+      };
+
+      const historySnapshot = await get(ref(database, 'history'));
+      const existingHistory = historySnapshot.val() || {};
+      const newHistory = { ...existingHistory };
+      newHistory[historyId] = record;
+      saveToFirebase('history', newHistory);
+    }
+
+    setShowEditModal(false);
+    setEditItem({ name: '', category: '', warehouse: '' });
+    setEditOperator('');
+    setEditOperatorInputValue('');
+    setShowEditOperatorDropdown(false);
   };
 
   const exportToCSV = () => {
@@ -959,15 +1078,25 @@ const InventorySystem = () => {
                                 <td className="px-6 py-4 whitespace-nowrap text-gray-600">{item.frequency}</td>
                                 <td className="px-6 py-4 whitespace-nowrap text-gray-600">{item.manager}</td>
                                 <td className="px-6 py-4 whitespace-nowrap">
-                                  <div className="flex gap-2">
-                                    <button onClick={() => { setSelectedItem(item); setAdjustment({ ...adjustment, type: 'add' }); setOperatorInputValue(''); setShowOperatorDropdown(false); setShowAdjustModal(true); }} className="bg-green-100 text-green-700 px-3 py-1 rounded hover:bg-green-200 flex items-center gap-1 text-sm">
-                                      <Plus className="w-4 h-4" />增加
+                                  <div className="flex gap-1.5">
+                                    <button onClick={() => { 
+                                      setSelectedItem(item); 
+                                      setEditItem({ name: item.name, category: item.category, warehouse: item.warehouse }); 
+                                      setEditOperator('');
+                                      setEditOperatorInputValue('');
+                                      setShowEditOperatorDropdown(false);
+                                      setShowEditModal(true); 
+                                    }} className="bg-blue-100 text-blue-700 px-2.5 py-1 rounded hover:bg-blue-200 flex items-center gap-1 text-xs flex-1 justify-center">
+                                      <Edit className="w-3.5 h-3.5" />編輯
                                     </button>
-                                    <button onClick={() => { setSelectedItem(item); setAdjustment({ ...adjustment, type: 'subtract' }); setOperatorInputValue(''); setShowOperatorDropdown(false); setShowAdjustModal(true); }} className="bg-red-100 text-red-700 px-3 py-1 rounded hover:bg-red-200 flex items-center gap-1 text-sm">
-                                      <Minus className="w-4 h-4" />減少
+                                    <button onClick={() => { setSelectedItem(item); setAdjustment({ ...adjustment, type: 'add' }); setOperatorInputValue(''); setShowOperatorDropdown(false); setShowAdjustModal(true); }} className="bg-green-100 text-green-700 px-2.5 py-1 rounded hover:bg-green-200 flex items-center gap-1 text-xs flex-1 justify-center">
+                                      <Plus className="w-3.5 h-3.5" />增加
                                     </button>
-                                    <button onClick={() => handleDeleteItem(item)} className="bg-gray-100 text-gray-700 px-3 py-1 rounded hover:bg-gray-200 flex items-center gap-1 text-sm">
-                                      <X className="w-4 h-4" />刪除
+                                    <button onClick={() => { setSelectedItem(item); setAdjustment({ ...adjustment, type: 'subtract' }); setOperatorInputValue(''); setShowOperatorDropdown(false); setShowAdjustModal(true); }} className="bg-red-100 text-red-700 px-2.5 py-1 rounded hover:bg-red-200 flex items-center gap-1 text-xs flex-1 justify-center">
+                                      <Minus className="w-3.5 h-3.5" />減少
+                                    </button>
+                                    <button onClick={() => handleDeleteItem(item)} className="bg-gray-100 text-gray-700 px-2.5 py-1 rounded hover:bg-gray-200 flex items-center gap-1 text-xs flex-1 justify-center">
+                                      <X className="w-3.5 h-3.5" />刪除
                                     </button>
                                   </div>
                                 </td>
@@ -1737,6 +1866,117 @@ const InventorySystem = () => {
             <div className="flex gap-2 mt-6">
               <button onClick={handleAdjustment} disabled={!adjustment.reason || !adjustment.quantity} className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed">確認調整</button>
               <button onClick={() => setShowAdjustModal(false)} className="flex-1 bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300">取消</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showEditModal && selectedItem && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full">
+            <h3 className="text-xl font-semibold mb-4">編輯物品 - {selectedItem.name}</h3>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">物品品名</label>
+                <input 
+                  type="text" 
+                  placeholder="物品品名" 
+                  value={editItem.name} 
+                  onChange={(e) => setEditItem({ ...editItem, name: e.target.value })} 
+                  className="w-full px-4 py-2 border rounded-lg" 
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">分類</label>
+                <select 
+                  value={editItem.category} 
+                  onChange={(e) => setEditItem({ ...editItem, category: e.target.value })} 
+                  className="w-full px-4 py-2 border rounded-lg"
+                >
+                  <option value="">選擇分類</option>
+                  {categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">倉庫</label>
+                <select 
+                  value={editItem.warehouse} 
+                  onChange={(e) => setEditItem({ ...editItem, warehouse: e.target.value })} 
+                  className="w-full px-4 py-2 border rounded-lg"
+                >
+                  <option value="">選擇倉庫</option>
+                  {warehouses.map(wh => <option key={wh} value={wh}>{wh}</option>)}
+                </select>
+              </div>
+              {editItem.warehouse && editItem.category && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                  <p className="text-sm text-green-800">
+                    <span className="font-semibold">自動指派負責人:</span> {getManagerByWarehouseAndCategory(editItem.warehouse, editItem.category)}
+                  </p>
+                </div>
+              )}
+              
+              {/* 操作人員選擇 - 自定義下拉選單 */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">操作人員</label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="選擇或輸入操作人員"
+                    value={editOperatorInputValue}
+                    onChange={(e) => handleEditOperatorInputChange(e.target.value)}
+                    onFocus={handleEditOperatorInputFocus}
+                    onBlur={handleEditOperatorInputBlur}
+                    className="w-full px-4 py-2 pr-10 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                  
+                  {/* 自定義下拉選單 */}
+                  {showEditOperatorDropdown && filteredEditOperators.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                      {filteredEditOperators.map((operator, index) => (
+                        <div
+                          key={operator}
+                          className="px-4 py-2 hover:bg-blue-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                          onClick={() => handleEditOperatorSelect(operator)}
+                          onMouseDown={(e) => e.preventDefault()}
+                        >
+                          <div className="flex items-center gap-2">
+                            <User className="w-4 h-4 text-gray-400" />
+                            <span className="text-gray-700">{operator}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <p className="text-xs text-gray-500 mt-1">可從下拉選單選擇或直接輸入新人員</p>
+              </div>
+            </div>
+            <div className="flex gap-2 mt-6">
+              <button 
+                onClick={handleEditItem} 
+                disabled={!editItem.name || !editItem.warehouse || !editItem.category} 
+                className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+              >
+                確認編輯
+              </button>
+              <button 
+                onClick={() => { 
+                  setShowEditModal(false); 
+                  setEditItem({ name: '', category: '', warehouse: '' }); 
+                  setEditOperator('');
+                  setEditOperatorInputValue('');
+                  setShowEditOperatorDropdown(false);
+                }} 
+                className="flex-1 bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300"
+              >
+                取消
+              </button>
             </div>
           </div>
         </div>
