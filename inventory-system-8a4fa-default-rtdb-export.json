@@ -1,0 +1,5725 @@
+{
+  "assignments": {
+    "Front Desk B1|其他": "夜班",
+    "Front Desk B1|安全與設施": "夜班",
+    "Front Desk B1|客房備品": "夜班",
+    "Front Desk B1|客房用品": "夜班",
+    "Front Desk B1|櫃台耗材": "夜班",
+    "Front Desk|主題商品": "Nick",
+    "Front Desk|其他": "Wendy",
+    "Front Desk|包裝材料": "夜班",
+    "Front Desk|客房備品": "夜班",
+    "Front Desk|客房用品": "夜班",
+    "Front Desk|文具": "夜班",
+    "Front Desk|櫃台耗材": "Irene",
+    "Front Desk|櫃台贈品": "Nick",
+    "Front Desk|禮品櫃": "Irene",
+    "Front Desk|醫藥箱": "Cammy",
+    "服中10F|家電": "SC",
+    "服中10F|寢具": "SC",
+    "服中11F|家電": "SC",
+    "服中11F|寢具": "SC",
+    "服中12F|嬰兒用品": "SC",
+    "服中12F|家電": "SC",
+    "服中12F|寢具": "SC",
+    "服中1F|其他": "SC",
+    "服中5F|包裝材料": "SC",
+    "服中5F|寢具": "SC",
+    "服中9F|家電": "SC",
+    "服中9F|寢具": "SC",
+    "服中B1|其他": "SC",
+    "服中B1|嬰兒用品": "SC",
+    "服中B1|安全與設施": "SC",
+    "服中B1|家電": "SC",
+    "服中B1|寢具": "SC"
+  },
+  "history": {
+    "history_1759764425151": {
+      "action": "減少",
+      "date": "2025-10-06",
+      "id": "history_1759764425151",
+      "itemName": "SHUTI-書籤-女",
+      "operator": "Wei",
+      "quantity": 1,
+      "reason": "R520"
+    },
+    "history_1759764434415": {
+      "action": "減少",
+      "date": "2025-10-06",
+      "id": "history_1759764434415",
+      "itemName": "SHUTI-書籤-男",
+      "operator": "Wei",
+      "quantity": 1,
+      "reason": "R520"
+    },
+    "history_1759764445623": {
+      "action": "減少",
+      "date": "2025-10-06",
+      "id": "history_1759764445623",
+      "itemName": "SHUTI-書籤-老爺爺",
+      "operator": "Wei",
+      "quantity": 1,
+      "reason": "R520"
+    },
+    "history_1759764478179": {
+      "action": "減少",
+      "date": "2025-10-06",
+      "id": "history_1759764478179",
+      "itemName": "SHUTI-貼紙-飯店",
+      "operator": "Wei",
+      "quantity": 1,
+      "reason": "R520"
+    },
+    "history_1759764490213": {
+      "action": "減少",
+      "date": "2025-10-06",
+      "id": "history_1759764490213",
+      "itemName": "SHUTI-貼紙-餐廳",
+      "operator": "Wei",
+      "quantity": 1,
+      "reason": "R520"
+    },
+    "history_1759764735052": {
+      "action": "減少",
+      "date": "2025-10-06",
+      "id": "history_1759764735052",
+      "itemName": "SHUTI-明信片-SLOW LIVE",
+      "operator": "Wei",
+      "quantity": 1,
+      "reason": "R520"
+    },
+    "history_1759764755020": {
+      "action": "減少",
+      "date": "2025-10-06",
+      "id": "history_1759764755020",
+      "itemName": "南隅吹風機袋",
+      "operator": "Wei",
+      "quantity": 2,
+      "reason": "R520"
+    },
+    "history_1759764775286": {
+      "action": "減少",
+      "date": "2025-10-06",
+      "id": "history_1759764775286",
+      "itemName": "小時記",
+      "operator": "Wei",
+      "quantity": 1,
+      "reason": "R520"
+    },
+    "history_1759764782550": {
+      "action": "減少",
+      "date": "2025-10-06",
+      "id": "history_1759764782550",
+      "itemName": "地圖",
+      "operator": "Wei",
+      "quantity": 1,
+      "reason": "R520"
+    },
+    "history_1759794032988": {
+      "action": "減少",
+      "date": "2025-10-06",
+      "id": "history_1759794032988",
+      "itemName": "SHUTI-相機",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "售出 R1107  10/07"
+    },
+    "history_1759809639199": {
+      "action": "減少",
+      "date": "2025-10-07",
+      "id": "history_1759809639199",
+      "itemName": "南隅備品包",
+      "operator": "CAMMY",
+      "quantity": 2,
+      "reason": "10/7 C/O R1113 意見書"
+    },
+    "history_1759879023549": {
+      "action": "減少",
+      "date": "2025-10-07",
+      "id": "history_1759879023549",
+      "itemName": "beams馬克杯",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10/8 co R1110 致歉"
+    },
+    "history_1759902192482": {
+      "action": "減少",
+      "date": "2025-10-08",
+      "id": "history_1759902192482",
+      "itemName": "beams馬克杯",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10/8 co R1110 致歉"
+    },
+    "history_1759982016374": {
+      "action": "減少",
+      "date": "2025-10-09",
+      "id": "history_1759982016374",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Nick",
+      "quantity": -1,
+      "reason": "客人購買即可拍贈"
+    },
+    "history_1759982126174": {
+      "action": "減少",
+      "date": "2025-10-09",
+      "id": "history_1759982126174",
+      "itemName": "SHUTI-相機",
+      "operator": "Nick",
+      "quantity": -1,
+      "reason": "10/9售出"
+    },
+    "history_1759982153230": {
+      "action": "減少",
+      "date": "2025-10-09",
+      "id": "history_1759982153230",
+      "itemName": "SHUTI-相機",
+      "operator": "Nick",
+      "quantity": 2,
+      "reason": "調整"
+    },
+    "history_1759982184566": {
+      "action": "減少",
+      "date": "2025-10-09",
+      "id": "history_1759982184566",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Nick",
+      "quantity": 2,
+      "reason": "10/9校正回歸"
+    },
+    "history_1760019337936": {
+      "action": "減少",
+      "date": "2025-10-09",
+      "id": "history_1760019337936",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "10/9 散客購買 R908"
+    },
+    "history_1760021210415": {
+      "action": "減少",
+      "date": "2025-10-09",
+      "id": "history_1760021210415",
+      "itemName": "南隅蚊香袋",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "10/9 R1005 購買"
+    },
+    "history_1760059613523": {
+      "action": "減少",
+      "date": "2025-10-10",
+      "id": "history_1760059613523",
+      "itemName": "南隅抱枕",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "1208發出"
+    },
+    "history_1760082327892": {
+      "action": "增加",
+      "date": "2025-10-10",
+      "id": "history_1760082327892",
+      "itemName": "單人羽絨被",
+      "operator": "Leo",
+      "quantity": 3,
+      "reason": "行軍床棉被(扣除短少的一件)"
+    },
+    "history_1760168073217": {
+      "action": "減少",
+      "date": "2025-10-11",
+      "id": "history_1760168073217",
+      "itemName": "SHUTI-馬克杯-貓",
+      "operator": "wendy",
+      "quantity": -1,
+      "reason": "R1109"
+    },
+    "history_1760168143577": {
+      "action": "減少",
+      "date": "2025-10-11",
+      "id": "history_1760168143577",
+      "itemName": "SHUTI-馬克杯-貓",
+      "operator": "wendy",
+      "quantity": 2,
+      "reason": "操作錯誤 重新調整"
+    },
+    "history_1760168155689": {
+      "action": "減少",
+      "date": "2025-10-11",
+      "id": "history_1760168155689",
+      "itemName": "SHUTI-明信片-SLOW LIVE",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "R1109"
+    },
+    "history_1760168170233": {
+      "action": "減少",
+      "date": "2025-10-11",
+      "id": "history_1760168170233",
+      "itemName": "SHUTI-書籤-男",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "R1109"
+    },
+    "history_1760168206081": {
+      "action": "減少",
+      "date": "2025-10-11",
+      "id": "history_1760168206081",
+      "itemName": "SHUTI-濾掛",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "R1109"
+    },
+    "history_1760171017941": {
+      "action": "減少",
+      "date": "2025-10-11",
+      "id": "history_1760171017941",
+      "itemName": "立可帶+替換帶",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "櫃台使用"
+    },
+    "history_1760171434595": {
+      "action": "增加",
+      "date": "2025-10-11",
+      "id": "history_1760171434595",
+      "itemName": "南隅蚊香袋",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "補入庫存"
+    },
+    "history_1760181635115": {
+      "action": "減少",
+      "date": "2025-10-11",
+      "id": "history_1760181635115",
+      "itemName": "單人羽絨被",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "遺失 9/21 C/O 607"
+    },
+    "history_1760224558821": {
+      "action": "減少",
+      "date": "2025-10-11",
+      "id": "history_1760224558821",
+      "itemName": "beams馬克杯",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "R1112  10/12  C/O  致歉"
+    },
+    "history_1760224576685": {
+      "action": "減少",
+      "date": "2025-10-11",
+      "id": "history_1760224576685",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "R1112  10/12  C/O  致歉"
+    },
+    "history_1760239128702": {
+      "action": "減少",
+      "date": "2025-10-12",
+      "id": "history_1760239128702",
+      "itemName": "一銀信用卡紙捲",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "更換紙捲"
+    },
+    "history_1760239790806": {
+      "action": "減少",
+      "date": "2025-10-12",
+      "id": "history_1760239790806",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 2,
+      "reason": "10/12  C/O  R908、R1006"
+    },
+    "history_1760256080892": {
+      "action": "減少",
+      "date": "2025-10-12",
+      "id": "history_1760256080892",
+      "itemName": "透明膠帶",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "使用"
+    },
+    "history_1760340578167": {
+      "action": "新增",
+      "date": "2025-10-13",
+      "id": "history_1760340578167",
+      "itemName": "傘套（短）",
+      "operator": "系統",
+      "quantity": 0,
+      "reason": "新增品項"
+    },
+    "history_1760340720074": {
+      "action": "新增",
+      "date": "2025-10-13",
+      "id": "history_1760340720074",
+      "itemName": "玻璃清潔劑",
+      "operator": "系統",
+      "quantity": 1,
+      "reason": "新增品項"
+    },
+    "history_1760340744703": {
+      "action": "新增",
+      "date": "2025-10-13",
+      "id": "history_1760340744703",
+      "itemName": "不銹鋼保養亮光劑",
+      "operator": "系統",
+      "quantity": 0,
+      "reason": "新增品項"
+    },
+    "history_1760360283295": {
+      "action": "減少",
+      "date": "2025-10-13",
+      "id": "history_1760360283295",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "R505滿額贈送"
+    },
+    "history_1760412074926": {
+      "action": "增加",
+      "date": "2025-10-14",
+      "id": "history_1760412074926",
+      "itemName": "SHUTI-馬克杯-狗",
+      "operator": "wendy",
+      "quantity": 3,
+      "reason": "補入庫存"
+    },
+    "history_1760412091093": {
+      "action": "增加",
+      "date": "2025-10-14",
+      "id": "history_1760412091093",
+      "itemName": "SHUTI-馬克杯-貓",
+      "operator": "wendy",
+      "quantity": 3,
+      "reason": "補入庫存"
+    },
+    "history_1760492633902": {
+      "action": "減少",
+      "date": "2025-10-15",
+      "id": "history_1760492633902",
+      "itemName": "南隅備品包",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "意見書"
+    },
+    "history_1760505791491": {
+      "action": "增加",
+      "date": "2025-10-15",
+      "id": "history_1760505791491",
+      "itemName": "SHUTI-濾掛",
+      "operator": "wendy",
+      "quantity": 8,
+      "reason": "補入庫存"
+    },
+    "history_1760505816850": {
+      "action": "增加",
+      "date": "2025-10-15",
+      "id": "history_1760505816850",
+      "itemName": "SHUTI-袋子-黑",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "補入庫存"
+    },
+    "history_1760505926498": {
+      "action": "增加",
+      "date": "2025-10-15",
+      "id": "history_1760505926498",
+      "itemName": "SHUTI-濾掛",
+      "operator": "wendy",
+      "quantity": 5,
+      "reason": "矯正回歸"
+    },
+    "history_1760505962946": {
+      "action": "減少",
+      "date": "2025-10-15",
+      "id": "history_1760505962946",
+      "itemName": "SHUTI-袋子-黑",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "校正回歸"
+    },
+    "history_1760530512242": {
+      "action": "減少",
+      "date": "2025-10-15",
+      "id": "history_1760530512242",
+      "itemName": "一銀信用卡紙捲",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "使用"
+    },
+    "history_1760539402879": {
+      "action": "減少",
+      "date": "2025-10-15",
+      "id": "history_1760539402879",
+      "itemName": "SHUTI-馬克杯-貓",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "展示用"
+    },
+    "history_1760659879047": {
+      "action": "減少",
+      "date": "2025-10-17",
+      "id": "history_1760659879047",
+      "itemName": "南隅抱枕",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "09963301  PSD 10/17-10/21"
+    },
+    "history_1760670542045": {
+      "action": "減少",
+      "date": "2025-10-17",
+      "id": "history_1760670542045",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10/17  C/O  R703"
+    },
+    "history_1760673002009": {
+      "action": "減少",
+      "date": "2025-10-17",
+      "id": "history_1760673002009",
+      "itemName": "SHUTI-相機",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "大欣購買"
+    },
+    "history_1760683953415": {
+      "action": "增加",
+      "date": "2025-10-17",
+      "id": "history_1760683953415",
+      "itemName": "SHUTI-相機",
+      "operator": "cammy",
+      "quantity": 8,
+      "reason": "入庫存FROM VIC"
+    },
+    "history_1760756473182": {
+      "action": "減少",
+      "date": "2025-10-18",
+      "id": "history_1760756473182",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10/18 C/O  R1108  意見書"
+    },
+    "history_1760769499165": {
+      "action": "增加",
+      "date": "2025-10-18",
+      "id": "history_1760769499165",
+      "itemName": "熨斗組",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "增購"
+    },
+    "history_1760772936115": {
+      "action": "增加",
+      "date": "2025-10-18",
+      "id": "history_1760772936115",
+      "itemName": "單人羽絨被",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "遺失歸位"
+    },
+    "history_1760834185502": {
+      "action": "減少",
+      "date": "2025-10-19",
+      "id": "history_1760834185502",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "10/19 C/O 1011意見書"
+    },
+    "history_1760841755450": {
+      "action": "減少",
+      "date": "2025-10-19",
+      "id": "history_1760841755450",
+      "itemName": "南隅備品包",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "10/19 意見書"
+    },
+    "history_1760841777473": {
+      "action": "增加",
+      "date": "2025-10-19",
+      "id": "history_1760841777473",
+      "itemName": "南隅備品包",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "1019 意見書"
+    },
+    "history_1760845913585": {
+      "action": "減少",
+      "date": "2025-10-19",
+      "id": "history_1760845913585",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "10/19C/O1211意見書"
+    },
+    "history_1760848036189": {
+      "action": "減少",
+      "date": "2025-10-19",
+      "id": "history_1760848036189",
+      "itemName": "SHUTI-馬克杯-狗",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "有人買"
+    },
+    "history_1760848055724": {
+      "action": "減少",
+      "date": "2025-10-19",
+      "id": "history_1760848055724",
+      "itemName": "SHUTI-貼紙-飯店",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "有人買"
+    },
+    "history_1760916588897": {
+      "action": "減少",
+      "date": "2025-10-20",
+      "id": "history_1760916588897",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 5,
+      "reason": "致歉 10/20 C/O 1109(房卡多次無法感應)"
+    },
+    "history_1760931678351": {
+      "action": "減少",
+      "date": "2025-10-20",
+      "id": "history_1760931678351",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "10/20 C/O R708意見書"
+    },
+    "history_1761010241152": {
+      "action": "減少",
+      "date": "2025-10-21",
+      "id": "history_1761010241152",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10/21 C/O  R702 意見書"
+    },
+    "history_1761012368896": {
+      "action": "減少",
+      "date": "2025-10-21",
+      "id": "history_1761012368896",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10/21 C/O R705 意見書"
+    },
+    "history_1761015239405": {
+      "action": "減少",
+      "date": "2025-10-21",
+      "id": "history_1761015239405",
+      "itemName": "永豐信用卡紙捲",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10/20 更換紙捲"
+    },
+    "history_1761095075905": {
+      "action": "減少",
+      "date": "2025-10-22",
+      "id": "history_1761095075905",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "致歉"
+    },
+    "history_1761096603762": {
+      "action": "減少",
+      "date": "2025-10-22",
+      "id": "history_1761096603762",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "10/22 CO R605意見書"
+    },
+    "history_1761102237771": {
+      "action": "減少",
+      "date": "2025-10-22",
+      "id": "history_1761102237771",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "10/22 CO R1108意見書"
+    },
+    "history_1761188085853": {
+      "action": "減少",
+      "date": "2025-10-23",
+      "id": "history_1761188085853",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "10/23 CO R508意見書"
+    },
+    "history_1761188626716": {
+      "action": "減少",
+      "date": "2025-10-23",
+      "id": "history_1761188626716",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "10/23 co R507意見書"
+    },
+    "history_1761200514694": {
+      "action": "減少",
+      "date": "2025-10-23",
+      "id": "history_1761200514694",
+      "itemName": "一銀信用卡紙捲",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "使用"
+    },
+    "history_1761210249010": {
+      "action": "減少",
+      "date": "2025-10-23",
+      "id": "history_1761210249010",
+      "itemName": "SHUTI-相機",
+      "operator": "Carol",
+      "quantity": 1,
+      "reason": "販售"
+    },
+    "history_1761294839874": {
+      "action": "減少",
+      "date": "2025-10-24",
+      "id": "history_1761294839874",
+      "itemName": "南隅抱枕",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "09997401  10/24  R1208  贈送"
+    },
+    "history_1761436997405": {
+      "action": "減少",
+      "date": "2025-10-26",
+      "id": "history_1761436997405",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 7,
+      "reason": "10/26致歉(507.510.1215)"
+    },
+    "history_1761437336509": {
+      "action": "減少",
+      "date": "2025-10-26",
+      "id": "history_1761437336509",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "10/26 C/O R1207意見書"
+    },
+    "history_1761437930796": {
+      "action": "減少",
+      "date": "2025-10-26",
+      "id": "history_1761437930796",
+      "itemName": "beams馬克杯",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "10/26 CO 1212 聲音客訴"
+    },
+    "history_1761437950308": {
+      "action": "減少",
+      "date": "2025-10-26",
+      "id": "history_1761437950308",
+      "itemName": "南隅備品包",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "10/26 CO 1212 聲音客訴"
+    },
+    "history_1761438195586": {
+      "action": "新增",
+      "date": "2025-10-26",
+      "id": "history_1761438195586",
+      "itemName": "胸章",
+      "operator": "系統",
+      "quantity": 123,
+      "reason": "新增品項"
+    },
+    "history_1761441372570": {
+      "action": "增加",
+      "date": "2025-10-26",
+      "id": "history_1761441372570",
+      "itemName": "牙刷牙膏組",
+      "operator": "Irene",
+      "quantity": 450,
+      "reason": "請領"
+    },
+    "history_1761441417593": {
+      "action": "增加",
+      "date": "2025-10-26",
+      "id": "history_1761441417593",
+      "itemName": "梳子",
+      "operator": "Irene",
+      "quantity": 200,
+      "reason": "請領"
+    },
+    "history_1761441488906": {
+      "action": "增加",
+      "date": "2025-10-26",
+      "id": "history_1761441488906",
+      "itemName": "棉棒",
+      "operator": "Irene",
+      "quantity": 100,
+      "reason": "請領"
+    },
+    "history_1761445059030": {
+      "action": "減少",
+      "date": "2025-10-26",
+      "id": "history_1761445059030",
+      "itemName": "SHUTI-盤子-獅",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "10/26售出"
+    },
+    "history_1761445074397": {
+      "action": "減少",
+      "date": "2025-10-26",
+      "id": "history_1761445074397",
+      "itemName": "SHUTI-馬克杯-狗",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "10/26售出"
+    },
+    "history_1761445092366": {
+      "action": "減少",
+      "date": "2025-10-26",
+      "id": "history_1761445092366",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "滿額贈送"
+    },
+    "history_1761446946839": {
+      "action": "減少",
+      "date": "2025-10-26",
+      "id": "history_1761446946839",
+      "itemName": "南隅備品包",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "10/26 意見書贈送"
+    },
+    "history_1761459163156": {
+      "action": "編輯",
+      "date": "2025-10-26",
+      "id": "history_1761459163156",
+      "itemName": "SHUTI-保溫杯-狗狗",
+      "operator": "Leo",
+      "quantity": 0,
+      "reason": "品名: \"SHUTI-保溫杯-狗\" → \"SHUTI-保溫杯-狗狗\""
+    },
+    "history_1761459485989": {
+      "action": "編輯",
+      "date": "2025-10-26",
+      "id": "history_1761459485989",
+      "itemName": "行軍床墊",
+      "operator": "Leo",
+      "quantity": 5,
+      "reason": "品名: \"行軍床\" → \"行軍床墊\""
+    },
+    "history_1761459535239": {
+      "action": "編輯",
+      "date": "2025-10-26",
+      "id": "history_1761459535239",
+      "itemName": "洗澡椅",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "倉庫: \"服中B1\" → \"服中5F\"；負責人: \"SC\" → \"未分配\""
+    },
+    "history_1761460246720": {
+      "action": "增加",
+      "date": "2025-10-26",
+      "id": "history_1761460246720",
+      "itemName": "黑膠唱片機",
+      "operator": "Leo",
+      "quantity": 4,
+      "reason": "十月盤點"
+    },
+    "history_1761460328152": {
+      "action": "新增",
+      "date": "2025-10-26",
+      "id": "history_1761460328152",
+      "itemName": "嬰兒床板",
+      "operator": "系統",
+      "quantity": 6,
+      "reason": "新增品項"
+    },
+    "history_1761460366440": {
+      "action": "增加",
+      "date": "2025-10-26",
+      "id": "history_1761460366440",
+      "itemName": "嬰兒沐浴包",
+      "operator": "Leo",
+      "quantity": 204,
+      "reason": "十月盤點"
+    },
+    "history_1761460393768": {
+      "action": "增加",
+      "date": "2025-10-26",
+      "id": "history_1761460393768",
+      "itemName": "嬰兒護膚乳",
+      "operator": "Leo",
+      "quantity": 188,
+      "reason": "十月盤點"
+    },
+    "history_1761460507504": {
+      "action": "增加",
+      "date": "2025-10-26",
+      "id": "history_1761460507504",
+      "itemName": "嬰兒毯(ZARA)",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十月盤點"
+    },
+    "history_1761460521006": {
+      "action": "編輯",
+      "date": "2025-10-26",
+      "id": "history_1761460521006",
+      "itemName": "電暖器",
+      "operator": "Leo",
+      "quantity": 4,
+      "reason": "倉庫: \"服中12F\" → \"服中11F\""
+    },
+    "history_1761460585377": {
+      "action": "編輯",
+      "date": "2025-10-26",
+      "id": "history_1761460585377",
+      "itemName": "電風扇",
+      "operator": "Leo",
+      "quantity": 4,
+      "reason": "倉庫: \"服中11F\" → \"服中10F\""
+    },
+    "history_1761460736616": {
+      "action": "編輯",
+      "date": "2025-10-26",
+      "id": "history_1761460736616",
+      "itemName": "洗澡椅",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "分類: \"其他\" → \"寢具\"；負責人: \"未分配\" → \"SC\""
+    },
+    "history_1761460899681": {
+      "action": "新增",
+      "date": "2025-10-26",
+      "id": "history_1761460899681",
+      "itemName": "黑膠唱片外袋",
+      "operator": "系統",
+      "quantity": 90,
+      "reason": "新增品項"
+    },
+    "history_1761460919806": {
+      "action": "新增",
+      "date": "2025-10-26",
+      "id": "history_1761460919806",
+      "itemName": "黑膠唱片內袋",
+      "operator": "系統",
+      "quantity": 34,
+      "reason": "新增品項"
+    },
+    "history_1761460990216": {
+      "action": "增加",
+      "date": "2025-10-26",
+      "id": "history_1761460990216",
+      "itemName": "不銹鋼保養亮光劑",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "十月盤點"
+    },
+    "history_1761461001160": {
+      "action": "增加",
+      "date": "2025-10-26",
+      "id": "history_1761461001160",
+      "itemName": "綠雨傘",
+      "operator": "Leo",
+      "quantity": 14,
+      "reason": "十月盤點"
+    },
+    "history_1761632003034": {
+      "action": "減少",
+      "date": "2025-10-28",
+      "id": "history_1761632003034",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "10/28 CO R713填寫意見書"
+    },
+    "history_1761633524917": {
+      "action": "編輯",
+      "date": "2025-10-28",
+      "id": "history_1761633524917",
+      "itemName": "牛皮紙袋(8K)",
+      "operator": "Leo",
+      "quantity": 112,
+      "reason": "品名: \"牛皮紙袋小\" → \"牛皮紙袋(8K)\""
+    },
+    "history_1761633683312": {
+      "action": "新增",
+      "date": "2025-10-28",
+      "id": "history_1761633683312",
+      "itemName": "牛皮紙袋2K",
+      "operator": "系統",
+      "quantity": 24,
+      "reason": "新增品項"
+    },
+    "history_1761633691808": {
+      "action": "編輯",
+      "date": "2025-10-28",
+      "id": "history_1761633691808",
+      "itemName": "牛皮紙袋(小)",
+      "operator": "Leo",
+      "quantity": 112,
+      "reason": "品名: \"牛皮紙袋(8K)\" → \"牛皮紙袋(小)\""
+    },
+    "history_1761730478268": {
+      "action": "增加",
+      "date": "2025-10-29",
+      "id": "history_1761730478268",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "現場租借 R711"
+    },
+    "history_1761730528003": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761730528003",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "現場租借"
+    },
+    "history_1761730840666": {
+      "action": "增加",
+      "date": "2025-10-29",
+      "id": "history_1761730840666",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Leo",
+      "quantity": 400,
+      "reason": "B1 十月盤點"
+    },
+    "history_1761730932882": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761730932882",
+      "itemName": "3號電池",
+      "operator": "Leo",
+      "quantity": 4,
+      "reason": "十月盤點(沒電)"
+    },
+    "history_1761733858030": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761733858030",
+      "itemName": "南隅備品包",
+      "operator": "Leo",
+      "quantity": 5,
+      "reason": "十月盤點"
+    },
+    "history_1761733953198": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761733953198",
+      "itemName": "OK蹦",
+      "operator": "Leo",
+      "quantity": 37,
+      "reason": "十月盤點"
+    },
+    "history_1761733968510": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761733968510",
+      "itemName": "保險套",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "十月盤點"
+    },
+    "history_1761734000950": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761734000950",
+      "itemName": "棉棒",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十月盤點"
+    },
+    "history_1761734025806": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761734025806",
+      "itemName": "生理食鹽水",
+      "operator": "Leo",
+      "quantity": 3,
+      "reason": "十月盤點"
+    },
+    "history_1761734053422": {
+      "action": "增加",
+      "date": "2025-10-29",
+      "id": "history_1761734053422",
+      "itemName": "膚色繃布-粗",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "十月盤點"
+    },
+    "history_1761734067622": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761734067622",
+      "itemName": "膚色繃布-細",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "十月盤點"
+    },
+    "history_1761734081182": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761734081182",
+      "itemName": "酒精棉片",
+      "operator": "Leo",
+      "quantity": 4,
+      "reason": "十月盤點"
+    },
+    "history_1761734212174": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761734212174",
+      "itemName": "南隅畫報2025",
+      "operator": "Leo",
+      "quantity": 6,
+      "reason": "十月盤點"
+    },
+    "history_1761734232150": {
+      "action": "增加",
+      "date": "2025-10-29",
+      "id": "history_1761734232150",
+      "itemName": "南隅畫報2025",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十月盤點"
+    },
+    "history_1761734366158": {
+      "action": "增加",
+      "date": "2025-10-29",
+      "id": "history_1761734366158",
+      "itemName": "4號電池",
+      "operator": "Leo",
+      "quantity": 4,
+      "reason": "十月盤點"
+    },
+    "history_1761734382726": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761734382726",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "十月盤點"
+    },
+    "history_1761734393685": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761734393685",
+      "itemName": "一銀信用卡紙捲",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "十月盤點"
+    },
+    "history_1761734612349": {
+      "action": "增加",
+      "date": "2025-10-29",
+      "id": "history_1761734612349",
+      "itemName": "牛皮紙袋(小)",
+      "operator": "Leo",
+      "quantity": 33,
+      "reason": "十月盤點"
+    },
+    "history_1761734905053": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761734905053",
+      "itemName": "刮鬍刀",
+      "operator": "Leo",
+      "quantity": 50,
+      "reason": "十月盤點"
+    },
+    "history_1761734948773": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761734948773",
+      "itemName": "梳子",
+      "operator": "Leo",
+      "quantity": 38,
+      "reason": "十月盤點"
+    },
+    "history_1761735114340": {
+      "action": "減少",
+      "date": "2025-10-29",
+      "id": "history_1761735114340",
+      "itemName": "棉棒",
+      "operator": "Leo",
+      "quantity": 38,
+      "reason": "十月盤點"
+    },
+    "history_1761788047057": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761788047057",
+      "itemName": "牛皮紙袋",
+      "operator": "ALICE",
+      "quantity": 12,
+      "reason": "VIC用"
+    },
+    "history_1761788064497": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761788064497",
+      "itemName": "牛皮紙袋",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "1208抱枕用"
+    },
+    "history_1761788077025": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761788077025",
+      "itemName": "牛皮紙袋2K",
+      "operator": "ALICE",
+      "quantity": 12,
+      "reason": "VIC用"
+    },
+    "history_1761788094881": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761788094881",
+      "itemName": "牛皮紙袋2K",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "1208抱枕用"
+    },
+    "history_1761792555506": {
+      "action": "增加",
+      "date": "2025-10-30",
+      "id": "history_1761792555506",
+      "itemName": "牛皮紙袋",
+      "operator": "ALICE",
+      "quantity": 13,
+      "reason": "校正數量"
+    },
+    "history_1761793969414": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761793969414",
+      "itemName": "浴帽",
+      "operator": "Leo",
+      "quantity": 20,
+      "reason": "十月盤點"
+    },
+    "history_1761794037764": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761794037764",
+      "itemName": "牙刷牙膏組",
+      "operator": "Leo",
+      "quantity": 430,
+      "reason": "十月盤點"
+    },
+    "history_1761794093450": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761794093450",
+      "itemName": "牙線棒",
+      "operator": "Leo",
+      "quantity": 52,
+      "reason": "十月盤點"
+    },
+    "history_1761794138156": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761794138156",
+      "itemName": "耳塞",
+      "operator": "Leo",
+      "quantity": 8,
+      "reason": "十月盤點"
+    },
+    "history_1761794208087": {
+      "action": "編輯",
+      "date": "2025-10-30",
+      "id": "history_1761794208087",
+      "itemName": "牛皮紙袋2K",
+      "operator": "Leo",
+      "quantity": 11,
+      "reason": "分類: \"櫃台耗材\" → \"包裝材料\"；負責人: \"Irene\" → \"夜班\""
+    },
+    "history_1761795985766": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761795985766",
+      "itemName": "立可帶+替換帶",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十月盤點"
+    },
+    "history_1761796000110": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761796000110",
+      "itemName": "美工刀",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十月盤點"
+    },
+    "history_1761796015622": {
+      "action": "增加",
+      "date": "2025-10-30",
+      "id": "history_1761796015622",
+      "itemName": "藍筆",
+      "operator": "Leo",
+      "quantity": 7,
+      "reason": "十月盤點"
+    },
+    "history_1761796031478": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761796031478",
+      "itemName": "鉛筆",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "十月盤點"
+    },
+    "history_1761796060213": {
+      "action": "增加",
+      "date": "2025-10-30",
+      "id": "history_1761796060213",
+      "itemName": "房卡套",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十月盤點"
+    },
+    "history_1761796082486": {
+      "action": "增加",
+      "date": "2025-10-30",
+      "id": "history_1761796082486",
+      "itemName": "行李吊牌",
+      "operator": "Leo",
+      "quantity": 127,
+      "reason": "十月盤點"
+    },
+    "history_1761796101503": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761796101503",
+      "itemName": "行李吊牌",
+      "operator": "Leo",
+      "quantity": 10,
+      "reason": "十月盤點"
+    },
+    "history_1761796115678": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761796115678",
+      "itemName": "迎賓飲料券",
+      "operator": "Leo",
+      "quantity": 7,
+      "reason": "十月盤點"
+    },
+    "history_1761796276254": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761796276254",
+      "itemName": "HDMI 線",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "放到客房"
+    },
+    "history_1761796686981": {
+      "action": "增加",
+      "date": "2025-10-30",
+      "id": "history_1761796686981",
+      "itemName": "行李吊牌",
+      "operator": "Leo",
+      "quantity": 500,
+      "reason": "十月盤點"
+    },
+    "history_1761797783027": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761797783027",
+      "itemName": "SHUTI-相機",
+      "operator": "Leo",
+      "quantity": 4,
+      "reason": "Vic領用"
+    },
+    "history_1761797902249": {
+      "action": "增加",
+      "date": "2025-10-30",
+      "id": "history_1761797902249",
+      "itemName": "3號電池",
+      "operator": "Leo",
+      "quantity": 5,
+      "reason": "8F轉入"
+    },
+    "history_1761797934362": {
+      "action": "增加",
+      "date": "2025-10-30",
+      "id": "history_1761797934362",
+      "itemName": "迎賓飲料券",
+      "operator": "Leo",
+      "quantity": 5,
+      "reason": "8F轉入"
+    },
+    "history_1761798005202": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761798005202",
+      "itemName": "PH 抱枕",
+      "operator": "Leo",
+      "quantity": 26,
+      "reason": "轉出房務"
+    },
+    "history_1761826920449": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761826920449",
+      "itemName": "Polaroid 70型底片",
+      "operator": "cammy",
+      "quantity": 4,
+      "reason": "10/31 拍攝vic需要"
+    },
+    "history_1761826946017": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761826946017",
+      "itemName": "Polaroid 600型底片",
+      "operator": "cammy",
+      "quantity": 4,
+      "reason": "10/31拍攝vic需要"
+    },
+    "history_1761827430984": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761827430984",
+      "itemName": "Polaroid 600型底片",
+      "operator": "cammy",
+      "quantity": 2,
+      "reason": "10/30 R903 租借"
+    },
+    "history_1761827542240": {
+      "action": "增加",
+      "date": "2025-10-30",
+      "id": "history_1761827542240",
+      "itemName": "Polaroid 600型底片",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10/30 R903 多扣到一個"
+    },
+    "history_1761827577016": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761827577016",
+      "itemName": "Polaroid 600型底片",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10/30 R1203 租借"
+    },
+    "history_1761835990656": {
+      "action": "減少",
+      "date": "2025-10-30",
+      "id": "history_1761835990656",
+      "itemName": "beams馬克杯",
+      "operator": "Wei",
+      "quantity": 12,
+      "reason": "Vic拍攝用"
+    },
+    "history_1761871304634": {
+      "action": "減少",
+      "date": "2025-10-31",
+      "id": "history_1761871304634",
+      "itemName": "SHUTI-袋子-黑",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "R1115客購買"
+    },
+    "history_1761887863959": {
+      "action": "減少",
+      "date": "2025-10-31",
+      "id": "history_1761887863959",
+      "itemName": "南隅備品包",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "1203意見書"
+    },
+    "history_1761902355590": {
+      "action": "減少",
+      "date": "2025-10-31",
+      "id": "history_1761902355590",
+      "itemName": "Polaroid 600型底片",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "R602 沈方案 租借"
+    },
+    "history_1761908860050": {
+      "action": "減少",
+      "date": "2025-10-31",
+      "id": "history_1761908860050",
+      "itemName": "Polaroid 600型底片",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10/31 vic 拿"
+    },
+    "history_1761917109153": {
+      "action": "增加",
+      "date": "2025-10-31",
+      "id": "history_1761917109153",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Nick",
+      "quantity": 3,
+      "reason": "10/31翊倫歸還"
+    },
+    "history_1761917133185": {
+      "action": "增加",
+      "date": "2025-10-31",
+      "id": "history_1761917133185",
+      "itemName": "Polaroid 70型底片",
+      "operator": "Nick",
+      "quantity": 2,
+      "reason": "10/31翊倫歸還"
+    },
+    "history_1761956318108": {
+      "action": "減少",
+      "date": "2025-11-01",
+      "id": "history_1761956318108",
+      "itemName": "牛皮紙袋2K",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "1208抱枕使用"
+    },
+    "history_1761956352316": {
+      "action": "減少",
+      "date": "2025-11-01",
+      "id": "history_1761956352316",
+      "itemName": "南隅抱枕",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "1208套房使用"
+    },
+    "history_1761956371156": {
+      "action": "減少",
+      "date": "2025-11-01",
+      "id": "history_1761956371156",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 4,
+      "reason": "專案使用"
+    },
+    "history_1761960458277": {
+      "action": "減少",
+      "date": "2025-11-01",
+      "id": "history_1761960458277",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "11/1退房713意見書"
+    },
+    "history_1761964952480": {
+      "action": "減少",
+      "date": "2025-11-01",
+      "id": "history_1761964952480",
+      "itemName": "SHUTI-馬克杯-貓",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "11/1 購買"
+    },
+    "history_1761964975144": {
+      "action": "減少",
+      "date": "2025-11-01",
+      "id": "history_1761964975144",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "滿額贈"
+    },
+    "history_1761966906487": {
+      "action": "減少",
+      "date": "2025-11-01",
+      "id": "history_1761966906487",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "11/1 CO R609意見書"
+    },
+    "history_1762041032354": {
+      "action": "減少",
+      "date": "2025-11-02",
+      "id": "history_1762041032354",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案贈送"
+    },
+    "history_1762047871571": {
+      "action": "減少",
+      "date": "2025-11-02",
+      "id": "history_1762047871571",
+      "itemName": "beams馬克杯",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "致歉"
+    },
+    "history_1762052068590": {
+      "action": "減少",
+      "date": "2025-11-02",
+      "id": "history_1762052068590",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "意見書"
+    },
+    "history_1762052524402": {
+      "action": "減少",
+      "date": "2025-11-02",
+      "id": "history_1762052524402",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "R508退房寫意見書"
+    },
+    "history_1762052547801": {
+      "action": "增加",
+      "date": "2025-11-02",
+      "id": "history_1762052547801",
+      "itemName": "消毒鍋",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "請購入庫"
+    },
+    "history_1762053309114": {
+      "action": "減少",
+      "date": "2025-11-02",
+      "id": "history_1762053309114",
+      "itemName": "SHUTI-相機",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "客人購買"
+    },
+    "history_1762053322683": {
+      "action": "減少",
+      "date": "2025-11-02",
+      "id": "history_1762053322683",
+      "itemName": "SHUTI-濾掛",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "滿額贈"
+    },
+    "history_1762139589599": {
+      "action": "新增",
+      "date": "2025-11-03",
+      "id": "history_1762139589599",
+      "itemName": "三竹簡訊剩餘點數",
+      "operator": "系統",
+      "quantity": 5317,
+      "reason": "新增品項"
+    },
+    "history_1762214143989": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762214143989",
+      "itemName": "周年慶住宿券",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10088601"
+    },
+    "history_1762215874112": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762215874112",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "11/4 c/o R507 意見書"
+    },
+    "history_1762243328629": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762243328629",
+      "itemName": "SHUTI-馬克杯-狗",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "客人購買"
+    },
+    "history_1762249776176": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762249776176",
+      "itemName": "SHUTI-畫-CITY VIBE",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "特助領取"
+    },
+    "history_1762249784928": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762249784928",
+      "itemName": "SHUTI-畫-SLOW LIVING",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "特助領取"
+    },
+    "history_1762249798960": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762249798960",
+      "itemName": "SHUTI-盤子-獅",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "特助領取"
+    },
+    "history_1762249809247": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762249809247",
+      "itemName": "SHUTI-相機",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "特助領取"
+    },
+    "history_1762249818760": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762249818760",
+      "itemName": "SHUTI-貼紙-飯店",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "特助領取"
+    },
+    "history_1762249823368": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762249823368",
+      "itemName": "SHUTI-貼紙-餐廳",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "特助領取"
+    },
+    "history_1762249834064": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762249834064",
+      "itemName": "SHUTI-馬克杯-狗",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "特助領取"
+    },
+    "history_1762250417592": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762250417592",
+      "itemName": "SHUTI-明信片-SLOW LIVE",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "特助領取"
+    },
+    "history_1762250484279": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762250484279",
+      "itemName": "SHUTI-書籤-女",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "特助領取"
+    },
+    "history_1762250489567": {
+      "action": "減少",
+      "date": "2025-11-04",
+      "id": "history_1762250489567",
+      "itemName": "SHUTI-書籤-男",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "特助領取"
+    },
+    "history_1762407897212": {
+      "action": "減少",
+      "date": "2025-11-06",
+      "id": "history_1762407897212",
+      "itemName": "透明膠帶",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "11/6 開封"
+    },
+    "history_1762474180770": {
+      "action": "減少",
+      "date": "2025-11-07",
+      "id": "history_1762474180770",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 4,
+      "reason": "專案贈送"
+    },
+    "history_1762560427612": {
+      "action": "減少",
+      "date": "2025-11-08",
+      "id": "history_1762560427612",
+      "itemName": "南隅抱枕",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "1208使用"
+    },
+    "history_1762560447547": {
+      "action": "減少",
+      "date": "2025-11-08",
+      "id": "history_1762560447547",
+      "itemName": "牛皮紙袋2K",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "1208使用"
+    },
+    "history_1762560465675": {
+      "action": "減少",
+      "date": "2025-11-08",
+      "id": "history_1762560465675",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "專案贈送"
+    },
+    "history_1762737158993": {
+      "action": "減少",
+      "date": "2025-11-10",
+      "id": "history_1762737158993",
+      "itemName": "一銀信用卡紙捲",
+      "operator": "wendy",
+      "quantity": 4,
+      "reason": "校正回歸"
+    },
+    "history_1762737217193": {
+      "action": "增加",
+      "date": "2025-11-10",
+      "id": "history_1762737217193",
+      "itemName": "一銀信用卡紙捲",
+      "operator": "wendy",
+      "quantity": 30,
+      "reason": "跟大欣領取"
+    },
+    "history_1762743013461": {
+      "action": "減少",
+      "date": "2025-11-10",
+      "id": "history_1762743013461",
+      "itemName": "Polaroid 600型底片",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "11/10 C/O R905"
+    },
+    "history_1762849571846": {
+      "action": "增加",
+      "date": "2025-11-11",
+      "id": "history_1762849571846",
+      "itemName": "SHUTI-馬克杯-狗",
+      "operator": "cammy",
+      "quantity": 5,
+      "reason": "從VIC那拿的庫存"
+    },
+    "history_1762849595678": {
+      "action": "增加",
+      "date": "2025-11-11",
+      "id": "history_1762849595678",
+      "itemName": "SHUTI-馬克杯-貓",
+      "operator": "cammy",
+      "quantity": 4,
+      "reason": "從VIC那拿的庫存"
+    },
+    "history_1762998457472": {
+      "action": "減少",
+      "date": "2025-11-13",
+      "id": "history_1762998457472",
+      "itemName": "永豐信用卡紙捲",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "更換紙捲"
+    },
+    "history_1763033760641": {
+      "action": "減少",
+      "date": "2025-11-13",
+      "id": "history_1763033760641",
+      "itemName": "一銀信用卡紙捲",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "1113"
+    },
+    "history_1763076092979": {
+      "action": "減少",
+      "date": "2025-11-14",
+      "id": "history_1763076092979",
+      "itemName": "beams馬克杯",
+      "operator": "cammy",
+      "quantity": 2,
+      "reason": "11/14 C/O R506 致歉禮"
+    },
+    "history_1763100418229": {
+      "action": "減少",
+      "date": "2025-11-14",
+      "id": "history_1763100418229",
+      "itemName": "SHUTI-相機",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "散客售出"
+    },
+    "history_1763111173803": {
+      "action": "減少",
+      "date": "2025-11-14",
+      "id": "history_1763111173803",
+      "itemName": "SHUTI-相機",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "疑似賣出，目前校正回歸"
+    },
+    "history_1763163727782": {
+      "action": "減少",
+      "date": "2025-11-15",
+      "id": "history_1763163727782",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "11/15 C/O R703 意見書"
+    },
+    "history_1763167217633": {
+      "action": "減少",
+      "date": "2025-11-15",
+      "id": "history_1763167217633",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 9,
+      "reason": "專案贈送"
+    },
+    "history_1763167316149": {
+      "action": "減少",
+      "date": "2025-11-15",
+      "id": "history_1763167316149",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 5,
+      "reason": "校正回歸(專案贈送)"
+    },
+    "history_1763167407572": {
+      "action": "減少",
+      "date": "2025-11-15",
+      "id": "history_1763167407572",
+      "itemName": "牛皮紙袋2K",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "1208使用"
+    },
+    "history_1763167439982": {
+      "action": "減少",
+      "date": "2025-11-15",
+      "id": "history_1763167439982",
+      "itemName": "南隅抱枕",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "R1208使用"
+    },
+    "history_1763177524483": {
+      "action": "減少",
+      "date": "2025-11-15",
+      "id": "history_1763177524483",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "11/15退房  意見書"
+    },
+    "history_1763252553010": {
+      "action": "新增",
+      "date": "2025-11-16",
+      "id": "history_1763252553010",
+      "itemName": "藝人推薦兌換券",
+      "operator": "系統",
+      "quantity": 100,
+      "reason": "新增品項"
+    },
+    "history_1763252576219": {
+      "action": "新增",
+      "date": "2025-11-16",
+      "id": "history_1763252576219",
+      "itemName": "天下推薦兌換券",
+      "operator": "系統",
+      "quantity": 100,
+      "reason": "新增品項"
+    },
+    "history_1763252731758": {
+      "action": "新增",
+      "date": "2025-11-16",
+      "id": "history_1763252731758",
+      "itemName": "台南製造專案地圖",
+      "operator": "系統",
+      "quantity": 105,
+      "reason": "新增品項"
+    },
+    "history_1763252940565": {
+      "action": "新增",
+      "date": "2025-11-16",
+      "id": "history_1763252940565",
+      "itemName": "台南製造專案信封",
+      "operator": "系統",
+      "quantity": 100,
+      "reason": "新增品項"
+    },
+    "history_1763253177174": {
+      "action": "減少",
+      "date": "2025-11-16",
+      "id": "history_1763253177174",
+      "itemName": "天下推薦兌換券",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "11/16"
+    },
+    "history_1763253187398": {
+      "action": "減少",
+      "date": "2025-11-16",
+      "id": "history_1763253187398",
+      "itemName": "台南製造專案地圖",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "11/16"
+    },
+    "history_1763253202647": {
+      "action": "減少",
+      "date": "2025-11-16",
+      "id": "history_1763253202647",
+      "itemName": "藝人推薦兌換券",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "11/16"
+    },
+    "history_1763253208390": {
+      "action": "減少",
+      "date": "2025-11-16",
+      "id": "history_1763253208390",
+      "itemName": "台南製造專案信封",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "11/16"
+    },
+    "history_1763253620446": {
+      "action": "減少",
+      "date": "2025-11-16",
+      "id": "history_1763253620446",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "11/16"
+    },
+    "history_1763263656645": {
+      "action": "減少",
+      "date": "2025-11-16",
+      "id": "history_1763263656645",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "11/16 意見書"
+    },
+    "history_1763341860556": {
+      "action": "減少",
+      "date": "2025-11-17",
+      "id": "history_1763341860556",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "致歉禮(房間有蟑螂)"
+    },
+    "history_1763541314010": {
+      "action": "減少",
+      "date": "2025-11-19",
+      "id": "history_1763541314010",
+      "itemName": "SHUTI-貼紙-餐廳",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "客人購買"
+    },
+    "history_1763591432544": {
+      "action": "減少",
+      "date": "2025-11-20",
+      "id": "history_1763591432544",
+      "itemName": "SHUTI-相機",
+      "operator": "Wei",
+      "quantity": 1,
+      "reason": "R605"
+    },
+    "history_1763600349915": {
+      "action": "減少",
+      "date": "2025-11-20",
+      "id": "history_1763600349915",
+      "itemName": "藝人推薦兌換券",
+      "operator": "cammy",
+      "quantity": 4,
+      "reason": "10286401/10312501"
+    },
+    "history_1763600356715": {
+      "action": "減少",
+      "date": "2025-11-20",
+      "id": "history_1763600356715",
+      "itemName": "天下推薦兌換券",
+      "operator": "cammy",
+      "quantity": 2,
+      "reason": "10286401/10312501"
+    },
+    "history_1763600362986": {
+      "action": "減少",
+      "date": "2025-11-20",
+      "id": "history_1763600362986",
+      "itemName": "台南製造專案地圖",
+      "operator": "cammy",
+      "quantity": 2,
+      "reason": "10286401/10312501"
+    },
+    "history_1763600369090": {
+      "action": "減少",
+      "date": "2025-11-20",
+      "id": "history_1763600369090",
+      "itemName": "台南製造專案信封",
+      "operator": "cammy",
+      "quantity": 2,
+      "reason": "10286401/10312501"
+    },
+    "history_1763600561074": {
+      "action": "新增",
+      "date": "2025-11-20",
+      "id": "history_1763600561074",
+      "itemName": "台南製造抽獎券",
+      "operator": "系統",
+      "quantity": 100,
+      "reason": "新增品項"
+    },
+    "history_1763600589698": {
+      "action": "減少",
+      "date": "2025-11-20",
+      "id": "history_1763600589698",
+      "itemName": "台南製造抽獎券",
+      "operator": "cammy",
+      "quantity": 4,
+      "reason": "10286401/10312501"
+    },
+    "history_1763600603930": {
+      "action": "減少",
+      "date": "2025-11-20",
+      "id": "history_1763600603930",
+      "itemName": "Polaroid 70型底片",
+      "operator": "cammy",
+      "quantity": 2,
+      "reason": "10286401/10312501-台南製造"
+    },
+    "history_1763609154447": {
+      "action": "減少",
+      "date": "2025-11-20",
+      "id": "history_1763609154447",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 3,
+      "reason": "11/20 C/O R502、506、911"
+    },
+    "history_1763686699610": {
+      "action": "減少",
+      "date": "2025-11-21",
+      "id": "history_1763686699610",
+      "itemName": "台南製造抽獎券",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "1121"
+    },
+    "history_1763686707793": {
+      "action": "減少",
+      "date": "2025-11-21",
+      "id": "history_1763686707793",
+      "itemName": "台南製造專案信封",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "1121"
+    },
+    "history_1763686715914": {
+      "action": "減少",
+      "date": "2025-11-21",
+      "id": "history_1763686715914",
+      "itemName": "台南製造專案地圖",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "1121"
+    },
+    "history_1763686724098": {
+      "action": "減少",
+      "date": "2025-11-21",
+      "id": "history_1763686724098",
+      "itemName": "天下推薦兌換券",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "1121"
+    },
+    "history_1763686733082": {
+      "action": "減少",
+      "date": "2025-11-21",
+      "id": "history_1763686733082",
+      "itemName": "藝人推薦兌換券",
+      "operator": "Irene",
+      "quantity": 4,
+      "reason": "1121"
+    },
+    "history_1763686944850": {
+      "action": "減少",
+      "date": "2025-11-21",
+      "id": "history_1763686944850",
+      "itemName": "台南製造專案地圖",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "1121"
+    },
+    "history_1763687248602": {
+      "action": "減少",
+      "date": "2025-11-21",
+      "id": "history_1763687248602",
+      "itemName": "Polaroid 70型底片",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "1121台南製造專案"
+    },
+    "history_1763695354831": {
+      "action": "減少",
+      "date": "2025-11-21",
+      "id": "history_1763695354831",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "1121意見書"
+    },
+    "history_1763699510159": {
+      "action": "減少",
+      "date": "2025-11-21",
+      "id": "history_1763699510159",
+      "itemName": "南隅備品包",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "R1205意見書"
+    },
+    "history_1763773723210": {
+      "action": "減少",
+      "date": "2025-11-22",
+      "id": "history_1763773723210",
+      "itemName": "南隅備品包",
+      "operator": "wendy",
+      "quantity": 2,
+      "reason": "602、611意見書"
+    },
+    "history_1763774165009": {
+      "action": "減少",
+      "date": "2025-11-22",
+      "id": "history_1763774165009",
+      "itemName": "南隅備品包",
+      "operator": "wendy",
+      "quantity": 2,
+      "reason": "R706致歉"
+    },
+    "history_1763859012011": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763859012011",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 5,
+      "reason": "專案贈送"
+    },
+    "history_1763859400371": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763859400371",
+      "itemName": "藝人推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 3,
+      "reason": "台南製造"
+    },
+    "history_1763859409523": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763859409523",
+      "itemName": "天下推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "台南製造"
+    },
+    "history_1763859417139": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763859417139",
+      "itemName": "台南製造專案地圖",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "台南製造"
+    },
+    "history_1763859425659": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763859425659",
+      "itemName": "台南製造專案信封",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "台南製造"
+    },
+    "history_1763859432211": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763859432211",
+      "itemName": "台南製造抽獎券",
+      "operator": "ALICE",
+      "quantity": 3,
+      "reason": "台南製造"
+    },
+    "history_1763871588226": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763871588226",
+      "itemName": "南隅備品包",
+      "operator": "wendy",
+      "quantity": 2,
+      "reason": "R603、912意見書"
+    },
+    "history_1763871620259": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763871620259",
+      "itemName": "Polaroid 70型底片",
+      "operator": "wendy",
+      "quantity": 1,
+      "reason": "R1215台南製造"
+    },
+    "history_1763900957102": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763900957102",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Nick",
+      "quantity": 13,
+      "reason": "11/23校正回歸"
+    },
+    "history_1763900970839": {
+      "action": "增加",
+      "date": "2025-11-23",
+      "id": "history_1763900970839",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "11/23校正回歸"
+    },
+    "history_1763900991870": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763900991870",
+      "itemName": "SHUTI-盤子-獅",
+      "operator": "Nick",
+      "quantity": 3,
+      "reason": "11/23校正回歸"
+    },
+    "history_1763901003694": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763901003694",
+      "itemName": "SHUTI-貼紙-飯店",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "11/23校正回歸"
+    },
+    "history_1763901013110": {
+      "action": "增加",
+      "date": "2025-11-23",
+      "id": "history_1763901013110",
+      "itemName": "SHUTI-貼紙-餐廳",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "11/23校正回歸"
+    },
+    "history_1763901088375": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763901088375",
+      "itemName": "SHUTI-書籤-老爺爺",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "11/23校正回歸"
+    },
+    "history_1763907141908": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763907141908",
+      "itemName": "SHUTI-貼紙-飯店",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "1123"
+    },
+    "history_1763907157476": {
+      "action": "減少",
+      "date": "2025-11-23",
+      "id": "history_1763907157476",
+      "itemName": "SHUTI-貼紙-餐廳",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "1123"
+    },
+    "history_1763942654230": {
+      "action": "減少",
+      "date": "2025-11-24",
+      "id": "history_1763942654230",
+      "itemName": "周年慶住宿券",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10147501"
+    },
+    "history_1763942794789": {
+      "action": "減少",
+      "date": "2025-11-24",
+      "id": "history_1763942794789",
+      "itemName": "藝人推薦兌換券",
+      "operator": "cammy",
+      "quantity": 2,
+      "reason": "10340901"
+    },
+    "history_1763942803877": {
+      "action": "減少",
+      "date": "2025-11-24",
+      "id": "history_1763942803877",
+      "itemName": "天下推薦兌換券",
+      "operator": "cammy",
+      "quantity": 2,
+      "reason": "10340901"
+    },
+    "history_1763942812429": {
+      "action": "減少",
+      "date": "2025-11-24",
+      "id": "history_1763942812429",
+      "itemName": "台南製造專案地圖",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10340901"
+    },
+    "history_1763942829757": {
+      "action": "減少",
+      "date": "2025-11-24",
+      "id": "history_1763942829757",
+      "itemName": "台南製造專案信封",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10340901"
+    },
+    "history_1763942853213": {
+      "action": "減少",
+      "date": "2025-11-24",
+      "id": "history_1763942853213",
+      "itemName": "Polaroid 70型底片",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10340901"
+    },
+    "history_1763954959025": {
+      "action": "減少",
+      "date": "2025-11-24",
+      "id": "history_1763954959025",
+      "itemName": "Polaroid 600型底片",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "客人租借"
+    },
+    "history_1763957677652": {
+      "action": "減少",
+      "date": "2025-11-24",
+      "id": "history_1763957677652",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "703意見書"
+    },
+    "history_1763960541417": {
+      "action": "減少",
+      "date": "2025-11-24",
+      "id": "history_1763960541417",
+      "itemName": "一銀信用卡紙捲",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "更換紙捲"
+    },
+    "history_1764037307867": {
+      "action": "減少",
+      "date": "2025-11-25",
+      "id": "history_1764037307867",
+      "itemName": "Polaroid 70型底片",
+      "operator": "cammy",
+      "quantity": 1,
+      "reason": "10340901因寶麗萊12卡底片，故新給一盒"
+    },
+    "history_1764040710094": {
+      "action": "減少",
+      "date": "2025-11-25",
+      "id": "history_1764040710094",
+      "itemName": "南隅備品包",
+      "operator": "cammy",
+      "quantity": 2,
+      "reason": "11/25 退房意見書發出"
+    },
+    "history_1764201780016": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764201780016",
+      "itemName": "藝人推薦兌換券",
+      "operator": "Nick",
+      "quantity": 2,
+      "reason": "10341101專案"
+    },
+    "history_1764201787239": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764201787239",
+      "itemName": "天下推薦兌換券",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "10341101專案"
+    },
+    "history_1764201795664": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764201795664",
+      "itemName": "台南製造專案地圖",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "10341101專案"
+    },
+    "history_1764201801991": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764201801991",
+      "itemName": "台南製造專案信封",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "10341101專案"
+    },
+    "history_1764202086263": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764202086263",
+      "itemName": "Polaroid 70型底片",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "10341101專案"
+    },
+    "history_1764227973067": {
+      "action": "編輯",
+      "date": "2025-11-27",
+      "id": "history_1764227973067",
+      "itemName": "熨斗燙板組",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "品名: \"熨斗組\" → \"熨斗燙板組\""
+    },
+    "history_1764228338986": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764228338986",
+      "itemName": "消毒鍋",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "11月盤點"
+    },
+    "history_1764232245421": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764232245421",
+      "itemName": "藝人推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "專案用"
+    },
+    "history_1764232358285": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764232358285",
+      "itemName": "天下推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案用"
+    },
+    "history_1764232366717": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764232366717",
+      "itemName": "台南製造專案地圖",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案用"
+    },
+    "history_1764232376381": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764232376381",
+      "itemName": "台南製造專案信封",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案用"
+    },
+    "history_1764232392726": {
+      "action": "減少",
+      "date": "2025-11-27",
+      "id": "history_1764232392726",
+      "itemName": "Polaroid 600型底片",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案用"
+    },
+    "history_1764293642821": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764293642821",
+      "itemName": "台南製造專案信封",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "1128"
+    },
+    "history_1764293650820": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764293650820",
+      "itemName": "台南製造專案地圖",
+      "operator": "Irene",
+      "quantity": 3,
+      "reason": "1128"
+    },
+    "history_1764293666373": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764293666373",
+      "itemName": "天下推薦兌換券",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "1128"
+    },
+    "history_1764293715820": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764293715820",
+      "itemName": "藝人推薦兌換券",
+      "operator": "Irene",
+      "quantity": 5,
+      "reason": "1128"
+    },
+    "history_1764313906355": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764313906355",
+      "itemName": "Polaroid 600型底片",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案用"
+    },
+    "history_1764313916483": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764313916483",
+      "itemName": "Polaroid 70型底片",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案用"
+    },
+    "history_1764313933587": {
+      "action": "增加",
+      "date": "2025-11-28",
+      "id": "history_1764313933587",
+      "itemName": "Polaroid 600型底片",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "客人不需要故校正回歸"
+    },
+    "history_1764317768156": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764317768156",
+      "itemName": "Polaroid 70型底片",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案用"
+    },
+    "history_1764317784692": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764317784692",
+      "itemName": "藝人推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "專案用"
+    },
+    "history_1764317793661": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764317793661",
+      "itemName": "天下推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案用"
+    },
+    "history_1764317805044": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764317805044",
+      "itemName": "台南製造專案地圖",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案用"
+    },
+    "history_1764317813196": {
+      "action": "減少",
+      "date": "2025-11-28",
+      "id": "history_1764317813196",
+      "itemName": "台南製造專案信封",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "專案用"
+    },
+    "history_1764373881886": {
+      "action": "減少",
+      "date": "2025-11-29",
+      "id": "history_1764373881886",
+      "itemName": "Polaroid 70型底片",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "1128 台南製造"
+    },
+    "history_1764390673457": {
+      "action": "減少",
+      "date": "2025-11-29",
+      "id": "history_1764390673457",
+      "itemName": "Polaroid 70型底片",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "1129 09859301租借"
+    },
+    "history_1764462776684": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764462776684",
+      "itemName": "藝人推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 5,
+      "reason": "專案用"
+    },
+    "history_1764462786268": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764462786268",
+      "itemName": "天下推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "專案用"
+    },
+    "history_1764462792628": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764462792628",
+      "itemName": "台南製造專案地圖",
+      "operator": "ALICE",
+      "quantity": 3,
+      "reason": "專案用"
+    },
+    "history_1764462801156": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764462801156",
+      "itemName": "台南製造專案信封",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "專案用"
+    },
+    "history_1764462936924": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764462936924",
+      "itemName": "Polaroid 70型底片",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "專案用"
+    },
+    "history_1764465730191": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764465730191",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "R705意見書"
+    },
+    "history_1764466683190": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764466683190",
+      "itemName": "台南製造專案信封",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "特助拿"
+    },
+    "history_1764466689030": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764466689030",
+      "itemName": "台南製造專案地圖",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "特助拿"
+    },
+    "history_1764475411135": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764475411135",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "R1212意見書"
+    },
+    "history_1764475594031": {
+      "action": "增加",
+      "date": "2025-11-30",
+      "id": "history_1764475594031",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "收備品撿到"
+    },
+    "history_1764502834668": {
+      "action": "編輯",
+      "date": "2025-11-30",
+      "id": "history_1764502834668",
+      "itemName": "OK蹦(小)",
+      "operator": "Leo",
+      "quantity": 16,
+      "reason": "品名: \"OK蹦\" → \"OK蹦(小)\""
+    },
+    "history_1764502854698": {
+      "action": "增加",
+      "date": "2025-11-30",
+      "id": "history_1764502854698",
+      "itemName": "OK蹦(小)",
+      "operator": "Leo",
+      "quantity": 9,
+      "reason": "11月盤點"
+    },
+    "history_1764502975002": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764502975002",
+      "itemName": "中棉球",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "十一月盤點"
+    },
+    "history_1764502997914": {
+      "action": "增加",
+      "date": "2025-11-30",
+      "id": "history_1764502997914",
+      "itemName": "保險套",
+      "operator": "Leo",
+      "quantity": 9,
+      "reason": "十一月盤點"
+    },
+    "history_1764503012306": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764503012306",
+      "itemName": "保險套",
+      "operator": "Leo",
+      "quantity": 18,
+      "reason": "十一月盤點"
+    },
+    "history_1764503167418": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764503167418",
+      "itemName": "棉棒",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十一月盤點"
+    },
+    "history_1764503180290": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764503180290",
+      "itemName": "生理食鹽水",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十一月盤點"
+    },
+    "history_1764503244610": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764503244610",
+      "itemName": "酒精棉片",
+      "operator": "Leo",
+      "quantity": 15,
+      "reason": "十一月盤點"
+    },
+    "history_1764503277750": {
+      "action": "新增",
+      "date": "2025-11-30",
+      "id": "history_1764503277750",
+      "itemName": "繃帶",
+      "operator": "系統",
+      "quantity": 0,
+      "reason": "新增品項"
+    },
+    "history_1764503303449": {
+      "action": "新增",
+      "date": "2025-11-30",
+      "id": "history_1764503303449",
+      "itemName": "OK蹦(大)",
+      "operator": "系統",
+      "quantity": 24,
+      "reason": "新增品項"
+    },
+    "history_1764503362361": {
+      "action": "新增",
+      "date": "2025-11-30",
+      "id": "history_1764503362361",
+      "itemName": "潤滑液",
+      "operator": "系統",
+      "quantity": 0,
+      "reason": "新增品項"
+    },
+    "history_1764503705371": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764503705371",
+      "itemName": "南隅備品包",
+      "operator": "Leo",
+      "quantity": 3,
+      "reason": "十一月盤點"
+    },
+    "history_1764503714923": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764503714923",
+      "itemName": "南隅備品包",
+      "operator": "Leo",
+      "quantity": 10,
+      "reason": "十一月盤點"
+    },
+    "history_1764503998866": {
+      "action": "新增",
+      "date": "2025-11-30",
+      "id": "history_1764503998866",
+      "itemName": "計程車單",
+      "operator": "系統",
+      "quantity": 1,
+      "reason": "新增品項"
+    },
+    "history_1764504119643": {
+      "action": "增加",
+      "date": "2025-11-30",
+      "id": "history_1764504119643",
+      "itemName": "行李吊牌",
+      "operator": "Leo",
+      "quantity": 305,
+      "reason": "十一月盤點"
+    },
+    "history_1764504156851": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764504156851",
+      "itemName": "迎賓飲料券",
+      "operator": "Leo",
+      "quantity": 7,
+      "reason": "十一月盤點"
+    },
+    "history_1764504342819": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764504342819",
+      "itemName": "胸章",
+      "operator": "Leo",
+      "quantity": 13,
+      "reason": "十一月盤點"
+    },
+    "history_1764504765139": {
+      "action": "增加",
+      "date": "2025-11-30",
+      "id": "history_1764504765139",
+      "itemName": "南隅畫報2025",
+      "operator": "Leo",
+      "quantity": 457,
+      "reason": "十一月盤點"
+    },
+    "history_1764505437324": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764505437324",
+      "itemName": "牛皮紙袋",
+      "operator": "Leo",
+      "quantity": 3,
+      "reason": "十一月盤點"
+    },
+    "history_1764505496332": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764505496332",
+      "itemName": "刮鬍刀",
+      "operator": "Leo",
+      "quantity": 27,
+      "reason": "十一月盤點"
+    },
+    "history_1764505512484": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764505512484",
+      "itemName": "梳子",
+      "operator": "Leo",
+      "quantity": 20,
+      "reason": "十一月盤點"
+    },
+    "history_1764505528636": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764505528636",
+      "itemName": "棉棒",
+      "operator": "Leo",
+      "quantity": 39,
+      "reason": "十一月盤點"
+    },
+    "history_1764505549812": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764505549812",
+      "itemName": "浴帽",
+      "operator": "Leo",
+      "quantity": 20,
+      "reason": "十一月盤點"
+    },
+    "history_1764505569700": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764505569700",
+      "itemName": "牙刷牙膏組",
+      "operator": "Leo",
+      "quantity": 229,
+      "reason": "十一月盤點"
+    },
+    "history_1764505620501": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764505620501",
+      "itemName": "牙線棒",
+      "operator": "Leo",
+      "quantity": 45,
+      "reason": "十一月盤點"
+    },
+    "history_1764505660941": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764505660941",
+      "itemName": "洗沐分裝罐",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十一月盤點"
+    },
+    "history_1764506082421": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764506082421",
+      "itemName": "布紋膠帶",
+      "operator": "Leo",
+      "quantity": 3,
+      "reason": "十一月盤點"
+    },
+    "history_1764506309613": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764506309613",
+      "itemName": "捲尺",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十一月盤點"
+    },
+    "history_1764506348773": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764506348773",
+      "itemName": "橡皮擦",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十一月盤點"
+    },
+    "history_1764506373613": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764506373613",
+      "itemName": "立可帶+替換帶",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "十一月盤點"
+    },
+    "history_1764506392581": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764506392581",
+      "itemName": "紅筆",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十一月盤點"
+    },
+    "history_1764506421237": {
+      "action": "增加",
+      "date": "2025-11-30",
+      "id": "history_1764506421237",
+      "itemName": "美工刀",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十一月盤點"
+    },
+    "history_1764506926326": {
+      "action": "增加",
+      "date": "2025-11-30",
+      "id": "history_1764506926326",
+      "itemName": "鉛筆",
+      "operator": "Leo",
+      "quantity": 4,
+      "reason": "十一月盤點"
+    },
+    "history_1764506957693": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764506957693",
+      "itemName": "牛皮紙袋2K",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十一月盤點"
+    },
+    "history_1764507781766": {
+      "action": "增加",
+      "date": "2025-11-30",
+      "id": "history_1764507781766",
+      "itemName": "4號電池",
+      "operator": "Leo",
+      "quantity": 8,
+      "reason": "十一月盤點"
+    },
+    "history_1764507812334": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764507812334",
+      "itemName": "一銀信用卡紙捲",
+      "operator": "Leo",
+      "quantity": 2,
+      "reason": "十一月盤點"
+    },
+    "history_1764507821854": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764507821854",
+      "itemName": "房卡",
+      "operator": "Leo",
+      "quantity": 3,
+      "reason": "十一月盤點"
+    },
+    "history_1764508579271": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764508579271",
+      "itemName": "永豐信用卡紙捲",
+      "operator": "Leo",
+      "quantity": 6,
+      "reason": "十一月盤點"
+    },
+    "history_1764508596239": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764508596239",
+      "itemName": "玉山信用卡紙捲",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "十一月盤點"
+    },
+    "history_1764508714807": {
+      "action": "增加",
+      "date": "2025-11-30",
+      "id": "history_1764508714807",
+      "itemName": "發票紙捲",
+      "operator": "Leo",
+      "quantity": 5,
+      "reason": "十一月盤點"
+    },
+    "history_1764508723007": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764508723007",
+      "itemName": "發票紙捲",
+      "operator": "Leo",
+      "quantity": 10,
+      "reason": "十一月盤點"
+    },
+    "history_1764509254440": {
+      "action": "減少",
+      "date": "2025-11-30",
+      "id": "history_1764509254440",
+      "itemName": "三竹簡訊剩餘點數",
+      "operator": "Leo",
+      "quantity": 1756,
+      "reason": "十月盤點"
+    },
+    "history_1764551234728": {
+      "action": "減少",
+      "date": "2025-12-01",
+      "id": "history_1764551234728",
+      "itemName": "beams帆布袋(白）",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "致歉"
+    },
+    "history_1764551266384": {
+      "action": "減少",
+      "date": "2025-12-01",
+      "id": "history_1764551266384",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "致歉"
+    },
+    "history_1764554219098": {
+      "action": "減少",
+      "date": "2025-12-01",
+      "id": "history_1764554219098",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "712退房意見書"
+    },
+    "history_1764576343850": {
+      "action": "新增",
+      "date": "2025-12-01",
+      "id": "history_1764576343850",
+      "itemName": "六兩淋膜紙袋(甜甜袋)",
+      "operator": "系統",
+      "quantity": 2,
+      "reason": "新增品項"
+    },
+    "history_1764717937995": {
+      "action": "減少",
+      "date": "2025-12-03",
+      "id": "history_1764717937995",
+      "itemName": "藝人推薦兌換券",
+      "operator": "Nick",
+      "quantity": 2,
+      "reason": "10396701專案發出"
+    },
+    "history_1764717945399": {
+      "action": "減少",
+      "date": "2025-12-03",
+      "id": "history_1764717945399",
+      "itemName": "天下推薦兌換券",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "10396701專案發出"
+    },
+    "history_1764717952393": {
+      "action": "減少",
+      "date": "2025-12-03",
+      "id": "history_1764717952393",
+      "itemName": "台南製造專案地圖",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "10396701專案發出"
+    },
+    "history_1764717981759": {
+      "action": "減少",
+      "date": "2025-12-03",
+      "id": "history_1764717981759",
+      "itemName": "Polaroid 70型底片",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "10396701專案發出"
+    },
+    "history_1764721420781": {
+      "action": "減少",
+      "date": "2025-12-03",
+      "id": "history_1764721420781",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Nick",
+      "quantity": 2,
+      "reason": "12/3贈致歉"
+    },
+    "history_1764742281856": {
+      "action": "增加",
+      "date": "2025-12-03",
+      "id": "history_1764742281856",
+      "itemName": "永豐信用卡紙捲",
+      "operator": "ALICE",
+      "quantity": 30,
+      "reason": "到貨"
+    },
+    "history_1764759859238": {
+      "action": "新增",
+      "date": "2025-12-03",
+      "id": "history_1764759859238",
+      "itemName": "金屬保護油",
+      "operator": "系統",
+      "quantity": 1,
+      "reason": "新增品項"
+    },
+    "history_1764806099731": {
+      "action": "減少",
+      "date": "2025-12-04",
+      "id": "history_1764806099731",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Nick",
+      "quantity": 2,
+      "reason": "12/4贈R507致歉*2"
+    },
+    "history_1764808945300": {
+      "action": "減少",
+      "date": "2025-12-04",
+      "id": "history_1764808945300",
+      "itemName": "藝人推薦兌換券",
+      "operator": "Nick",
+      "quantity": 8,
+      "reason": "RV#10379401、RV#10389201"
+    },
+    "history_1764808984408": {
+      "action": "減少",
+      "date": "2025-12-04",
+      "id": "history_1764808984408",
+      "itemName": "天下推薦兌換券",
+      "operator": "Nick",
+      "quantity": 2,
+      "reason": "RV#10379401.RV#10389201"
+    },
+    "history_1764808996617": {
+      "action": "減少",
+      "date": "2025-12-04",
+      "id": "history_1764808996617",
+      "itemName": "台南製造專案地圖",
+      "operator": "Nick",
+      "quantity": 5,
+      "reason": "RV#10379401.RV#10389201"
+    },
+    "history_1764809002440": {
+      "action": "減少",
+      "date": "2025-12-04",
+      "id": "history_1764809002440",
+      "itemName": "台南製造專案信封",
+      "operator": "Nick",
+      "quantity": 2,
+      "reason": "RV#10379401.RV#10389201"
+    },
+    "history_1764811614817": {
+      "action": "減少",
+      "date": "2025-12-04",
+      "id": "history_1764811614817",
+      "itemName": "Polaroid 70型底片",
+      "operator": "Nick",
+      "quantity": 3,
+      "reason": "RV#10379401.RV#10389201"
+    },
+    "history_1764811998331": {
+      "action": "減少",
+      "date": "2025-12-04",
+      "id": "history_1764811998331",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Nick",
+      "quantity": 4,
+      "reason": "12/4點完數量後校正回歸"
+    },
+    "history_1764812517987": {
+      "action": "減少",
+      "date": "2025-12-04",
+      "id": "history_1764812517987",
+      "itemName": "台南製造專案信封",
+      "operator": "Nick",
+      "quantity": 1,
+      "reason": "RV#10379401"
+    },
+    "history_1764897764162": {
+      "action": "減少",
+      "date": "2025-12-05",
+      "id": "history_1764897764162",
+      "itemName": "藝人推薦兌換券",
+      "operator": "Irene",
+      "quantity": 4,
+      "reason": "10352301.10406001"
+    },
+    "history_1764897772484": {
+      "action": "減少",
+      "date": "2025-12-05",
+      "id": "history_1764897772484",
+      "itemName": "天下推薦兌換券",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "10352301.10406001"
+    },
+    "history_1764897779610": {
+      "action": "減少",
+      "date": "2025-12-05",
+      "id": "history_1764897779610",
+      "itemName": "台南製造專案地圖",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "10352301.10406001"
+    },
+    "history_1764897786394": {
+      "action": "減少",
+      "date": "2025-12-05",
+      "id": "history_1764897786394",
+      "itemName": "台南製造專案信封",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "10352301.10406001"
+    },
+    "history_1764899400397": {
+      "action": "減少",
+      "date": "2025-12-05",
+      "id": "history_1764899400397",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "10352301.10406001"
+    },
+    "history_1764978020129": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1764978020129",
+      "itemName": "beams馬克杯",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "12/6退房R711致歉禮(誤開房門)"
+    },
+    "history_1764979761065": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1764979761065",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 3,
+      "reason": "10259201使用"
+    },
+    "history_1764979776621": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1764979776621",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "10335301使用"
+    },
+    "history_1764979790712": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1764979790712",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "10217901使用"
+    },
+    "history_1764979803705": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1764979803705",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 4,
+      "reason": "10218001使用"
+    },
+    "history_1764979820484": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1764979820484",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "10219401使用"
+    },
+    "history_1764982919912": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1764982919912",
+      "itemName": "南隅備品包",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "12/6 C/O R911意見書"
+    },
+    "history_1764994531822": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1764994531822",
+      "itemName": "beams備品包",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "12/6 退房 1212意見書"
+    },
+    "history_1764998450075": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1764998450075",
+      "itemName": "Polaroid 600型底片",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "#10420001+09932701租用"
+    },
+    "history_1764998465761": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1764998465761",
+      "itemName": "Polaroid 600型底片",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "R707專案使用"
+    },
+    "history_1765019551921": {
+      "action": "減少",
+      "date": "2025-12-06",
+      "id": "history_1765019551921",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Nick",
+      "quantity": 2,
+      "reason": "12/6入住R1005租借拍立得"
+    },
+    "history_1765069757443": {
+      "action": "減少",
+      "date": "2025-12-07",
+      "id": "history_1765069757443",
+      "itemName": "beams馬克杯",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "R602致歉"
+    },
+    "history_1765069785237": {
+      "action": "減少",
+      "date": "2025-12-07",
+      "id": "history_1765069785237",
+      "itemName": "藝人推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 6,
+      "reason": "10377801*2+10300901*2+10437301*2"
+    },
+    "history_1765069801198": {
+      "action": "減少",
+      "date": "2025-12-07",
+      "id": "history_1765069801198",
+      "itemName": "天下推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 3,
+      "reason": "10377801*1+10300901*1+10437301*1"
+    },
+    "history_1765069807162": {
+      "action": "減少",
+      "date": "2025-12-07",
+      "id": "history_1765069807162",
+      "itemName": "台南製造專案地圖",
+      "operator": "ALICE",
+      "quantity": 3,
+      "reason": "10377801*1+10300901*1+10437301*1"
+    },
+    "history_1765069813837": {
+      "action": "減少",
+      "date": "2025-12-07",
+      "id": "history_1765069813837",
+      "itemName": "台南製造專案信封",
+      "operator": "ALICE",
+      "quantity": 3,
+      "reason": "10377801*1+10300901*1+10437301*1"
+    },
+    "history_1765069895974": {
+      "action": "減少",
+      "date": "2025-12-07",
+      "id": "history_1765069895974",
+      "itemName": "Polaroid 600型底片",
+      "operator": "ALICE",
+      "quantity": 3,
+      "reason": "10377801+10300901+10437301"
+    },
+    "history_1765077364186": {
+      "action": "減少",
+      "date": "2025-12-07",
+      "id": "history_1765077364186",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "R503意見書"
+    },
+    "history_1765098869749": {
+      "action": "減少",
+      "date": "2025-12-07",
+      "id": "history_1765098869749",
+      "itemName": "SHUTI-畫-SLOW LIVING",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "Irene"
+    },
+    "history_1765153725144": {
+      "action": "減少",
+      "date": "2025-12-08",
+      "id": "history_1765153725144",
+      "itemName": "Polaroid 600型底片",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "10410401"
+    },
+    "history_1765153761110": {
+      "action": "減少",
+      "date": "2025-12-08",
+      "id": "history_1765153761110",
+      "itemName": "藝人推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 2,
+      "reason": "10410401"
+    },
+    "history_1765153767366": {
+      "action": "減少",
+      "date": "2025-12-08",
+      "id": "history_1765153767366",
+      "itemName": "天下推薦兌換券",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "10410401"
+    },
+    "history_1765153775024": {
+      "action": "減少",
+      "date": "2025-12-08",
+      "id": "history_1765153775024",
+      "itemName": "台南製造專案地圖",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "10410401"
+    },
+    "history_1765153780678": {
+      "action": "減少",
+      "date": "2025-12-08",
+      "id": "history_1765153780678",
+      "itemName": "台南製造專案信封",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "10410401"
+    },
+    "history_1765161429207": {
+      "action": "減少",
+      "date": "2025-12-08",
+      "id": "history_1765161429207",
+      "itemName": "南隅備品包",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "12/8意見書贈送"
+    },
+    "history_1765162779367": {
+      "action": "減少",
+      "date": "2025-12-08",
+      "id": "history_1765162779367",
+      "itemName": "南隅備品包",
+      "operator": "ALICE",
+      "quantity": 1,
+      "reason": "R1008退房意見書"
+    },
+    "history_1765245319240": {
+      "action": "減少",
+      "date": "2025-12-09",
+      "id": "history_1765245319240",
+      "itemName": "胸章",
+      "operator": "ALICE",
+      "quantity": 3,
+      "reason": "10197201專案送"
+    },
+    "history_1765254298649": {
+      "action": "減少",
+      "date": "2025-12-09",
+      "id": "history_1765254298649",
+      "itemName": "南隅備品包",
+      "operator": "alice",
+      "quantity": 2,
+      "reason": "1108+1007退房意見書贈送"
+    },
+    "history_1765277116757": {
+      "action": "新增",
+      "date": "2025-12-09",
+      "id": "history_1765277116757",
+      "itemName": "跑步機跑板蠟",
+      "operator": "系統",
+      "quantity": 2,
+      "reason": "新增品項"
+    },
+    "history_1765325781294": {
+      "action": "減少",
+      "date": "2025-12-10",
+      "id": "history_1765325781294",
+      "itemName": "台南製造專案地圖",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "10414801.10448301"
+    },
+    "history_1765325787985": {
+      "action": "減少",
+      "date": "2025-12-10",
+      "id": "history_1765325787985",
+      "itemName": "台南製造專案信封",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "10414801.10448301"
+    },
+    "history_1765325797190": {
+      "action": "減少",
+      "date": "2025-12-10",
+      "id": "history_1765325797190",
+      "itemName": "天下推薦兌換券",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "10414801.10448301"
+    },
+    "history_1765325803260": {
+      "action": "減少",
+      "date": "2025-12-10",
+      "id": "history_1765325803260",
+      "itemName": "藝人推薦兌換券",
+      "operator": "Irene",
+      "quantity": 4,
+      "reason": "10414801.10448301"
+    },
+    "history_1765326386664": {
+      "action": "減少",
+      "date": "2025-12-10",
+      "id": "history_1765326386664",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Irene",
+      "quantity": 2,
+      "reason": "10414801.10448301"
+    },
+    "history_1765416639582": {
+      "action": "減少",
+      "date": "2025-12-11",
+      "id": "history_1765416639582",
+      "itemName": "Polaroid 600型底片",
+      "operator": "Nick",
+      "quantity": 6,
+      "reason": "台南製造專案送出"
+    },
+    "history_1765419751992": {
+      "action": "減少",
+      "date": "2025-12-11",
+      "id": "history_1765419751992",
+      "itemName": "藝人推薦兌換券",
+      "operator": "Nick",
+      "quantity": 12,
+      "reason": "12/11台南製造專案發出，共5間，其中一間住2N"
+    },
+    "history_1765419762827": {
+      "action": "減少",
+      "date": "2025-12-11",
+      "id": "history_1765419762827",
+      "itemName": "天下推薦兌換券",
+      "operator": "Nick",
+      "quantity": 6,
+      "reason": "12/11台南製造專案發出，共5間，其中一間住2N"
+    },
+    "history_1765419773509": {
+      "action": "減少",
+      "date": "2025-12-11",
+      "id": "history_1765419773509",
+      "itemName": "台南製造專案地圖",
+      "operator": "Nick",
+      "quantity": 5,
+      "reason": "12/11台南製造專案發出，共5間"
+    },
+    "history_1765419794503": {
+      "action": "減少",
+      "date": "2025-12-11",
+      "id": "history_1765419794503",
+      "itemName": "台南製造專案信封",
+      "operator": "Nick",
+      "quantity": 5,
+      "reason": "12/11台南製造專案發出，共5間。"
+    },
+    "history_1765420647620": {
+      "action": "減少",
+      "date": "2025-12-11",
+      "id": "history_1765420647620",
+      "itemName": "SHUTI-貼紙-飯店",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "R907購買"
+    },
+    "history_1765420787488": {
+      "action": "減少",
+      "date": "2025-12-11",
+      "id": "history_1765420787488",
+      "itemName": "SHUTI-貼紙-餐廳",
+      "operator": "Irene",
+      "quantity": 1,
+      "reason": "R907"
+    },
+    "history_1765421720972": {
+      "action": "增加",
+      "date": "2025-12-11",
+      "id": "history_1765421720972",
+      "itemName": "dyson 吹風機",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "測試"
+    },
+    "history_1765421805997": {
+      "action": "減少",
+      "date": "2025-12-11",
+      "id": "history_1765421805997",
+      "itemName": "dyson 吹風機",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "test"
+    },
+    "history_1765423112391": {
+      "action": "編輯",
+      "date": "2025-12-11",
+      "id": "history_1765423112391",
+      "itemName": "SHUTI-濾掛",
+      "operator": "Leo",
+      "quantity": 397,
+      "reason": "單位: \"個\" → \"包\""
+    },
+    "history_1765423133031": {
+      "action": "編輯",
+      "date": "2025-12-11",
+      "id": "history_1765423133031",
+      "itemName": "酒精",
+      "operator": "Leo",
+      "quantity": 1,
+      "reason": "單位: \"個\" → \"罐\""
+    },
+    "history_1765423141629": {
+      "action": "編輯",
+      "date": "2025-12-11",
+      "id": "history_1765423141629",
+      "itemName": "餐盒登記券",
+      "operator": "Leo",
+      "quantity": 60,
+      "reason": "單位: \"個\" → \"本\""
+    }
+  },
+  "items": {
+    "item_1759663176129_10": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_10",
+      "manager": "Nick",
+      "name": "SHUTI-濾掛",
+      "quantity": 397,
+      "unit": "包",
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_11": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_11",
+      "manager": "Nick",
+      "name": "SHUTI-畫-CITY VIBE",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_12": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_12",
+      "manager": "Nick",
+      "name": "SHUTI-畫-SLOW LIVING",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_13": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_13",
+      "manager": "Nick",
+      "name": "SHUTI-盤子-獅",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_15": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_15",
+      "manager": "Nick",
+      "name": "SHUTI-相機",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_18": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_18",
+      "manager": "Nick",
+      "name": "SHUTI-袋子-黑",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_19": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_19",
+      "manager": "Nick",
+      "name": "SHUTI-貼紙-飯店",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_20": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_20",
+      "manager": "Nick",
+      "name": "SHUTI-貼紙-餐廳",
+      "quantity": 6,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_21": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_21",
+      "manager": "Nick",
+      "name": "SHUTI-馬克杯-狗",
+      "quantity": 5,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_22": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_22",
+      "manager": "Nick",
+      "name": "SHUTI-馬克杯-貓",
+      "quantity": 5,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_23": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663176129_23",
+      "manager": "Wendy",
+      "name": "3號電池",
+      "quantity": 5,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_5": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_5",
+      "manager": "Nick",
+      "name": "SHUTI-明信片-SLOW LIVE",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_6": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_6",
+      "manager": "Nick",
+      "name": "SHUTI-書籤-女",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_7": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_7",
+      "manager": "Nick",
+      "name": "SHUTI-書籤-男",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_8": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_8",
+      "manager": "Nick",
+      "name": "SHUTI-書籤-老爺爺",
+      "quantity": 6,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176129_9": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1759663176129_9",
+      "manager": "Nick",
+      "name": "SHUTI-枕頭",
+      "quantity": 4,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_100": {
+      "category": "櫃台耗材",
+      "frequency": "每月",
+      "id": "item_1759663176130_100",
+      "manager": "Irene",
+      "name": "酒精",
+      "quantity": 1,
+      "unit": "罐",
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_101": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_101",
+      "manager": "Irene",
+      "name": "餐盒登記券",
+      "quantity": 60,
+      "unit": "本",
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_102": {
+      "category": "櫃台贈品",
+      "frequency": "每月",
+      "id": "item_1759663176130_102",
+      "manager": "Nick",
+      "name": "beams備品包",
+      "quantity": -1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_103": {
+      "category": "櫃台贈品",
+      "frequency": "每月",
+      "id": "item_1759663176130_103",
+      "manager": "Nick",
+      "name": "beams帆布袋(白）",
+      "quantity": 9,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_104": {
+      "category": "櫃台贈品",
+      "frequency": "每月",
+      "id": "item_1759663176130_104",
+      "manager": "Nick",
+      "name": "BEAMS帆布袋(黑)",
+      "quantity": 10,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_105": {
+      "category": "櫃台贈品",
+      "frequency": "每月",
+      "id": "item_1759663176130_105",
+      "manager": "Nick",
+      "name": "beams馬克杯",
+      "quantity": 53,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_106": {
+      "category": "櫃台贈品",
+      "frequency": "每月",
+      "id": "item_1759663176130_106",
+      "manager": "Nick",
+      "name": "南隅筆記本",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_107": {
+      "category": "櫃台贈品",
+      "frequency": "每月",
+      "id": "item_1759663176130_107",
+      "manager": "Nick",
+      "name": "矽膠杯蓋",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_109": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_109",
+      "manager": "Irene",
+      "name": "南隅備品包",
+      "quantity": 48,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_110": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_110",
+      "manager": "Irene",
+      "name": "南隅吹風機袋",
+      "quantity": 13,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_111": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_111",
+      "manager": "Irene",
+      "name": "南隅帆布袋",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_112": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_112",
+      "manager": "Irene",
+      "name": "南隅抱枕",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_113": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_113",
+      "manager": "Irene",
+      "name": "南隅蚊香袋",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_114": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_114",
+      "manager": "Irene",
+      "name": "南隅資料夾",
+      "quantity": 22,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_115": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_115",
+      "manager": "Irene",
+      "name": "南隅馬克杯",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_116": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_116",
+      "manager": "Irene",
+      "name": "地圖",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_117": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_117",
+      "manager": "Irene",
+      "name": "小時記",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_118": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_118",
+      "manager": "Irene",
+      "name": "白T - 2L",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_119": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_119",
+      "manager": "Irene",
+      "name": "白T - L",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_120": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_120",
+      "manager": "Irene",
+      "name": "白T - M",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_121": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_121",
+      "manager": "Irene",
+      "name": "白T - S",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_122": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_122",
+      "manager": "Irene",
+      "name": "白T - XL",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_123": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_123",
+      "manager": "Irene",
+      "name": "白兔鉛筆",
+      "quantity": 7,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_124": {
+      "category": "禮品櫃",
+      "frequency": "每月",
+      "id": "item_1759663176130_124",
+      "manager": "Irene",
+      "name": "隆興茶葉罐",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_125": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_125",
+      "manager": "Cammy",
+      "name": "OK蹦(小)",
+      "quantity": 25,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_126": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_126",
+      "manager": "Cammy",
+      "name": "中棉球",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_127": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_127",
+      "manager": "Cammy",
+      "name": "保險套",
+      "quantity": 23,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_128": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_128",
+      "manager": "Cammy",
+      "name": "優碘",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_129": {
+      "category": "醫藥箱",
+      "frequency": "每季",
+      "id": "item_1759663176130_129",
+      "manager": "Cammy",
+      "name": "冷.熱敷袋",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_130": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_130",
+      "manager": "Cammy",
+      "name": "大棉棒",
+      "quantity": 5,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_131": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_131",
+      "manager": "Cammy",
+      "name": "安全剪刀",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_132": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_132",
+      "manager": "Cammy",
+      "name": "指甲剪",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_133": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_133",
+      "manager": "Cammy",
+      "name": "曼秀雷敦",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_134": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_134",
+      "manager": "Cammy",
+      "name": "棉棒",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_135": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_135",
+      "manager": "Cammy",
+      "name": "止血帶",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_136": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_136",
+      "manager": "Cammy",
+      "name": "生理食鹽水",
+      "quantity": 7,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_137": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_137",
+      "manager": "Cammy",
+      "name": "紗布",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_138": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_138",
+      "manager": "Cammy",
+      "name": "膚色繃布-粗",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_139": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_139",
+      "manager": "Cammy",
+      "name": "膚色繃布-細",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_140": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1759663176130_140",
+      "manager": "Cammy",
+      "name": "酒精棉片",
+      "quantity": 14,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_141": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_141",
+      "manager": "夜班",
+      "name": "南隅畫報2024",
+      "quantity": 18,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_142": {
+      "category": "櫃台耗材",
+      "frequency": "每月",
+      "id": "item_1759663176130_142",
+      "manager": "夜班",
+      "name": "南隅畫報2025",
+      "quantity": 457,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_143": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_143",
+      "manager": "夜班",
+      "name": "天下南隅L夾",
+      "quantity": 180,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_144": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_144",
+      "manager": "夜班",
+      "name": "天下南隅便條紙",
+      "quantity": 74,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_145": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_145",
+      "manager": "夜班",
+      "name": "天下南隅信封(大)",
+      "quantity": 427,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_146": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_146",
+      "manager": "夜班",
+      "name": "天下南隅信封(小)",
+      "quantity": 0,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_147": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_147",
+      "manager": "夜班",
+      "name": "天下南隅名片",
+      "quantity": 44,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_148": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_148",
+      "manager": "夜班",
+      "name": "行李吊牌",
+      "quantity": 500,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_149": {
+      "category": "其他",
+      "frequency": "每季",
+      "id": "item_1759663176130_149",
+      "manager": "夜班",
+      "name": "聖誕裝飾",
+      "quantity": 4,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_150": {
+      "category": "其他",
+      "frequency": "每季",
+      "id": "item_1759663176130_150",
+      "manager": "夜班",
+      "name": "訂房單留存",
+      "quantity": 12,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_151": {
+      "category": "安全與設施",
+      "frequency": "每季",
+      "id": "item_1759663176130_151",
+      "manager": "夜班",
+      "name": "大暖爐",
+      "quantity": 2,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_152": {
+      "category": "安全與設施",
+      "frequency": "每季",
+      "id": "item_1759663176130_152",
+      "manager": "夜班",
+      "name": "小心地滑立牌",
+      "quantity": 2,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_153": {
+      "category": "安全與設施",
+      "frequency": "每季",
+      "id": "item_1759663176130_153",
+      "manager": "夜班",
+      "name": "日本黑龍",
+      "quantity": 4,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_154": {
+      "category": "安全與設施",
+      "frequency": "每季",
+      "id": "item_1759663176130_154",
+      "manager": "夜班",
+      "name": "消防水帶",
+      "quantity": 2,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_155": {
+      "category": "安全與設施",
+      "frequency": "每季",
+      "id": "item_1759663176130_155",
+      "manager": "夜班",
+      "name": "紅龍",
+      "quantity": 10,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_156": {
+      "category": "安全與設施",
+      "frequency": "每季",
+      "id": "item_1759663176130_156",
+      "manager": "夜班",
+      "name": "迎賓三角立牌",
+      "quantity": 5,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_157": {
+      "category": "客房備品",
+      "frequency": "每季",
+      "id": "item_1759663176130_157",
+      "manager": "夜班",
+      "name": "PH 抱枕",
+      "quantity": 0,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_158": {
+      "category": "客房備品",
+      "frequency": "每季",
+      "id": "item_1759663176130_158",
+      "manager": "夜班",
+      "name": "保冰桶",
+      "quantity": 1,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_159": {
+      "category": "客房備品",
+      "frequency": "每季",
+      "id": "item_1759663176130_159",
+      "manager": "夜班",
+      "name": "沙發",
+      "quantity": 5,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_160": {
+      "category": "客房備品",
+      "frequency": "每季",
+      "id": "item_1759663176130_160",
+      "manager": "夜班",
+      "name": "沙發套",
+      "quantity": 1,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_161": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_161",
+      "manager": "夜班",
+      "name": "綠雨傘",
+      "quantity": 52,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_162": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_162",
+      "manager": "夜班",
+      "name": "行李推車（小）",
+      "quantity": 1,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_163": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_163",
+      "manager": "夜班",
+      "name": "黃銅房號牌",
+      "quantity": 256,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_164": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_164",
+      "manager": "夜班",
+      "name": "黑雨傘",
+      "quantity": 6,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1759663176130_24": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663176130_24",
+      "manager": "Wendy",
+      "name": "4號電池",
+      "quantity": 19,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_26": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663176130_26",
+      "manager": "Wendy",
+      "name": "Polaroid 70型底片",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_27": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663176130_27",
+      "manager": "Wendy",
+      "name": "Polaroid 600型底片",
+      "quantity": 59,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_28": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663176130_28",
+      "manager": "Wendy",
+      "name": "一銀信用卡紙捲",
+      "quantity": 33,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_29": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663176130_29",
+      "manager": "Wendy",
+      "name": "房卡",
+      "quantity": 96,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_30": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663176130_30",
+      "manager": "Wendy",
+      "name": "永豐信用卡紙捲",
+      "quantity": 36,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_31": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663176130_31",
+      "manager": "Wendy",
+      "name": "玉山信用卡紙捲",
+      "quantity": 10,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_32": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663176130_32",
+      "manager": "Wendy",
+      "name": "發票紙捲",
+      "quantity": 6,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_33": {
+      "category": "包裝材料",
+      "frequency": "每月",
+      "id": "item_1759663176130_33",
+      "manager": "夜班",
+      "name": "南隅紙袋",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_34": {
+      "category": "包裝材料",
+      "frequency": "每月",
+      "id": "item_1759663176130_34",
+      "manager": "夜班",
+      "name": "垃圾袋",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_36": {
+      "category": "包裝材料",
+      "frequency": "每月",
+      "id": "item_1759663176130_36",
+      "manager": "夜班",
+      "name": "牛皮紙袋",
+      "quantity": 21,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_37": {
+      "category": "包裝材料",
+      "frequency": "每月",
+      "id": "item_1759663176130_37",
+      "manager": "夜班",
+      "name": "牛皮紙袋(小)",
+      "quantity": 145,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_38": {
+      "category": "包裝材料",
+      "frequency": "每月",
+      "id": "item_1759663176130_38",
+      "manager": "夜班",
+      "name": "白色包裝帶",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_40": {
+      "category": "客房備品",
+      "frequency": "每月",
+      "id": "item_1759663176130_40",
+      "manager": "夜班",
+      "name": "刮鬍刀",
+      "quantity": 61,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_41": {
+      "category": "客房備品",
+      "frequency": "每月",
+      "id": "item_1759663176130_41",
+      "manager": "夜班",
+      "name": "梳子",
+      "quantity": 200,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_42": {
+      "category": "客房備品",
+      "frequency": "每月",
+      "id": "item_1759663176130_42",
+      "manager": "夜班",
+      "name": "棉棒",
+      "quantity": 140,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_43": {
+      "category": "客房備品",
+      "frequency": "每月",
+      "id": "item_1759663176130_43",
+      "manager": "夜班",
+      "name": "浴帽",
+      "quantity": 167,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_44": {
+      "category": "客房備品",
+      "frequency": "每月",
+      "id": "item_1759663176130_44",
+      "manager": "夜班",
+      "name": "牙刷牙膏組",
+      "quantity": 216,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_45": {
+      "category": "客房備品",
+      "frequency": "每月",
+      "id": "item_1759663176130_45",
+      "manager": "夜班",
+      "name": "牙線棒",
+      "quantity": 438,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_46": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_46",
+      "manager": "夜班",
+      "name": "dyson 吹風機",
+      "quantity": 5,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_47": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_47",
+      "manager": "夜班",
+      "name": "dyson 吹風機烘罩",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_48": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_48",
+      "manager": "夜班",
+      "name": "HDMI 線",
+      "quantity": 7,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_49": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_49",
+      "manager": "夜班",
+      "name": "panasonic遙控器",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_50": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_50",
+      "manager": "夜班",
+      "name": "SAMSUNG遙控器",
+      "quantity": 13,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_51": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_51",
+      "manager": "夜班",
+      "name": "充電組",
+      "quantity": 10,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_52": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_52",
+      "manager": "夜班",
+      "name": "化妝鏡",
+      "quantity": 4,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_53": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_53",
+      "manager": "夜班",
+      "name": "奇美遙控器",
+      "quantity": 15,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_54": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_54",
+      "manager": "夜班",
+      "name": "延長線",
+      "quantity": 8,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_55": {
+      "category": "客房用品",
+      "frequency": "每月",
+      "id": "item_1759663176130_55",
+      "manager": "夜班",
+      "name": "拖鞋",
+      "quantity": 12,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_56": {
+      "category": "客房用品",
+      "frequency": "每月",
+      "id": "item_1759663176130_56",
+      "manager": "夜班",
+      "name": "洗沐分裝罐",
+      "quantity": 8,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_57": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_57",
+      "manager": "夜班",
+      "name": "洗衣球",
+      "quantity": 5,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_58": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_58",
+      "manager": "夜班",
+      "name": "洗衣袋",
+      "quantity": 6,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_59": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_59",
+      "manager": "夜班",
+      "name": "萬國插頭",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_60": {
+      "category": "客房用品",
+      "frequency": "每月",
+      "id": "item_1759663176130_60",
+      "manager": "夜班",
+      "name": "耳塞",
+      "quantity": 185,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_61": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_61",
+      "manager": "夜班",
+      "name": "行李秤",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_62": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_62",
+      "manager": "夜班",
+      "name": "衛生棉",
+      "quantity": 77,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_63": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_63",
+      "manager": "夜班",
+      "name": "針線盒",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_64": {
+      "category": "客房用品",
+      "frequency": "每季",
+      "id": "item_1759663176130_64",
+      "manager": "夜班",
+      "name": "離子夾",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_65": {
+      "category": "客房用品",
+      "frequency": "每月",
+      "id": "item_1759663176130_65",
+      "manager": "夜班",
+      "name": "風倍清（芳香噴霧）",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_66": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_66",
+      "manager": "夜班",
+      "name": "尺",
+      "quantity": 4,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_67": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_67",
+      "manager": "夜班",
+      "name": "布紋膠帶",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_68": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_68",
+      "manager": "夜班",
+      "name": "捲尺",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_70": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_70",
+      "manager": "夜班",
+      "name": "橘螢光筆",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_71": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_71",
+      "manager": "夜班",
+      "name": "橡皮擦",
+      "quantity": 5,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_72": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_72",
+      "manager": "夜班",
+      "name": "立可帶+替換帶",
+      "quantity": 8,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_73": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_73",
+      "manager": "夜班",
+      "name": "紅筆",
+      "quantity": 6,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_74": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_74",
+      "manager": "夜班",
+      "name": "紅螢光筆",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_75": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_75",
+      "manager": "夜班",
+      "name": "紫螢光筆",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_76": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_76",
+      "manager": "夜班",
+      "name": "綠螢光筆",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_77": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_77",
+      "manager": "夜班",
+      "name": "美工刀",
+      "quantity": 4,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_78": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_78",
+      "manager": "夜班",
+      "name": "美工刀片",
+      "quantity": 9,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_79": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_79",
+      "manager": "夜班",
+      "name": "膠水",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_80": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_80",
+      "manager": "夜班",
+      "name": "藍筆",
+      "quantity": 19,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_81": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_81",
+      "manager": "夜班",
+      "name": "藍螢光筆",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_82": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_82",
+      "manager": "夜班",
+      "name": "透明寬膠帶",
+      "quantity": 5,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_83": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_83",
+      "manager": "夜班",
+      "name": "透明膠帶",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_84": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_84",
+      "manager": "夜班",
+      "name": "鉛筆",
+      "quantity": 36,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_85": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_85",
+      "manager": "夜班",
+      "name": "雙面膠",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_86": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_86",
+      "manager": "夜班",
+      "name": "黃螢光筆",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_87": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_87",
+      "manager": "夜班",
+      "name": "黑奇異筆",
+      "quantity": 4,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_88": {
+      "category": "文具",
+      "frequency": "每月",
+      "id": "item_1759663176130_88",
+      "manager": "夜班",
+      "name": "黑筆",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_89": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_89",
+      "manager": "Irene",
+      "name": "55688乘車劵",
+      "quantity": 300,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_90": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_90",
+      "manager": "Irene",
+      "name": "Uber 乘車劵",
+      "quantity": 130,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_91": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_91",
+      "manager": "Irene",
+      "name": "中華衛星乘車劵",
+      "quantity": 553,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_92": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_92",
+      "manager": "Irene",
+      "name": "內部洗衣單",
+      "quantity": 30,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_93": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_93",
+      "manager": "Irene",
+      "name": "南隅信封",
+      "quantity": 243,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_94": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_94",
+      "manager": "Irene",
+      "name": "南隅名片",
+      "quantity": 5,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_95": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_95",
+      "manager": "Irene",
+      "name": "外匯水單",
+      "quantity": 26,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_96": {
+      "category": "櫃台耗材",
+      "frequency": "每月",
+      "id": "item_1759663176130_96",
+      "manager": "Irene",
+      "name": "房卡套",
+      "quantity": 3,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_97": {
+      "category": "櫃台耗材",
+      "frequency": "每月",
+      "id": "item_1759663176130_97",
+      "manager": "Irene",
+      "name": "行李吊牌",
+      "quantity": 579,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_98": {
+      "category": "櫃台耗材",
+      "frequency": "每季",
+      "id": "item_1759663176130_98",
+      "manager": "Irene",
+      "name": "訂房單",
+      "quantity": 177,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663176130_99": {
+      "category": "櫃台耗材",
+      "frequency": "每月",
+      "id": "item_1759663176130_99",
+      "manager": "Irene",
+      "name": "迎賓飲料券",
+      "quantity": 2,
+      "warehouse": "Front Desk"
+    },
+    "item_1759663735879_1": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_1",
+      "manager": "SC",
+      "name": "嬰兒床組",
+      "quantity": 3,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_10": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_10",
+      "manager": "SC",
+      "name": "嬰兒澡盆",
+      "quantity": 4,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_11": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_11",
+      "manager": "SC",
+      "name": "嬰兒椅",
+      "quantity": 7,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_12": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_12",
+      "manager": "SC",
+      "name": "嬰兒沐浴包",
+      "quantity": 204,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_13": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_13",
+      "manager": "SC",
+      "name": "嬰兒護膚乳",
+      "quantity": 188,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_14": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_14",
+      "manager": "SC",
+      "name": "嬰兒床圍",
+      "quantity": 3,
+      "warehouse": "服中B1"
+    },
+    "item_1759663735879_15": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_15",
+      "manager": "SC",
+      "name": "消毒鍋",
+      "quantity": 3,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_16": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_16",
+      "manager": "SC",
+      "name": "行軍床墊",
+      "quantity": 5,
+      "warehouse": "服中B1"
+    },
+    "item_1759663735879_17": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_17",
+      "manager": "SC",
+      "name": "洗澡椅",
+      "quantity": 1,
+      "warehouse": "服中5F"
+    },
+    "item_1759663735879_18": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_18",
+      "manager": "SC",
+      "name": "泡棉床墊",
+      "quantity": 1,
+      "warehouse": "服中5F"
+    },
+    "item_1759663735879_19": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_19",
+      "manager": "SC",
+      "name": "泡棉床墊",
+      "quantity": 1,
+      "warehouse": "服中9F"
+    },
+    "item_1759663735879_20": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_20",
+      "manager": "SC",
+      "name": "泡棉床墊",
+      "quantity": 1,
+      "warehouse": "服中10F"
+    },
+    "item_1759663735879_21": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_21",
+      "manager": "SC",
+      "name": "泡棉床墊",
+      "quantity": 1,
+      "warehouse": "服中11F"
+    },
+    "item_1759663735879_22": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_22",
+      "manager": "SC",
+      "name": "泡棉床墊",
+      "quantity": 1,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_23": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_23",
+      "manager": "SC",
+      "name": "單人羽絨被",
+      "quantity": 12,
+      "warehouse": "服中11F"
+    },
+    "item_1759663735879_24": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_24",
+      "manager": "SC",
+      "name": "單人羽絨被",
+      "quantity": 1,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_25": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_25",
+      "manager": "SC",
+      "name": "軟枕",
+      "quantity": 4,
+      "warehouse": "服中10F"
+    },
+    "item_1759663735879_26": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_26",
+      "manager": "SC",
+      "name": "硬枕",
+      "quantity": 3,
+      "warehouse": "服中10F"
+    },
+    "item_1759663735879_27": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_27",
+      "manager": "SC",
+      "name": "記憶枕",
+      "quantity": 1,
+      "warehouse": "服中10F"
+    },
+    "item_1759663735879_28": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_28",
+      "manager": "SC",
+      "name": "乳膠枕",
+      "quantity": 3,
+      "warehouse": "服中10F"
+    },
+    "item_1759663735879_29": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_29",
+      "manager": "SC",
+      "name": "高透氣波型枕",
+      "quantity": 3,
+      "warehouse": "服中10F"
+    },
+    "item_1759663735879_3": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_3",
+      "manager": "SC",
+      "name": "嬰兒床墊",
+      "quantity": 5,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_30": {
+      "category": "寢具",
+      "frequency": "每月",
+      "id": "item_1759663735879_30",
+      "manager": "SC",
+      "name": "支撐型對枕",
+      "quantity": 2,
+      "warehouse": "服中10F"
+    },
+    "item_1759663735879_31": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663735879_31",
+      "manager": "SC",
+      "name": "冰桶",
+      "quantity": 6,
+      "warehouse": "服中B1"
+    },
+    "item_1759663735879_32": {
+      "category": "家電",
+      "frequency": "每月",
+      "id": "item_1759663735879_32",
+      "manager": "SC",
+      "name": "熨斗燙板組",
+      "quantity": 2,
+      "warehouse": "服中10F"
+    },
+    "item_1759663735879_34": {
+      "category": "家電",
+      "frequency": "每月",
+      "id": "item_1759663735879_34",
+      "manager": "SC",
+      "name": "循環扇",
+      "quantity": 1,
+      "warehouse": "服中9F"
+    },
+    "item_1759663735879_35": {
+      "category": "家電",
+      "frequency": "每月",
+      "id": "item_1759663735879_35",
+      "manager": "SC",
+      "name": "電風扇",
+      "quantity": 4,
+      "warehouse": "服中10F"
+    },
+    "item_1759663735879_36": {
+      "category": "家電",
+      "frequency": "每月",
+      "id": "item_1759663735879_36",
+      "manager": "SC",
+      "name": "電暖器",
+      "quantity": 4,
+      "warehouse": "服中11F"
+    },
+    "item_1759663735879_37": {
+      "category": "家電",
+      "frequency": "每月",
+      "id": "item_1759663735879_37",
+      "manager": "SC",
+      "name": "黑膠唱片機",
+      "quantity": 4,
+      "warehouse": "服中B1"
+    },
+    "item_1759663735879_38": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1759663735879_38",
+      "manager": "SC",
+      "name": "綠雨傘",
+      "quantity": 14,
+      "warehouse": "服中1F"
+    },
+    "item_1759663735879_4": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_4",
+      "manager": "SC",
+      "name": "嬰兒枕(ZARA)",
+      "quantity": 5,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_5": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_5",
+      "manager": "SC",
+      "name": "嬰兒被(ZARA)",
+      "quantity": 5,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_6": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_6",
+      "manager": "SC",
+      "name": "嬰兒毯(ZARA)",
+      "quantity": 5,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_7": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_7",
+      "manager": "SC",
+      "name": "嬰兒枕套",
+      "quantity": 3,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_8": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_8",
+      "manager": "SC",
+      "name": "嬰兒被套",
+      "quantity": 3,
+      "warehouse": "服中12F"
+    },
+    "item_1759663735879_9": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1759663735879_9",
+      "manager": "SC",
+      "name": "嬰兒床單",
+      "quantity": 3,
+      "warehouse": "服中12F"
+    },
+    "item_1760340578157": {
+      "category": "安全與設施",
+      "frequency": "每月",
+      "id": "item_1760340578157",
+      "manager": "SC",
+      "name": "傘套（短）",
+      "quantity": 0,
+      "warehouse": "服中B1"
+    },
+    "item_1760340720068": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1760340720068",
+      "manager": "SC",
+      "name": "玻璃清潔劑",
+      "quantity": 1,
+      "warehouse": "服中1F"
+    },
+    "item_1760340744698": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1760340744698",
+      "manager": "SC",
+      "name": "不銹鋼保養亮光劑",
+      "quantity": 2,
+      "warehouse": "服中1F"
+    },
+    "item_1760362654084": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1760362654084",
+      "manager": "SC",
+      "name": "傘套（長）",
+      "quantity": 6,
+      "warehouse": "服中B1"
+    },
+    "item_1761438195579": {
+      "category": "櫃台贈品",
+      "frequency": "每月",
+      "id": "item_1761438195579",
+      "manager": "Nick",
+      "name": "胸章",
+      "quantity": 65,
+      "warehouse": "Front Desk"
+    },
+    "item_1761460328145": {
+      "category": "嬰兒用品",
+      "frequency": "每月",
+      "id": "item_1761460328145",
+      "manager": "SC",
+      "name": "嬰兒床板",
+      "quantity": 6,
+      "warehouse": "服中12F"
+    },
+    "item_1761460899673": {
+      "category": "包裝材料",
+      "frequency": "每月",
+      "id": "item_1761460899673",
+      "manager": "SC",
+      "name": "黑膠唱片外袋",
+      "quantity": 90,
+      "warehouse": "服中5F"
+    },
+    "item_1761460919800": {
+      "category": "包裝材料",
+      "frequency": "每月",
+      "id": "item_1761460919800",
+      "manager": "SC",
+      "name": "黑膠唱片內袋",
+      "quantity": 34,
+      "warehouse": "服中5F"
+    },
+    "item_1761477453056": {
+      "category": "櫃台贈品",
+      "frequency": "每月",
+      "id": "item_1761477453056",
+      "manager": "Nick",
+      "name": "周年慶住宿券",
+      "quantity": 17,
+      "warehouse": "Front Desk"
+    },
+    "item_1761633683308": {
+      "category": "包裝材料",
+      "frequency": "每月",
+      "id": "item_1761633683308",
+      "manager": "夜班",
+      "name": "牛皮紙袋2K",
+      "quantity": 7,
+      "warehouse": "Front Desk"
+    },
+    "item_1762139589589": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1762139589589",
+      "manager": "Wendy",
+      "name": "三竹簡訊剩餘點數",
+      "quantity": 3561,
+      "warehouse": "Front Desk"
+    },
+    "item_1763252552999": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1763252552999",
+      "manager": "Nick",
+      "name": "藝人推薦兌換券",
+      "quantity": 31,
+      "warehouse": "Front Desk"
+    },
+    "item_1763252576215": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1763252576215",
+      "manager": "Nick",
+      "name": "天下推薦兌換券",
+      "quantity": 68,
+      "warehouse": "Front Desk"
+    },
+    "item_1763252731750": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1763252731750",
+      "manager": "Nick",
+      "name": "台南製造專案地圖",
+      "quantity": 67,
+      "warehouse": "Front Desk"
+    },
+    "item_1763252940558": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1763252940558",
+      "manager": "Nick",
+      "name": "台南製造專案信封",
+      "quantity": 69,
+      "warehouse": "Front Desk"
+    },
+    "item_1763600561067": {
+      "category": "主題商品",
+      "frequency": "每月",
+      "id": "item_1763600561067",
+      "manager": "Nick",
+      "name": "台南製造抽獎券",
+      "quantity": 92,
+      "warehouse": "Front Desk"
+    },
+    "item_1764503277746": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1764503277746",
+      "manager": "Cammy",
+      "name": "繃帶",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1764503303442": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1764503303442",
+      "manager": "Cammy",
+      "name": "OK蹦(大)",
+      "quantity": 24,
+      "warehouse": "Front Desk"
+    },
+    "item_1764503362354": {
+      "category": "醫藥箱",
+      "frequency": "每月",
+      "id": "item_1764503362354",
+      "manager": "Cammy",
+      "name": "潤滑液",
+      "quantity": 0,
+      "warehouse": "Front Desk"
+    },
+    "item_1764503998859": {
+      "category": "櫃台耗材",
+      "frequency": "每月",
+      "id": "item_1764503998859",
+      "manager": "Irene",
+      "name": "計程車單",
+      "quantity": 1,
+      "warehouse": "Front Desk"
+    },
+    "item_1764576343842": {
+      "category": "櫃台耗材",
+      "frequency": "每月",
+      "id": "item_1764576343842",
+      "manager": "夜班",
+      "name": "六兩淋膜紙袋(甜甜袋)",
+      "quantity": 2,
+      "warehouse": "Front Desk B1"
+    },
+    "item_1764759859231": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1764759859231",
+      "manager": "SC",
+      "name": "金屬保護油",
+      "quantity": 1,
+      "warehouse": "服中1F"
+    },
+    "item_1765277116745": {
+      "category": "其他",
+      "frequency": "每月",
+      "id": "item_1765277116745",
+      "manager": "SC",
+      "name": "跑步機跑板蠟",
+      "quantity": 2,
+      "warehouse": "服中1F"
+    }
+  },
+  "managerList": [
+    "Nick",
+    "Wendy",
+    "夜班",
+    "Irene",
+    "Cammy",
+    "SC"
+  ],
+  "operatorList": [
+    "Wei",
+    "cammy",
+    "Nick",
+    "Irene",
+    "Leo",
+    "wendy",
+    "ALICE",
+    "Carol",
+    "alice"
+  ],
+  "unitList": [
+    "個",
+    "箱",
+    "包",
+    "瓶",
+    "組",
+    "張",
+    "本",
+    "支",
+    "罐"
+  ]
+}

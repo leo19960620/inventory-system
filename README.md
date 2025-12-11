@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# 天下客房部庫存管理系統
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+這是一個基於 React + Firebase 的客房部庫存管理系統。
 
-## Available Scripts
+## 🚀 快速開始
 
-In the project directory, you can run:
+### 安裝依賴
+```bash
+npm install
+```
 
-### `npm start`
+### 啟動開發伺服器
+```bash
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+在瀏覽器中打開 [http://localhost:3000](http://localhost:3000) 查看應用。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 建立生產版本
+```bash
+npm run build
+```
 
-### `npm test`
+## 📦 部署
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+詳細部署步驟請參考：[部署指南](./DEPLOYMENT.md)
 
-### `npm run build`
+### 快速部署（Firebase Hosting）
+```bash
+# 1. 建立生產版本
+npm run build
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 2. 部署到 Firebase
+firebase deploy --only hosting
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎯 主要功能
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ✅ 庫存總覽與管理
+- ✅ 多倉庫管理
+- ✅ 入庫/出庫/調撥/調整操作
+- ✅ 異動記錄追蹤
+- ✅ 管理者分配
+- ✅ 庫存警告視覺化
+- ✅ 列印盤點表
+- ✅ 使用說明指南
 
-### `npm run eject`
+## 🛠️ 技術棧
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **前端框架**: React 19
+- **UI 組件**: Lucide Icons
+- **樣式**: Tailwind CSS
+- **資料庫**: Firebase Realtime Database
+- **通知**: React Hot Toast
+- **部署**: Firebase Hosting / Vercel
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📝 開發說明
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 系統使用 Firebase Realtime Database 儲存資料
+- 所有操作都有即時 Toast 通知
+- 支援 ESC 快捷鍵關閉彈窗
+- 庫存狀態採用顏色編碼（紅橙綠）
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📄 授權
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Private - 僅供天下客房部內部使用
