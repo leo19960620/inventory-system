@@ -26,7 +26,7 @@ const MultiWarehouseInventorySystem = () => {
   const [managerList, setManagerList] = useState(['Nick', 'Wendy', '夜班', 'Irene', 'Cammy']);
   const [operatorList, setOperatorList] = useState([]);
   const [unitList, setUnitList] = useState(['個', '箱', '包', '瓶', '組', '張', '本', '支']);
-  const categories = ['主題商品', '其他', '櫃台耗材', '櫃台贈品', '禮品櫃', '醫藥箱', '安全與設施', '客房備品', '客房用品', '包裝材料', '文具', '嬰兒用品', '寢具', '家電'];
+  const [categoryList, setCategoryList] = useState(['主題商品', '其他', '櫃台耗材', '櫃台贈品', '禮品櫃', '醫藥箱', '安全與設施', '客房備品', '客房用品', '包裝材料', '文具', '嬰兒用品', '寢具', '家電']);
 
   // ==================== UI 狀態 ====================
   const [loading, setLoading] = useState(true);
@@ -137,6 +137,12 @@ const MultiWarehouseInventorySystem = () => {
       setManagerAssignments(data ? Object.values(data) : []);
     });
 
+    const categoriesRef = ref(database, 'categoryList');
+    const unsubscribeCategories = onValue(categoriesRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) setCategoryList(data);
+    });
+
     return () => {
       unsubscribeItems();
       unsubscribeWarehouses();
@@ -145,6 +151,7 @@ const MultiWarehouseInventorySystem = () => {
       unsubscribeOperators();
       unsubscribeUnits();
       unsubscribeAssignments();
+      unsubscribeCategories();
     };
   }, []);
 
@@ -237,8 +244,13 @@ const MultiWarehouseInventorySystem = () => {
     // 找出有庫存的倉庫
     const warehousesWithStock = warehouses.filter(w => w.isActive && calculateStock(itemId, w.id) !== 0);
 
+
+
     warehousesWithStock.forEach(wh => {
-      // 1. 檢查倉庫+分類組合
+      let managerFound = false;
+
+
+      // 1. 檢查倉庫+分類組合(優先級最高)
       const combinedAssignment = managerAssignments.find(
         a => a.type === 'combined' &&
           a.warehouseId === wh.id &&
@@ -249,30 +261,34 @@ const MultiWarehouseInventorySystem = () => {
           managerMap.set(combinedAssignment.manager, []);
         }
         managerMap.get(combinedAssignment.manager).push(wh.name);
-        return;
+        managerFound = true;
       }
 
-      // 2. 檢查分類管理者
-      const categoryAssignment = managerAssignments.find(
-        a => a.type === 'category' && a.category === item.category
-      );
-      if (categoryAssignment) {
-        if (!managerMap.has(categoryAssignment.manager)) {
-          managerMap.set(categoryAssignment.manager, []);
+      // 2. 檢查倉庫管理者(優先級中等)
+      if (!managerFound) {
+        const warehouseAssignment = managerAssignments.find(
+          a => a.type === 'warehouse' && a.warehouseId === wh.id
+        );
+        if (warehouseAssignment) {
+          if (!managerMap.has(warehouseAssignment.manager)) {
+            managerMap.set(warehouseAssignment.manager, []);
+          }
+          managerMap.get(warehouseAssignment.manager).push(wh.name);
+          managerFound = true;
         }
-        managerMap.get(categoryAssignment.manager).push(wh.name);
-        return;
       }
 
-      // 3. 檢查倉庫管理者
-      const warehouseAssignment = managerAssignments.find(
-        a => a.type === 'warehouse' && a.warehouseId === wh.id
-      );
-      if (warehouseAssignment) {
-        if (!managerMap.has(warehouseAssignment.manager)) {
-          managerMap.set(warehouseAssignment.manager, []);
+      // 3. 檢查分類管理者(優先級最低,作為 fallback)
+      if (!managerFound) {
+        const categoryAssignment = managerAssignments.find(
+          a => a.type === 'category' && a.category === item.category
+        );
+        if (categoryAssignment) {
+          if (!managerMap.has(categoryAssignment.manager)) {
+            managerMap.set(categoryAssignment.manager, []);
+          }
+          managerMap.get(categoryAssignment.manager).push(wh.name);
         }
-        managerMap.get(warehouseAssignment.manager).push(wh.name);
       }
     });
 
@@ -610,7 +626,22 @@ const MultiWarehouseInventorySystem = () => {
       toast.success(`新操作人員「${newOperator}」已加入清單`);
     } catch (error) {
       console.error('Error adding operator:', error);
-      toast.error('新增操作人員失敗：' + error.message);
+      toast.error('新增操作人員失敗:' + error.message);
+    }
+  };
+
+  const handleAddCategory = async (newCategory) => {
+    try {
+      if (!newCategory || categoryList.includes(newCategory)) {
+        return; // 已存在或空值,不處理
+      }
+
+      const updatedCategoryList = [...categoryList, newCategory];
+      await saveToFirebase('categoryList', updatedCategoryList);
+      toast.success(`新分類「${newCategory}」已加入清單`);
+    } catch (error) {
+      console.error('Error adding category:', error);
+      toast.error('新增分類失敗:' + error.message);
     }
   };
 
@@ -682,8 +713,8 @@ const MultiWarehouseInventorySystem = () => {
                   alignItems: 'center',
                   gap: '6px'
                 }}
-                onMouseEnter={(e) => { if (activeTab !== 'overview') e.target.style.backgroundColor = 'var(--bg-secondary)' }}
-                onMouseLeave={(e) => { if (activeTab !== 'overview') e.target.style.backgroundColor = 'transparent' }}
+                onMouseEnter={(e) => { if (activeTab !== 'overview') { e.currentTarget.style.backgroundColor = 'var(--bg-secondary)'; e.currentTarget.style.color = 'var(--text-primary)'; } }}
+                onMouseLeave={(e) => { if (activeTab !== 'overview') { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--text-secondary)'; } }}
               >
                 <TrendingUp className="w-4 h-4" />
                 庫存總覽
@@ -704,8 +735,8 @@ const MultiWarehouseInventorySystem = () => {
                   alignItems: 'center',
                   gap: '6px'
                 }}
-                onMouseEnter={(e) => { if (activeTab !== 'warehouses') e.target.style.backgroundColor = 'var(--bg-secondary)' }}
-                onMouseLeave={(e) => { if (activeTab !== 'warehouses') e.target.style.backgroundColor = 'transparent' }}
+                onMouseEnter={(e) => { if (activeTab !== 'warehouses') { e.currentTarget.style.backgroundColor = 'var(--bg-secondary)'; e.currentTarget.style.color = 'var(--text-primary)'; } }}
+                onMouseLeave={(e) => { if (activeTab !== 'warehouses') { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--text-secondary)'; } }}
               >
                 <Warehouse className="w-4 h-4" />
                 倉庫管理
@@ -726,8 +757,8 @@ const MultiWarehouseInventorySystem = () => {
                   alignItems: 'center',
                   gap: '6px'
                 }}
-                onMouseEnter={(e) => { if (activeTab !== 'movements') e.target.style.backgroundColor = 'var(--bg-secondary)' }}
-                onMouseLeave={(e) => { if (activeTab !== 'movements') e.target.style.backgroundColor = 'transparent' }}
+                onMouseEnter={(e) => { if (activeTab !== 'movements') { e.currentTarget.style.backgroundColor = 'var(--bg-secondary)'; e.currentTarget.style.color = 'var(--text-primary)'; } }}
+                onMouseLeave={(e) => { if (activeTab !== 'movements') { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--text-secondary)'; } }}
               >
                 <History className="w-4 h-4" />
                 異動記錄
@@ -748,8 +779,8 @@ const MultiWarehouseInventorySystem = () => {
                   alignItems: 'center',
                   gap: '6px'
                 }}
-                onMouseEnter={(e) => { if (activeTab !== 'managers') e.target.style.backgroundColor = 'var(--bg-secondary)' }}
-                onMouseLeave={(e) => { if (activeTab !== 'managers') e.target.style.backgroundColor = 'transparent' }}
+                onMouseEnter={(e) => { if (activeTab !== 'managers') { e.currentTarget.style.backgroundColor = 'var(--bg-secondary)'; e.currentTarget.style.color = 'var(--text-primary)'; } }}
+                onMouseLeave={(e) => { if (activeTab !== 'managers') { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--text-secondary)'; } }}
               >
                 <Users className="w-4 h-4" />
                 管理者設定
@@ -773,7 +804,7 @@ const MultiWarehouseInventorySystem = () => {
                 onMouseEnter={(e) => { e.target.style.backgroundColor = 'var(--bg-secondary)'; e.target.style.borderColor = 'var(--border-medium)' }}
                 onMouseLeave={(e) => { e.target.style.backgroundColor = 'transparent'; e.target.style.borderColor = 'var(--border-light)' }}
               >
-                <FileText className="w-4 h-4" />
+                <FileText className="w-4 h-4" style={{ color: activeTab === 'items' ? 'var(--bg-white)' : 'var(--text-secondary)' }} />
                 使用說明
               </button>
             </div>
@@ -813,7 +844,7 @@ const MultiWarehouseInventorySystem = () => {
                 <input type="text" placeholder="輸入物品名稱..." value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); setOverviewPage(1); }} className="w-full px-4 py-2 border rounded-lg" />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div><label className="block text-sm font-medium text-gray-700 mb-2">選擇分類</label><select value={selectedCategory} onChange={(e) => { setSelectedCategory(e.target.value); setOverviewPage(1); }} className="w-full px-4 py-2 border rounded-lg"><option value="">-- 請選擇分類 --</option><option value="ALL">全部</option>{categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}</select></div>
+                <div><label className="block text-sm font-medium text-gray-700 mb-2">選擇分類</label><select value={selectedCategory} onChange={(e) => { setSelectedCategory(e.target.value); setOverviewPage(1); }} className="w-full px-4 py-2 border rounded-lg"><option value="">-- 請選擇分類 --</option><option value="ALL">全部</option>{categoryList.map(cat => <option key={cat} value={cat}>{cat}</option>)}</select></div>
                 <div><label className="block text-sm font-medium text-gray-700 mb-2">選擇倉庫</label><select value={selectedWarehouse} onChange={(e) => { setSelectedWarehouse(e.target.value); setOverviewPage(1); }} className="w-full px-4 py-2 border rounded-lg"><option value="">-- 請選擇倉庫 --</option><option value="ALL">全部</option>{warehouses.filter(w => w.isActive && (selectedDepartment === 'ALL' || w.department === selectedDepartment)).map(wh => <option key={wh.id} value={wh.id}>{wh.name} ({wh.code})</option>)}</select></div>
                 <div><label className="block text-sm font-medium text-gray-700 mb-2">選擇管理者</label><select value={selectedManager} onChange={(e) => { setSelectedManager(e.target.value); setOverviewPage(1); }} className="w-full px-4 py-2 border rounded-lg"><option value="ALL">全部</option>{managerList.map(mgr => <option key={mgr} value={mgr}>{mgr}</option>)}</select></div>
               </div>
@@ -1100,7 +1131,6 @@ const MultiWarehouseInventorySystem = () => {
                           <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">倉庫</th>
                           <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">類型</th>
                           <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">數量</th>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">效期</th>
                           <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">備註</th>
                           <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">操作人員</th>
                         </tr>
@@ -1121,7 +1151,6 @@ const MultiWarehouseInventorySystem = () => {
                               </span>
                             </td>
                             <td className="px-4 py-3">{mov.quantity > 0 ? '+' : ''}{mov.quantity}</td>
-                            <td className="px-4 py-3">{mov.expiryDate || '-'}</td>
                             <td className="px-4 py-3 max-w-xs truncate">{mov.note}</td>
                             <td className="px-4 py-3">{mov.operator}</td>
                           </tr>
@@ -1248,11 +1277,11 @@ const MultiWarehouseInventorySystem = () => {
 
       {/* Modals */}
       {showGuideModal && <GuideModal onClose={() => setShowGuideModal(false)} />}
-      {showItemModal && <ItemModal item={editingItem} onSave={handleSaveItem} onClose={() => setShowItemModal(false)} unitList={unitList} onAddUnit={handleAddUnit} />}
+      {showItemModal && <ItemModal item={editingItem} onSave={handleSaveItem} onClose={() => setShowItemModal(false)} unitList={unitList} onAddUnit={handleAddUnit} categoryList={categoryList} onAddCategory={handleAddCategory} />}
       {showWarehouseModal && <WarehouseModal warehouse={editingWarehouse} onSave={handleSaveWarehouse} onClose={() => setShowWarehouseModal(false)} />}
       {showMovementModal && <MovementModal items={items} warehouses={warehouses} onCreate={handleCreateMovement} onTransfer={handleTransfer} onClose={() => { setShowMovementModal(false); setSelectedItemForMovement(null); }} prefilledData={selectedItemForMovement} operatorList={operatorList} onAddOperator={handleAddOperator} />}
-      {showPrintModal && <PrintModal config={printConfig} setConfig={setPrintConfig} warehouses={warehouses} categories={categories} onPrint={() => { handlePrint(printConfig, items, warehouses, categories, calculateStock, calculateTotalStock, getItemManager); setShowPrintModal(false); }} onClose={() => setShowPrintModal(false)} />}
-      {showManagerModal && <ManagerAssignmentModal assignment={editingAssignment} categories={categories} warehouses={warehouses} managerList={managerList} onSave={handleSaveManagerAssignment} onClose={() => { setShowManagerModal(false); setEditingAssignment(null); }} />}
+      {showPrintModal && <PrintModal config={printConfig} setConfig={setPrintConfig} warehouses={warehouses} categories={categoryList} onPrint={() => { handlePrint(printConfig, items, warehouses, categoryList, calculateStock, calculateTotalStock, getItemManager); setShowPrintModal(false); }} onClose={() => setShowPrintModal(false)} />}
+      {showManagerModal && <ManagerAssignmentModal assignment={editingAssignment} categories={categoryList} warehouses={warehouses} managerList={managerList} onSave={handleSaveManagerAssignment} onClose={() => { setShowManagerModal(false); setEditingAssignment(null); }} />}
     </div>
   );
 };
@@ -1472,9 +1501,8 @@ const GuideModal = ({ onClose }) => {
   );
 };
 
-const ItemModal = ({ item, onSave, onClose, unitList, onAddUnit }) => {
+const ItemModal = ({ item, onSave, onClose, unitList, onAddUnit, categoryList, onAddCategory }) => {
   const [formData, setFormData] = React.useState({ name: item?.name || '', category: item?.category || '', frequency: item?.frequency || '每月', unit: item?.unit || '個' });
-  const categories = ['主題商品', '其他', '櫃台耗材', '櫃台贈品', '禮品櫃', '醫藥箱', '安全與設施', '客房備品', '客房用品', '包裝材料', '文具', '嬰兒用品', '寢具', '家電'];
   const frequencies = ['每月', '每季', '每半年', '每年'];
 
   // ESC 快捷鍵支援
@@ -1492,7 +1520,16 @@ const ItemModal = ({ item, onSave, onClose, unitList, onAddUnit }) => {
         <h3 className="text-xl font-bold mb-4">{item ? '編輯物品' : '新增物品'}</h3>
         <form onSubmit={(e) => { e.preventDefault(); if (!formData.name || !formData.category) { toast.error('請填寫必填欄位'); return; } onSave({ ...item, ...formData }); }} className="space-y-4">
           <div><label className="block text-sm font-medium text-gray-700 mb-1">物品名稱 *</label><input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-3 py-2 border rounded-lg" required /></div>
-          <div><label className="block text-sm font-medium text-gray-700 mb-1">分類 *</label><select value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} className="w-full px-3 py-2 border rounded-lg" required><option value="">選擇分類</option>{categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}</select></div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">分類 *</label>
+            <EditableComboBox
+              value={formData.category}
+              onChange={(value) => setFormData({ ...formData, category: value })}
+              options={categoryList}
+              onAddNewOption={onAddCategory}
+              placeholder="選擇或輸入分類"
+            />
+          </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">單位</label>
             <EditableComboBox
@@ -1543,7 +1580,7 @@ const WarehouseModal = ({ warehouse, onSave, onClose }) => {
 
 const MovementModal = ({ items, warehouses, onCreate, onTransfer, onClose, prefilledData, operatorList, onAddOperator }) => {
   const [movementType, setMovementType] = React.useState('入庫');
-  const [formData, setFormData] = React.useState({ itemId: prefilledData?.item?.id || '', warehouseId: prefilledData?.warehouse?.id || '', quantity: '', expiryDate: '', note: '', operator: '', toWarehouseId: '' });
+  const [formData, setFormData] = React.useState({ itemId: prefilledData?.item?.id || '', warehouseId: prefilledData?.warehouse?.id || '', quantity: '', note: '', operator: '', toWarehouseId: '' });
   const handleSubmit = (e) => { e.preventDefault(); if (!formData.itemId || !formData.warehouseId || !formData.quantity) { alert('請填寫必填欄位'); return; } const baseData = { ...formData, quantity: parseInt(formData.quantity, 10), type: movementType }; if (movementType === '調撥') { if (!formData.toWarehouseId) { alert('請選擇目標倉庫'); return; } onTransfer({ ...baseData, fromWarehouseId: formData.warehouseId, toWarehouseId: formData.toWarehouseId }); } else { if (movementType === '出庫') baseData.quantity = -Math.abs(baseData.quantity); onCreate(baseData); } };
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 overflow-y-auto">
@@ -1555,7 +1592,7 @@ const MovementModal = ({ items, warehouses, onCreate, onTransfer, onClose, prefi
           <div><label className="block text-sm font-medium text-gray-700 mb-1">{movementType === '調撥' ? '來源倉庫 *' : '倉庫 *'}</label><select value={formData.warehouseId} onChange={(e) => setFormData({ ...formData, warehouseId: e.target.value })} className="w-full px-3 py-2 border rounded-lg" required><option value="">選擇倉庫</option>{warehouses.filter(w => w.isActive).map(wh => <option key={wh.id} value={wh.id}>{wh.name} ({wh.code})</option>)}</select></div>
           {movementType === '調撥' && <div><label className="block text-sm font-medium text-gray-700 mb-1">目標倉庫 *</label><select value={formData.toWarehouseId} onChange={(e) => setFormData({ ...formData, toWarehouseId: e.target.value })} className="w-full px-3 py-2 border rounded-lg" required><option value="">選擇目標倉庫</option>{warehouses.filter(w => w.isActive && w.id !== formData.warehouseId).map(wh => <option key={wh.id} value={wh.id}>{wh.name} ({wh.code})</option>)}</select></div>}
           <div><label className="block text-sm font-medium text-gray-700 mb-1">數量 *{movementType === '調整' && <span className="text-xs text-gray-500 ml-2">(可輸入負值)</span>}</label><input type="number" value={formData.quantity} onChange={(e) => setFormData({ ...formData, quantity: e.target.value })} className="w-full px-3 py-2 border rounded-lg" {...(movementType !== '調整' && { min: "1" })} step="1" required /></div>
-          <div><label className="block text-sm font-medium text-gray-700 mb-1">效期(選填)</label><input type="date" value={formData.expiryDate} onChange={(e) => setFormData({ ...formData, expiryDate: e.target.value })} className="w-full px-3 py-2 border rounded-lg" /></div>
+
           <div><label className="block text-sm font-medium text-gray-700 mb-1">備註</label><textarea value={formData.note} onChange={(e) => setFormData({ ...formData, note: e.target.value })} className="w-full px-3 py-2 border rounded-lg" rows="2" /></div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">操作人員</label>
