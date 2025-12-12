@@ -223,6 +223,65 @@ const MultiWarehouseInventorySystem = () => {
     return '-';
   }, [items, managerAssignments, warehouses, calculateStock]);
 
+  /**
+   * 取得物品的所有管理者及負責倉庫
+   * @param {string} itemId - 物品 ID
+   * @returns {Array} 管理者列表 [{manager, warehouses: []}]
+   */
+  const getAllManagers = useCallback((itemId) => {
+    const item = items.find(i => i.id === itemId);
+    if (!item) return [];
+
+    const managerMap = new Map(); // {manager: [warehouseNames]}
+
+    // 找出有庫存的倉庫
+    const warehousesWithStock = warehouses.filter(w => w.isActive && calculateStock(itemId, w.id) !== 0);
+
+    warehousesWithStock.forEach(wh => {
+      // 1. 檢查倉庫+分類組合
+      const combinedAssignment = managerAssignments.find(
+        a => a.type === 'combined' &&
+          a.warehouseId === wh.id &&
+          a.category === item.category
+      );
+      if (combinedAssignment) {
+        if (!managerMap.has(combinedAssignment.manager)) {
+          managerMap.set(combinedAssignment.manager, []);
+        }
+        managerMap.get(combinedAssignment.manager).push(wh.name);
+        return;
+      }
+
+      // 2. 檢查分類管理者
+      const categoryAssignment = managerAssignments.find(
+        a => a.type === 'category' && a.category === item.category
+      );
+      if (categoryAssignment) {
+        if (!managerMap.has(categoryAssignment.manager)) {
+          managerMap.set(categoryAssignment.manager, []);
+        }
+        managerMap.get(categoryAssignment.manager).push(wh.name);
+        return;
+      }
+
+      // 3. 檢查倉庫管理者
+      const warehouseAssignment = managerAssignments.find(
+        a => a.type === 'warehouse' && a.warehouseId === wh.id
+      );
+      if (warehouseAssignment) {
+        if (!managerMap.has(warehouseAssignment.manager)) {
+          managerMap.set(warehouseAssignment.manager, []);
+        }
+        managerMap.get(warehouseAssignment.manager).push(wh.name);
+      }
+    });
+
+    // 轉換為陣列格式
+    return Array.from(managerMap.entries()).map(([manager, warehouseNames]) => ({
+      manager,
+      warehouses: warehouseNames
+    }));
+  }, [items, managerAssignments, warehouses, calculateStock]);
 
   /**
    * FIFO（先進先出）效期管理
@@ -783,7 +842,7 @@ const MultiWarehouseInventorySystem = () => {
                 return '#5A8F7B'; // 柔和綠色
               };
 
-              return filteredItems.length === 0 ? (<div className="bg-white rounded-lg shadow p-8 text-center"><AlertCircle className="w-16 h-16 mx-auto text-gray-300 mb-4" /><p className="text-gray-600">沒有符合篩選條件的物品</p></div>) : (<><div className="bg-white rounded-lg shadow overflow-x-auto"><table className="min-w-full"><thead className="bg-gray-50"><tr><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">物品</th><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">分類</th><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">單位</th><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">頻率</th><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">管理者</th><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">倉庫分佈</th><th className="px-4 py-4 text-center text-sm font-medium text-gray-500 uppercase" style={{ backgroundColor: 'var(--info-light)' }}>總計</th><th className="px-4 py-4 text-center text-sm font-medium text-gray-500 uppercase">操作</th></tr></thead><tbody className="divide-y divide-gray-200">{paginatedItems.map(item => { const distribution = getWarehouseDistribution(item.id); const totalStock = calculateTotalStock(item.id); const manager = getItemManager(item.id); return (<tr key={item.id} className="hover:bg-gray-50"><td className="px-4 py-4 font-medium text-sm">{item.name}</td><td className="px-4 py-4 text-sm">{item.category}</td><td className="px-4 py-4 text-sm">{item.unit}</td><td className="px-4 py-4 text-sm text-gray-600">{item.frequency}</td><td className="px-4 py-4 text-sm"><span className={`px-2 py-1 rounded text-xs font-medium ${manager === '-' ? 'bg-gray-100 text-gray-600' : 'bg-info-light text-info'}`}>{manager}</span></td><td className="px-4 py-4"><div className="flex flex-wrap gap-1">{distribution.length === 0 ? <span className="text-gray-400 text-xs">無庫存</span> : distribution.map(({ warehouse, stock }) => <span key={warehouse.id} className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium ${stock > 0 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>{warehouse.code}({stock})</span>)}</div></td><td className="px-4 py-4 text-center"><span className="inline-flex items-center gap-2"><span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: getStockDotColor(totalStock), display: 'inline-block' }}></span><span style={{ color: 'var(--text-primary)', fontWeight: 'var(--font-semibold)', fontSize: '16px' }}>{totalStock}</span></span></td><td className="px-4 py-4 text-center space-x-2"><button onClick={() => { setSelectedItemForMovement({ item, warehousesWithStock: distribution.filter(d => d.stock > 0).map(d => d.warehouse) }); setShowMovementModal(true); }} className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700 text-xs">異動</button><button onClick={() => { setEditingItem(item); setShowItemModal(true); }} className="bg-gray-600 text-white px-3 py-2 rounded hover:bg-gray-700 text-xs">編輯</button><button onClick={() => handleDeleteItem(item.id)} className="bg-red-600 text-white px-3 py-2 rounded hover:bg-red-700 text-xs">刪除</button></td></tr>); })}</tbody></table></div>{totalPages > 1 && <div className="mt-4 flex items-center justify-between bg-white px-4 py-3 rounded-lg shadow"><div className="text-sm text-gray-700">顯示 {startIndex + 1} 到 {Math.min(endIndex, filteredItems.length)} 筆，共 {filteredItems.length} 筆</div><div className="flex gap-2"><button onClick={() => setOverviewPage(p => Math.max(1, p - 1))} disabled={overviewPage === 1} className={`px-3 py-1 rounded ${overviewPage === 1 ? 'bg-gray-200 text-gray-400' : 'bg-blue-600 text-white hover:bg-blue-700'}`}>上一頁</button><span className="px-3 py-1">第 {overviewPage} / {totalPages} 頁</span><button onClick={() => setOverviewPage(p => Math.min(totalPages, p + 1))} disabled={overviewPage === totalPages} className={`px-3 py-1 rounded ${overviewPage === totalPages ? 'bg-gray-200 text-gray-400' : 'bg-blue-600 text-white hover:bg-blue-700'}`}>下一頁</button></div></div>}</>);
+              return filteredItems.length === 0 ? (<div className="bg-white rounded-lg shadow p-8 text-center"><AlertCircle className="w-16 h-16 mx-auto text-gray-300 mb-4" /><p className="text-gray-600">沒有符合篩選條件的物品</p></div>) : (<><div className="bg-white rounded-lg shadow overflow-x-auto"><table className="min-w-full"><thead className="bg-gray-50"><tr><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">物品</th><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">分類</th><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">單位</th><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">頻率</th><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">管理者</th><th className="px-4 py-4 text-left text-sm font-medium text-gray-500 uppercase">倉庫分佈</th><th className="px-4 py-4 text-center text-sm font-medium text-gray-500 uppercase" style={{ backgroundColor: 'var(--info-light)' }}>總計</th><th className="px-4 py-4 text-center text-sm font-medium text-gray-500 uppercase">操作</th></tr></thead><tbody className="divide-y divide-gray-200">{paginatedItems.map(item => { const distribution = getWarehouseDistribution(item.id); const totalStock = calculateTotalStock(item.id); const managers = getAllManagers(item.id); return (<tr key={item.id} className="hover:bg-gray-50"><td className="px-4 py-4 font-medium text-sm">{item.name}</td><td className="px-4 py-4 text-sm">{item.category}</td><td className="px-4 py-4 text-sm">{item.unit}</td><td className="px-4 py-4 text-sm text-gray-600">{item.frequency}</td><td className="px-4 py-4 text-sm"><div className="flex flex-wrap gap-1">{managers.length === 0 ? <span className="px-2 py-1 rounded text-xs font-medium bg-gray-100 text-gray-600">-</span> : managers.map(m => <span key={m.manager} className="px-2 py-1 rounded text-xs font-medium bg-info-light text-info cursor-help" title={`負責倉庫: ${m.warehouses.join(', ')}`}>{m.manager}</span>)}</div></td><td className="px-4 py-4"><div className="flex flex-wrap gap-1">{distribution.length === 0 ? <span className="text-gray-400 text-xs">無庫存</span> : distribution.map(({ warehouse, stock }) => <span key={warehouse.id} className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium ${stock > 0 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>{warehouse.code}({stock})</span>)}</div></td><td className="px-4 py-4 text-center"><span className="inline-flex items-center gap-2"><span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: getStockDotColor(totalStock), display: 'inline-block' }}></span><span style={{ color: 'var(--text-primary)', fontWeight: 'var(--font-semibold)', fontSize: '16px' }}>{totalStock}</span></span></td><td className="px-4 py-4 text-center space-x-2"><button onClick={() => { setSelectedItemForMovement({ item, warehousesWithStock: distribution.filter(d => d.stock > 0).map(d => d.warehouse) }); setShowMovementModal(true); }} className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700 text-xs">異動</button><button onClick={() => { setEditingItem(item); setShowItemModal(true); }} className="bg-gray-600 text-white px-3 py-2 rounded hover:bg-gray-700 text-xs">編輯</button><button onClick={() => handleDeleteItem(item.id)} className="bg-red-600 text-white px-3 py-2 rounded hover:bg-red-700 text-xs">刪除</button></td></tr>); })}</tbody></table></div>{totalPages > 1 && <div className="mt-4 flex items-center justify-between bg-white px-4 py-3 rounded-lg shadow"><div className="text-sm text-gray-700">顯示 {startIndex + 1} 到 {Math.min(endIndex, filteredItems.length)} 筆，共 {filteredItems.length} 筆</div><div className="flex gap-2"><button onClick={() => setOverviewPage(p => Math.max(1, p - 1))} disabled={overviewPage === 1} className={`px-3 py-1 rounded ${overviewPage === 1 ? 'bg-gray-200 text-gray-400' : 'bg-blue-600 text-white hover:bg-blue-700'}`}>上一頁</button><span className="px-3 py-1">第 {overviewPage} / {totalPages} 頁</span><button onClick={() => setOverviewPage(p => Math.min(totalPages, p + 1))} disabled={overviewPage === totalPages} className={`px-3 py-1 rounded ${overviewPage === totalPages ? 'bg-gray-200 text-gray-400' : 'bg-blue-600 text-white hover:bg-blue-700'}`}>下一頁</button></div></div>}</>);
             })()}
           </div>
         )}
@@ -1017,6 +1076,11 @@ const MultiWarehouseInventorySystem = () => {
                 }
 
                 return true;
+              }).sort((a, b) => {
+                // 按建立時間降序排列,最新的在前
+                const dateA = new Date(a.createdAt || 0);
+                const dateB = new Date(b.createdAt || 0);
+                return dateB - dateA;
               });
 
               return (
