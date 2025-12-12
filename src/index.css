@@ -1,12 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ==================== 設計系統變數 ==================== */
+:root {
+  /* 品牌基礎色 */
+  --color-primary: #2C2C2C;
+  /* 優雅深灰 */
+  --color-accent: #A0826D;
+  /* 溫暖棕色 */
+  --color-gold: #C9A86A;
+  /* 金色強調 */
+
+  /* 背景色 - 溫暖灰調系統 */
+  --bg-primary: #FAF9F7;
+  /* 主背景 */
+  --bg-secondary: #F5F4F2;
+  /* 次背景 */
+  --bg-tertiary: #EFEDE9;
+  /* 第三層背景 */
+  --bg-white: #FFFFFF;
+  /* 純白卡片 */
+
+  /* 文字色 */
+  --text-primary: #2C2C2C;
+  /* 主要文字 */
+  --text-secondary: #6B6B6B;
+  /* 次要文字 */
+  --text-tertiary: #9B9B9B;
+  /* 第三層文字 */
+  --text-placeholder: #C5C5C5;
+  /* 佔位符文字 */
+
+  /* 語義色 - 柔和版本 */
+  --success: #5A8F7B;
+  /* 柔和綠 */
+  --success-light: #E8F3EF;
+  /* 淡綠背景 */
+  --warning: #D4A574;
+  /* 柔和橙 */
+  --warning-light: #FDF6ED;
+  /* 淡橙背景 */
+  --error: #C57B7B;
+  /* 柔和紅 */
+  --error-light: #FCF0F0;
+  /* 淡紅背景 */
+  --info: #7B99C5;
+  /* 柔和藍 */
+  --info-light: #EFF4FB;
+  /* 淡藍背景 */
+
+  /* 邊框色 */
+  --border-light: #E0DDD9;
+  /* 淡色邊框 */
+  --border-medium: #D0CCC7;
+  /* 中等邊框 */
+  --border-dark: #B8B3AD;
+  /* 深色邊框 */
+
+  /* 陰影 */
+  --shadow-sm: 0 1px 3px rgba(44, 44, 44, 0.06);
+  --shadow-md: 0 4px 12px rgba(44, 44, 44, 0.08);
+  --shadow-lg: 0 8px 24px rgba(44, 44, 44, 0.12);
+  --shadow-hover: 0 6px 16px rgba(44, 44, 44, 0.1);
+
+  /* 間距系統 - 8px 基礎 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-base: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  /* 圓角 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* 字體大小 */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 32px;
+
+  /* 字體權重 */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* 過渡動畫 */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+}
+
+/* ==================== 基礎樣式 ==================== */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* 標題樣式加強 */
+h1 {
+  font-weight: var(--font-bold);
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-weight: var(--font-bold);
+  font-size: 22px;
+  letter-spacing: -0.3px;
+}
+
+h3 {
+  font-weight: var(--font-semibold);
+  font-size: 18px;
+}
+
+/* ==================== 滾動條樣式 ==================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-dark);
+}
+
+/* ==================== 輔助類別 ==================== */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.bg-white {
+  background-color: var(--bg-white);
+}
+
+.transition-base {
+  transition: all var(--transition-base);
+}
+
+.transition-fast {
+  transition: all var(--transition-fast);
 }

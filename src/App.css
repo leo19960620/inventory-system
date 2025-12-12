@@ -1,0 +1,372 @@
+/* ==================== App 特定樣式優化 ==================== */
+
+/* 主要內容區域 */
+main {
+    padding: var(--spacing-lg) var(--spacing-lg);
+}
+
+/* 卡片樣式 */
+.bg-white.rounded-lg.shadow,
+.bg-white.rounded-lg.shadow-md {
+    background-color: var(--bg-white) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border: 1px solid var(--border-light);
+    transition: var(--transition-base);
+}
+
+.bg-white.rounded-lg.shadow:hover {
+    box-shadow: var(--shadow-md) !important;
+}
+
+/* 標題樣式 */
+h2.text-2xl,
+h2.text-xl {
+    color: var(--color-primary) !important;
+    font-weight: var(--font-semibold) !important;
+    letter-spacing: -0.3px;
+}
+
+h3.text-xl {
+    color: var(--color-primary) !important;
+    font-weight: var(--font-semibold) !important;
+}
+
+/* 輸入框統一樣式 */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    padding: var(--spacing-md) var(--spacing-base) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-md) !important;
+    font-size: var(--text-sm) !important;
+    color: var(--text-primary) !important;
+    background-color: var(--bg-white) !important;
+    transition: var(--transition-base) !important;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 0 3px rgba(160, 130, 109, 0.1) !important;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+    color: var(--text-placeholder) !important;
+}
+
+/* 按鈕基礎樣式 */
+button {
+    font-weight: var(--font-medium) !important;
+    transition: var(--transition-base) !important;
+    border-radius: var(--radius-md) !important;
+}
+
+/* 主要按鈕 (藍色系 -> 品牌色) */
+.bg-blue-600 {
+    background-color: var(--color-accent) !important;
+}
+
+.hover\\:bg-blue-700:hover {
+    background-color: #8F7361 !important;
+}
+
+/* 成功按鈕 (綠色 -> 柔和綠) */
+.bg-green-600 {
+    background-color: var(--success) !important;
+}
+
+.hover\\:bg-green-700:hover {
+    background-color: #4A7A68 !important;
+}
+
+/* 危險按鈕 (紅色 -> 柔和紅) */
+.bg-red-600 {
+    background-color: var(--error) !important;
+}
+
+.hover\\:bg-red-700:hover {
+    background-color: #B36969 !important;
+}
+
+/* 次要按鈕 */
+.bg-gray-200 {
+    background-color: var(--bg-secondary) !important;
+}
+
+.text-gray-700 {
+    color: var(--text-secondary) !important;
+}
+
+.hover\\:bg-gray-300:hover {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* 表格樣式改進 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: var(--bg-secondary) !important;
+}
+
+thead th {
+    padding: var(--spacing-md) var(--spacing-base) !important;
+    font-size: var(--text-xs) !important;
+    font-weight: var(--font-semibold) !important;
+    color: var(--text-secondary) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--border-medium) !important;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--border-light) !important;
+    transition: var(--transition-fast);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--bg-primary) !important;
+}
+
+tbody tr:hover {
+    background-color: var(--bg-secondary) !important;
+}
+
+tbody td {
+    padding: var(--spacing-md) var(--spacing-base) !important;
+    font-size: var(--text-sm) !important;
+    color: var(--text-primary) !important;
+}
+
+/* 數值欄位右對齊 */
+tbody td:has(> span.inline-flex.items-center.px-3),
+tbody td:has(> div.flex.flex-wrap.gap-1) {
+    /* 倉庫分佈和總計欄位保持原樣 */
+}
+
+/* 狀態標籤優化 */
+.bg-green-100 {
+    background-color: var(--success-light) !important;
+}
+
+.text-green-800 {
+    color: var(--success) !important;
+}
+
+.bg-red-100 {
+    background-color: var(--error-light) !important;
+}
+
+.text-red-800 {
+    color: var(--error) !important;
+}
+
+.bg-orange-100,
+.bg-yellow-100 {
+    background-color: var(--warning-light) !important;
+}
+
+.text-orange-800,
+.text-yellow-800 {
+    color: var(--warning) !important;
+}
+
+.bg-blue-100 {
+    background-color: var(--info-light) !important;
+}
+
+.text-blue-800 {
+    color: var(--info) !important;
+}
+
+.bg-info-light {
+    background-color: var(--info-light) !important;
+}
+
+.text-info {
+    color: var(--info) !important;
+}
+
+.bg-indigo-100 {
+    background-color: #EFF4FB !important;
+}
+
+.text-indigo-800 {
+    color: #5A7BA8 !important;
+}
+
+.bg-purple-100 {
+    background-color: #F3EFF8 !important;
+}
+
+.text-purple-800 {
+    color: #8B6FA8 !important;
+}
+
+.bg-pink-100 {
+    background-color: #FCF0F5 !important;
+}
+
+.text-pink-800 {
+    color: #C57BA8 !important;
+}
+
+/* 標籤和徽章 */
+span.px-2.py-1.rounded,
+span.px-3.py-1.rounded-full {
+    border-radius: var(--radius-sm) !important;
+    font-weight: var(--font-medium) !important;
+    font-size: var(--text-xs) !important;
+    padding: 4px 8px !important;
+}
+
+/* 分頁控制 */
+.bg-gray-200.text-gray-400 {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-tertiary) !important;
+}
+
+/* 模態對話框 */
+.fixed.inset-0.bg-black.bg-opacity-50 {
+    background-color: rgba(44, 44, 44, 0.5) !important;
+    backdrop-filter: blur(2px);
+}
+
+.fixed.inset-0>div {
+    box-shadow: var(--shadow-lg) !important;
+    border-radius: var(--radius-lg) !important;
+}
+
+/* 表單標籤 */
+label {
+    font-size: var(--text-sm) !important;
+    font-weight: var(--font-medium) !important;
+    color: var(--text-primary) !important;
+}
+
+/* 搜尋和篩選卡片內邊距 */
+.bg-white.rounded-lg.shadow.p-4 {
+    padding: var(--spacing-lg) !important;
+}
+
+/* Toast 通知樣式改進 */
+div[role="status"] {
+    box-shadow: var(--shadow-md) !important;
+    border-radius: var(--radius-md) !important;
+}
+
+/* 載入動畫顏色 */
+.animate-spin {
+    border-top-color: transparent !important;
+}
+
+/* 連結和互動元素 */
+a,
+button {
+    cursor: pointer;
+}
+
+/* 圖標按鈕 */
+button:has(> svg:only-child) {
+    padding: var(--spacing-sm) !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 文字顏色統一 */
+.text-gray-600 {
+    color: var(--text-secondary) !important;
+}
+
+.text-gray-500 {
+    color: var(--text-tertiary) !important;
+}
+
+.text-gray-800 {
+    color: var(--text-primary) !important;
+}
+
+/* 邊框顏色 */
+.border-gray-300 {
+    border-color: var(--border-light) !important;
+}
+
+.border-gray-200 {
+    border-color: var(--border-light) !important;
+}
+
+/* 分隔線 */
+.divide-gray-200>*+* {
+    border-color: var(--border-light) !important;
+}
+
+/* 懸停效果增強 */
+.hover\\:bg-gray-50:hover {
+    background-color: var(--bg-secondary) !important;
+}
+
+.hover\\:bg-gray-100:hover {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* 焦點狀態 */
+:focus-visible {
+    outline: 2px solid var(--color-accent) !important;
+    outline-offset: 2px;
+}
+
+/* 細微的頁面裝飾 - 品牌幾何圖案 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(160, 130, 109, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* 改進表單佈局 */
+.grid.grid-cols-1.md\\:grid-cols-3.gap-4 {
+    gap: var(--spacing-base) !important;
+}
+
+/* 空狀態樣式 */
+.text-center>.text-gray-300 {
+    color: var(--border-medium) !important;
+}
+
+.text-center>.text-gray-600 {
+    color: var(--text-secondary) !important;
+}
+
+/* 改進圓角一致性 */
+.rounded {
+    border-radius: var(--radius-sm) !important;
+}
+
+.rounded-lg {
+    border-radius: var(--radius-md) !important;
+}
+
+.rounded-full {
+    border-radius: var(--radius-full) !important;
+}
