@@ -10,10 +10,10 @@
     "@vercel/speed-insights": "^1.2.0",
     "firebase": "^12.3.0",
     "lucide-react": "^0.544.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-hot-toast": "^2.6.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "recharts": "^3.2.1",
     "web-vitals": "^2.1.4"
   },
@@ -21,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "node patch-webpack-dev-server.js"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "baseline-browser-mapping": "^2.9.7",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17"
   }
