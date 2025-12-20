@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Plus, FileText, History, Package, Warehouse, TrendingUp, Edit2, Trash2, AlertCircle, Users } from 'lucide-react';
+import { Plus, FileText, History, Warehouse, TrendingUp, Edit2, Trash2, AlertCircle, Users } from 'lucide-react';
 import { database } from './firebase';
 import { ref, set, onValue, get } from 'firebase/database';
 import toast, { Toaster } from 'react-hot-toast';
@@ -665,7 +665,7 @@ const MultiWarehouseInventorySystem = () => {
         <div className="max-w-7xl mx-auto" style={{ padding: '0 var(--spacing-lg)' }}>
           <div className="flex justify-between items-center" style={{ height: '72px' }}>
             <div className="flex items-center gap-3">
-              <Package style={{ width: '32px', height: '32px', color: 'var(--color-accent)' }} />
+              <img src="/logo.png" alt="Logo" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
               <h1 style={{
                 fontSize: 'var(--text-2xl)',
                 fontWeight: 'var(--font-semibold)',
