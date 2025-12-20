@@ -1,0 +1,4 @@
+npm run build
+git add .
+git commit -m "新增排序功能並清理敏感檔案"
+git push
