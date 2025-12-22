@@ -1692,10 +1692,12 @@ const generatePrintHTML = (config, items, warehouses, categories, calculateStock
 
     const tableRows = warehouseItems.map(item => {
       const stock = calculateStock(item.id, warehouse.id);
+      const manager = getItemManager(item.id);
       return `
         <tr>
           <td>${item.name}</td>
           <td>${item.category}</td>
+          <td class="text-center">${manager}</td>
           <td class="text-center">${item.unit || '個'}</td>
           <td class="text-center font-bold">${stock}</td>
           <td class="count-col"></td>
@@ -1713,11 +1715,12 @@ const generatePrintHTML = (config, items, warehouses, categories, calculateStock
         <table>
           <thead>
             <tr>
-              <th style="width: 30%;">物品名稱</th>
-              <th style="width: 20%;">分類</th>
-              <th style="width: 10%;">單位</th>
-              <th style="width: 13%;">帳面庫存</th>
-              <th style="width: 13%;">實際盤點</th>
+              <th style="width: 25%;">物品名稱</th>
+              <th style="width: 15%;">分類</th>
+              <th style="width: 10%;">負責人</th>
+              <th style="width: 8%;">單位</th>
+              <th style="width: 14%;">帳面庫存</th>
+              <th style="width: 14%;">實際盤點</th>
               <th style="width: 14%;">差異</th>
             </tr>
           </thead>
