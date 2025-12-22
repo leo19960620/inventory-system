@@ -890,6 +890,10 @@ const MultiWarehouseInventorySystem = () => {
                 })();
                 return matchCategory && matchWarehouse && matchSearch && matchDepartment && matchManager;
               });
+
+              // 排序：按物品名稱排序（與列印報表一致）
+              filteredItems.sort((a, b) => a.name.localeCompare(b.name, 'zh-TW'));
+
               const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE); const startIndex = (overviewPage - 1) * ITEMS_PER_PAGE; const endIndex = startIndex + ITEMS_PER_PAGE; const paginatedItems = filteredItems.slice(startIndex, endIndex);
               const getWarehouseDistribution = (itemId) => { return filteredWarehouses.map(wh => ({ warehouse: wh, stock: calculateStock(itemId, wh.id) })).filter(item => item.stock !== 0); };
 
