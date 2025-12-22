@@ -1280,7 +1280,7 @@ const MultiWarehouseInventorySystem = () => {
       {showItemModal && <ItemModal item={editingItem} onSave={handleSaveItem} onClose={() => setShowItemModal(false)} unitList={unitList} onAddUnit={handleAddUnit} categoryList={categoryList} onAddCategory={handleAddCategory} />}
       {showWarehouseModal && <WarehouseModal warehouse={editingWarehouse} onSave={handleSaveWarehouse} onClose={() => setShowWarehouseModal(false)} />}
       {showMovementModal && <MovementModal items={items} warehouses={warehouses} onCreate={handleCreateMovement} onTransfer={handleTransfer} onClose={() => { setShowMovementModal(false); setSelectedItemForMovement(null); }} prefilledData={selectedItemForMovement} operatorList={operatorList} onAddOperator={handleAddOperator} />}
-      {showPrintModal && <PrintModal config={printConfig} setConfig={setPrintConfig} warehouses={warehouses} categories={categoryList} onPrint={() => { handlePrint(printConfig, items, warehouses, categoryList, calculateStock, calculateTotalStock, getItemManager); setShowPrintModal(false); }} onClose={() => setShowPrintModal(false)} />}
+      {showPrintModal && <PrintModal config={printConfig} setConfig={setPrintConfig} warehouses={warehouses} categories={categoryList} managerList={managerList} onPrint={() => { handlePrint(printConfig, items, warehouses, categoryList, calculateStock, calculateTotalStock, getItemManager, managerAssignments); setShowPrintModal(false); }} onClose={() => setShowPrintModal(false)} />}
       {showManagerModal && <ManagerAssignmentModal assignment={editingAssignment} categories={categoryList} warehouses={warehouses} managerList={managerList} onSave={handleSaveManagerAssignment} onClose={() => { setShowManagerModal(false); setEditingAssignment(null); }} />}
     </div>
   );
@@ -1623,7 +1623,7 @@ const MovementModal = ({ items, warehouses, onCreate, onTransfer, onClose, prefi
 
 // ==================== 列印相關函數和組件 ====================
 
-const handlePrint = (config, items, warehouses, categories, calculateStock, calculateTotalStock, getItemManager) => {
+const handlePrint = (config, items, warehouses, categories, calculateStock, calculateTotalStock, getItemManager, managerAssignments) => {
   if (!config.frequency) {
     toast.error('請選擇盤點頻率');
     return;
@@ -1654,6 +1654,9 @@ const handlePrint = (config, items, warehouses, categories, calculateStock, calc
     filteredWarehouses = filteredWarehouses.filter(w => w.department === config.rangeValue);
   } else if (config.rangeType === 'warehouse') {
     filteredWarehouses = filteredWarehouses.filter(w => w.id === config.rangeValue);
+  } else if (config.rangeType === 'manager' && config.rangeValue !== 'ALL_MANAGERS') {
+    // 按負責人篩選：只保留該負責人管理的物品（非全部負責人時）
+    filteredItems = filteredItems.filter(item => getItemManager(item.id) === config.rangeValue);
   }
 
   // 只保留在篩選倉庫中有庫存的物品
@@ -1663,7 +1666,7 @@ const handlePrint = (config, items, warehouses, categories, calculateStock, calc
 
   // 生成列印內容
   const printWindow = window.open('', '_blank');
-  const printContent = generatePrintHTML(config, filteredItems, filteredWarehouses, categories, calculateStock, calculateTotalStock, getItemManager);
+  const printContent = generatePrintHTML(config, filteredItems, filteredWarehouses, categories, calculateStock, calculateTotalStock, getItemManager, managerAssignments);
   printWindow.document.write(printContent);
   printWindow.document.close();
   printWindow.focus();
@@ -1674,68 +1677,162 @@ const handlePrint = (config, items, warehouses, categories, calculateStock, calc
   }, 250);
 };
 
-const generatePrintHTML = (config, items, warehouses, categories, calculateStock, calculateTotalStock, getItemManager) => {
+const generatePrintHTML = (config, items, warehouses, categories, calculateStock, calculateTotalStock, getItemManager, managerAssignments) => {
   const today = new Date().toLocaleDateString('zh-TW');
   const rangeText = config.rangeType === 'department' ? `部門：${config.rangeValue}` :
     config.rangeType === 'warehouse' ? `倉庫：${warehouses.find(w => w.id === config.rangeValue)?.name}` :
-      '範圍：全部';
+      config.rangeType === 'manager' && config.rangeValue === 'ALL_MANAGERS' ? '負責人：全部負責人' :
+        config.rangeType === 'manager' ? `負責人：${config.rangeValue}` :
+          '範圍：全部';
 
-  // 按倉庫分組生成表格
-  const warehouseTables = warehouses.map((warehouse, index) => {
-    // 篩選該倉庫有庫存的物品
-    const warehouseItems = items.filter(item => {
-      const stock = calculateStock(item.id, warehouse.id);
-      return stock !== 0; // 包含正值和負值
+  let contentTables = '';
+
+  // 如果選擇全部負責人，按負責人分組
+  if (config.rangeType === 'manager' && config.rangeValue === 'ALL_MANAGERS') {
+    // 創建一個輔助函數來獲取特定倉庫中特定物品的負責人
+    const getItemManagerInWarehouse = (itemId, warehouseId) => {
+      const item = items.find(i => i.id === itemId);
+      if (!item) return '-';
+      const warehouse = warehouses.find(w => w.id === warehouseId);
+      if (!warehouse) return '-';
+      const combinedAssignment = managerAssignments.find(a => a.type === 'combined' && a.warehouseId === warehouseId && a.category === item.category);
+      if (combinedAssignment) return combinedAssignment.manager;
+      const warehouseAssignment = managerAssignments.find(a => a.type === 'warehouse' && a.warehouseId === warehouseId);
+      if (warehouseAssignment) return warehouseAssignment.manager;
+      const categoryAssignment = managerAssignments.find(a => a.type === 'category' && a.category === item.category);
+      if (categoryAssignment) return categoryAssignment.manager;
+      return '-';
+    };
+
+    // 收集所有 (物品, 倉庫, 負責人) 的組合
+    const itemWarehouseManagers = [];
+    items.forEach(item => {
+      warehouses.forEach(wh => {
+        const stock = calculateStock(item.id, wh.id);
+        if (stock !== 0) {
+          const manager = getItemManagerInWarehouse(item.id, wh.id);
+          if (manager && manager !== '-') {
+            itemWarehouseManagers.push({ item, warehouse: wh, stock, manager });
+          }
+        }
+      });
     });
 
-    if (warehouseItems.length === 0) return ''; // 沒有物品則不顯示此倉庫
+    // 按負責人分組
+    const managerGroups = {};
+    itemWarehouseManagers.forEach(entry => {
+      if (!managerGroups[entry.manager]) managerGroups[entry.manager] = [];
+      managerGroups[entry.manager].push(entry);
+    });
+    const managers = Object.keys(managerGroups).sort();
 
-    const tableRows = warehouseItems.map(item => {
-      const stock = calculateStock(item.id, warehouse.id);
-      const manager = getItemManager(item.id);
-      return `
+    contentTables = managers.map((manager, index) => {
+      const entries = managerGroups[manager];
+
+      if (entries.length === 0) return '';
+
+      const tableRows = entries.map(entry => `
         <tr>
-          <td>${item.name}</td>
-          <td>${item.category}</td>
-          <td class="text-center">${manager}</td>
-          <td class="text-center">${item.unit || '個'}</td>
-          <td class="text-center font-bold">${stock}</td>
+          <td>${entry.item.name}</td>
+          <td>${entry.item.category}</td>
+          <td class="text-center">${entry.warehouse.name}</td>
+          <td class="text-center">${entry.item.unit || '個'}</td>
+          <td class="text-center font-bold">${entry.stock}</td>
           <td class="count-col"></td>
           <td class="diff-col"></td>
         </tr>
-      `;
-    }).join('');
+      `).join('');
 
-    // 第一個倉庫不加分頁，其他倉庫在之前分頁
-    const pageBreakClass = index === 0 ? '' : 'page-break-before';
+      if (!tableRows) return '';
 
-    return `
-      <div class="warehouse-section ${pageBreakClass}">
-        <h2 class="warehouse-title">${warehouse.name} (${warehouse.code})</h2>
-        <table>
-          <thead>
-            <tr>
-              <th style="width: 25%;">物品名稱</th>
-              <th style="width: 15%;">分類</th>
-              <th style="width: 10%;">負責人</th>
-              <th style="width: 8%;">單位</th>
-              <th style="width: 14%;">帳面庫存</th>
-              <th style="width: 14%;">實際盤點</th>
-              <th style="width: 14%;">差異</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${tableRows}
-          </tbody>
-        </table>
-        <div class="warehouse-footer">
-          <div>盤點人員：_______________</div>
-          <div>日期：_______________</div>
-          <div>簽名：_______________</div>
+      const pageBreakClass = index === 0 ? '' : 'page-break-before';
+
+      return `
+        <div class="warehouse-section ${pageBreakClass}">
+          <h2 class="warehouse-title">負責人：${manager}</h2>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 25%;">物品名稱</th>
+                <th style="width: 15%;">分類</th>
+                <th style="width: 12%;">倉庫</th>
+                <th style="width: 8%;">單位</th>
+                <th style="width: 12%;">帳面庫存</th>
+                <th style="width: 14%;">實際盤點</th>
+                <th style="width: 14%;">差異</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${tableRows}
+            </tbody>
+          </table>
+          <div class="warehouse-footer">
+            <div>盤點人員：_______________</div>
+            <div>日期：_______________</div>
+            <div>簽名：_______________</div>
+          </div>
         </div>
-      </div>
-    `;
-  }).filter(table => table !== '').join('');
+      `;
+    }).filter(table => table !== '').join('');
+
+  } else {
+    // 原本的按倉庫分組邏輯
+    contentTables = warehouses.map((warehouse, index) => {
+      // 篩選該倉庫有庫存的物品
+      const warehouseItems = items.filter(item => {
+        const stock = calculateStock(item.id, warehouse.id);
+        return stock !== 0; // 包含正值和負值
+      });
+
+      if (warehouseItems.length === 0) return ''; // 沒有物品則不顯示此倉庫
+
+      const tableRows = warehouseItems.map(item => {
+        const stock = calculateStock(item.id, warehouse.id);
+        const manager = getItemManager(item.id);
+        return `
+          <tr>
+            <td>${item.name}</td>
+            <td>${item.category}</td>
+            <td class="text-center">${manager}</td>
+            <td class="text-center">${item.unit || '個'}</td>
+            <td class="text-center font-bold">${stock}</td>
+            <td class="count-col"></td>
+            <td class="diff-col"></td>
+          </tr>
+        `;
+      }).join('');
+
+      // 第一個倉庫不加分頁，其他倉庫在之前分頁
+      const pageBreakClass = index === 0 ? '' : 'page-break-before';
+
+      return `
+        <div class="warehouse-section ${pageBreakClass}">
+          <h2 class="warehouse-title">${warehouse.name} (${warehouse.code})</h2>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 25%;">物品名稱</th>
+                <th style="width: 15%;">分類</th>
+                <th style="width: 10%;">負責人</th>
+                <th style="width: 8%;">單位</th>
+                <th style="width: 14%;">帳面庫存</th>
+                <th style="width: 14%;">實際盤點</th>
+                <th style="width: 14%;">差異</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${tableRows}
+            </tbody>
+          </table>
+          <div class="warehouse-footer">
+            <div>盤點人員：_______________</div>
+            <div>日期：_______________</div>
+            <div>簽名：_______________</div>
+          </div>
+        </div>
+      `;
+    }).filter(table => table !== '').join('');
+  }
 
   return `
     <!DOCTYPE html>
@@ -1814,13 +1911,13 @@ const generatePrintHTML = (config, items, warehouses, categories, calculateStock
         </div>
       </div>
 
-      ${warehouseTables}
+      ${contentTables}
     </body>
     </html>
   `;
 };
 
-const PrintModal = ({ config, setConfig, warehouses, categories, onPrint, onClose }) => {
+const PrintModal = ({ config, setConfig, warehouses, categories, managerList, onPrint, onClose }) => {
   const frequencies = ['每月', '每季', '每半年', '每年'];
 
   return (
@@ -1842,15 +1939,15 @@ const PrintModal = ({ config, setConfig, warehouses, categories, onPrint, onClos
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">列印範圍</label>
-            <div className="grid grid-cols-3 gap-2">
-              {['all', 'department', 'warehouse'].map(type => (
+            <div className="grid grid-cols-4 gap-2">
+              {['all', 'department', 'warehouse', 'manager'].map(type => (
                 <button
                   key={type}
                   type="button"
                   onClick={() => setConfig({ ...config, rangeType: type, rangeValue: '' })}
                   className={`px-3 py-2 rounded text-sm ${config.rangeType === type ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                 >
-                  {type === 'all' ? '全部' : type === 'department' ? '按部門' : '按倉庫'}
+                  {type === 'all' ? '全部' : type === 'department' ? '按部門' : type === 'warehouse' ? '按倉庫' : '按負責人'}
                 </button>
               ))}
             </div>
@@ -1885,6 +1982,21 @@ const PrintModal = ({ config, setConfig, warehouses, categories, onPrint, onClos
                 {warehouses.filter(w => w.isActive).map(wh =>
                   <option key={wh.id} value={wh.id}>{wh.name} ({wh.code})</option>
                 )}
+              </select>
+            </div>
+          )}
+
+          {config.rangeType === 'manager' && (
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">選擇負責人</label>
+              <select
+                value={config.rangeValue}
+                onChange={(e) => setConfig({ ...config, rangeValue: e.target.value })}
+                className="w-full px-3 py-2 border rounded-lg"
+              >
+                <option value="">請選擇負責人</option>
+                <option value="ALL_MANAGERS">全部負責人</option>
+                {managerList.map(manager => <option key={manager} value={manager}>{manager}</option>)}
               </select>
             </div>
           )}
