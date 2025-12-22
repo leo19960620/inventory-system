@@ -859,8 +859,35 @@ const MultiWarehouseInventorySystem = () => {
                 const matchSearch = !searchTerm || item.name.toLowerCase().includes(searchTerm.toLowerCase());
                 // 部門篩選：檢查物品是否在該部門的倉庫有庫存
                 const matchDepartment = selectedDepartment === 'ALL' || filteredWarehouses.some(wh => calculateStock(item.id, wh.id) !== 0);
-                // 管理者篩選
-                const matchManager = selectedManager === 'ALL' || getItemManager(item.id) === selectedManager;
+                // 管理者篩選：檢查物品在任何倉庫是否由該管理者負責
+                const matchManager = selectedManager === 'ALL' || (() => {
+                  // 檢查該物品在任何倉庫是否由選定的管理者負責
+                  return warehouses.some(wh => {
+                    const stock = calculateStock(item.id, wh.id);
+                    if (stock === 0) return false; // 沒庫存的倉庫跳過
+
+                    // 判斷該倉庫中該物品的負責人
+                    // 1. 優先: 倉庫+分類組合
+                    const combinedAssignment = managerAssignments.find(
+                      a => a.type === 'combined' && a.warehouseId === wh.id && a.category === item.category
+                    );
+                    if (combinedAssignment && combinedAssignment.manager === selectedManager) return true;
+
+                    // 2. 次優先: 倉庫管理者
+                    const warehouseAssignment = managerAssignments.find(
+                      a => a.type === 'warehouse' && a.warehouseId === wh.id
+                    );
+                    if (warehouseAssignment && warehouseAssignment.manager === selectedManager) return true;
+
+                    // 3. 最後: 分類管理者
+                    const categoryAssignment = managerAssignments.find(
+                      a => a.type === 'category' && a.category === item.category
+                    );
+                    if (categoryAssignment && categoryAssignment.manager === selectedManager) return true;
+
+                    return false;
+                  });
+                })();
                 return matchCategory && matchWarehouse && matchSearch && matchDepartment && matchManager;
               });
               const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE); const startIndex = (overviewPage - 1) * ITEMS_PER_PAGE; const endIndex = startIndex + ITEMS_PER_PAGE; const paginatedItems = filteredItems.slice(startIndex, endIndex);
