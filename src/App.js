@@ -1731,6 +1731,13 @@ const generatePrintHTML = (config, items, warehouses, categories, calculateStock
 
       if (entries.length === 0) return '';
 
+      // 排序：先按倉庫名稱，再按物品名稱
+      entries.sort((a, b) => {
+        const warehouseCompare = a.warehouse.name.localeCompare(b.warehouse.name, 'zh-TW');
+        if (warehouseCompare !== 0) return warehouseCompare;
+        return a.item.name.localeCompare(b.item.name, 'zh-TW');
+      });
+
       const tableRows = entries.map(entry => `
         <tr>
           <td>${entry.item.name}</td>
